@@ -1,29 +1,10 @@
-# flight-diarys
+# Flight Diary
 
-## Project setup
-```
-npm install
-```
+Flights Diary for Flight Simulator games 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This projects is still developing, refer [[META] TODO](https://github.com/WindSekirun/FlightDiary/issues/1)
 
-### Compiles and minifies for production
+## Build & Deploy
 ```
-npm run build
+sh ./scripts/build.sh
 ```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

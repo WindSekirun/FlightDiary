@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Little Navmap">
+  <metadata>
+    <link href="https://www.littlenavmap.org">
+      <text>Created by Little Navmap Version 2.6.7 (revision e7d0fedf) on 2021 01 26T00:30:32</text>
+    </link>
+  </metadata>
+  <rte>
+    <name>EPWA to LFPG Flight Plan</name>
+    <desc>Okecie (EPWA) to Charles-De-Gaulle (LFPG) at 38000 ft, IFR</desc>
+    <rtept lon="20.967005" lat="52.165108">
+      <ele>107.594</ele>
+      <name>EPWA</name>
+      <desc>Airport</desc>
+    </rtept>
+    <rtept lon="20.657167" lat="52.259251">
+      <ele>11582</ele>
+      <name>WAR</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="20.410555" lat="52.147778">
+      <ele>11582</ele>
+      <name>KUKOP</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="19.934973" lat="52.043835">
+      <ele>11582</ele>
+      <name>SOXER</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="19.575001" lat="51.965557">
+      <ele>11582</ele>
+      <name>OTPOP</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="19.125000" lat="51.865833">
+      <ele>11582</ele>
+      <name>VAMPU</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="18.863890" lat="51.808613">
+      <ele>11582</ele>
+      <name>BAXIS</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="17.883333" lat="51.587502">
+      <ele>11582</ele>
+      <name>UVIVI</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="17.385555" lat="51.471390">
+      <ele>11582</ele>
+      <name>AGALU</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="15.543889" lat="51.017776">
+      <ele>11582</ele>
+      <name>IXURO</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="15.031900" lat="50.902679">
+      <ele>11582</ele>
+      <name>OKX</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="14.860456" lat="50.864449">
+      <ele>11582</ele>
+      <name>ASTEL</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="14.428853" lat="50.766815">
+      <ele>11582</ele>
+      <name>RAVKU</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="13.569061" lat="50.566307">
+      <ele>11582</ele>
+      <name>GOPSI</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="13.065578" lat="50.445137">
+      <ele>11582</ele>
+      <name>KONAR</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="11.822222" lat="50.188057">
+      <ele>11582</ele>
+      <name>UNAVI</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="10.942223" lat="50.197777">
+      <ele>11582</ele>
+      <name>KODUK</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="10.578611" lat="50.166943">
+      <ele>11582</ele>
+      <name>DIMSU</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="9.486389" lat="50.066944">
+      <ele>11582</ele>
+      <name>LOHRE</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="9.190000" lat="50.063057">
+      <ele>11582</ele>
+      <name>ESATI</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="8.800278" lat="50.056667">
+      <ele>11582</ele>
+      <name>BOMBI</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="8.637092" lat="50.053741">
+      <ele>11582</ele>
+      <name>FFM</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="8.078269" lat="50.047588">
+      <ele>11582</ele>
+      <name>RUDUS</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="7.138333" lat="50.030834">
+      <ele>11582</ele>
+      <name>OBIGA</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="6.908333" lat="50.025555">
+      <ele>11582</ele>
+      <name>ADENU</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="6.711389" lat="50.020557">
+      <ele>11582</ele>
+      <name>NOSPA</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="6.531789" lat="50.015862">
+      <ele>11582</ele>
+      <name>NTM</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="6.375278" lat="50.014446">
+      <ele>11582</ele>
+      <name>RALAM</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="6.129750" lat="49.861305">
+      <ele>11582</ele>
+      <name>DIK</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="5.869722" lat="49.741665">
+      <ele>11582</ele>
+      <name>IDOSA</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="5.213056" lat="49.591389">
+      <ele>11582</ele>
+      <name>RAPOR</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="4.885556" lat="49.533054">
+      <ele>11582</ele>
+      <name>RENSA</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="4.220000" lat="49.411667">
+      <ele>11582</ele>
+      <name>NITEP</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="3.973889" lat="49.365555">
+      <ele>11582</ele>
+      <name>GIMER</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="3.350556" lat="49.246113">
+      <ele>11582</ele>
+      <name>PODUK</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="3.056528" lat="49.188305">
+      <ele>11582</ele>
+      <name>BSN</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="3.683056" lat="49.268612">
+      <ele>11582</ele>
+      <name>VEBEK</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="3.577694" lat="49.137749">
+      <ele>11582</ele>
+      <name>CTL</name>
+      <desc>VOR</desc>
+    </rtept>
+    <rtept lon="2.956445" lat="49.016640">
+      <ele>11582</ele>
+      <name>CI26R</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="2.889833" lat="49.013279">
+      <ele>11582</ele>
+      <name>FI26R</name>
+      <desc>Intersection</desc>
+    </rtept>
+    <rtept lon="2.602011" lat="48.998318">
+      <ele>11582</ele>
+      <name>RW26R</name>
+      <desc>User</desc>
+    </rtept>
+    <rtept lon="2.562621" lat="49.009758">
+      <ele>108.204</ele>
+      <name>LFPG</name>
+      <desc>Airport</desc>
+    </rtept>
+  </rte>
+</gpx>

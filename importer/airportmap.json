@@ -13,5 +13,15 @@
     "name": "John F. Kennedy International Airport",
     "iata": "JFK",
     "icao": "KJFK"
+  },
+  "KDMA": {
+    "name": "Davis\u2013Monthan Air Force Base",
+    "iata": "DMA",
+    "icao": "KDMA"
+  },
+  "KSWF": {
+    "name": "Stewart International Airport",
+    "iata": "SWF",
+    "icao": "KSWF"
   }
 }

@@ -2,6 +2,7 @@ from tools import find_plans, find_png_files, find_webp_files, read_json, reques
 from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint
 from tablereader import read_distance, read_waypoint_from_html
 from optimize import optimize_images
+from datetime import date
 from pathlib import Path
 from bs4 import BeautifulSoup
 import xmltodict
@@ -17,6 +18,10 @@ public_folder = os.path.join(os.path.realpath('..'), 'public')
 public_data_folder = os.path.join(os.path.realpath('..'), 'public', 'data')
 airport_map_file = os.path.join(pwd, 'airportmap.json')
 data_file = os.path.join(public_folder, 'data.json')
+
+# make data json if doesn't exist
+if not os.path.isfile(data_file):
+    write_json([], data_file)
 
 # reading json
 airport_json = read_json(airport_map_file)
@@ -51,9 +56,8 @@ if departure_icao not in airport_json:
 if destination_icao not in airport_json and departure_icao != destination_icao:
     request_airport_data(destination_icao, airport_map_file)
 
-print()
-print('Enter Start date of Flight, Example:  2021-01-30')
-flight_time = input('Start date of Flight: ')
+airport_json = read_json(airport_map_file)
+flight_time = date.today().strftime("%Y-%m-%d")
 
 # read plan file (lnmpln)
 lnmpln_root = xmltodict.parse(Path(target_lnmpln).read_text())
@@ -66,7 +70,7 @@ waypoint_from_lnmpln = read_waypoint(lnmpln_json)
 
 # read plan file (html)
 html_root = Path(target_html).read_text()
-html_soup = BeautifulSoup(html_root, 'html.parser', from_encoding="iso-8859-1")
+html_soup = BeautifulSoup(html_root, 'html.parser')
 plan_distance = read_distance(html_soup)
 waypoint_from_html = read_waypoint_from_html(html_soup)
 
@@ -98,13 +102,13 @@ for html_waypoint in waypoint_from_html:
         "distance": html_waypoint["distance"],
         "wind": html_waypoint["wind"],
         "remarks": html_waypoint["remark"],
-        "producure": not is_procedure
+        "isProcedure": not is_procedure
     }
     waypoint_merge.append(value)
 
 # rename plan file
 os.rename(target_lnmpln, os.path.join(pwd, 'target', f'{data_id}.lnmpln'))
-os.rename(target_html, os.path.join(pwd, 'target', f'{data_id}.html'))
+os.remove(target_html)
 
 print()
 print('Starting Image Optimization...')
@@ -135,7 +139,7 @@ metadata = {
     "destination": result_metadata_destination,
     "flightTime": flight_time,
     "mainThumbnail": main_thumbnail,
-    "images": find_webp_files(target_folder),
+    "images": list(map(lambda x: os.path.basename(x), find_webp_files(target_folder))),
     "flightPlanFile": f"{data_id}.lnmpln",
     "planType": plan_type,
     "cruiseAlt": cruising_alt,

@@ -16,11 +16,17 @@ def read_plan_type(lnmpln_json):
 
 def read_sid(lnmpln_json):
     plan = read_plan(lnmpln_json)
-    sid = plan["Procedures"]["SID"]
-    return {
-        "name": sid["Name"],
-        "runway": sid["Runway"]
-    }
+    if "SID" in plan["Procedures"]:
+        sid = plan["Procedures"]["SID"]
+        return {
+            "name": sid["Name"],
+            "runway": sid["Runway"]
+        }
+    else:
+        return {
+            "name": "",
+            "runway": ""
+        }
 
 
 def read_approach(lnmpln_json):

@@ -39,10 +39,8 @@ def request_airport_data(icao, json_file):
     print()
     print(f'This is first time to visit {icao.upper()}, So we need some information of Airpot.')
     print(f'You can find information from Wikipedia or other sites')
-    # airport_name = input('Airport name: ')
-    # airport_iata = input('Airport IATA code: ')
-    airport_name = "John F. Kennedy International Airport"
-    airport_iata = "JFK"
+    airport_name = input('Airport name: ')
+    airport_iata = input('Airport IATA code: ')
     to_add = {
         "name": str(airport_name),
         "iata": airport_iata.upper(),

@@ -7,7 +7,7 @@ import re
 
 def read_distance(soup):
     frame = soup.find_all('p')[2].find('b')
-    matches = re.match("[\\d]+ nm", frame.text)
+    matches = re.match(".+ nm", frame.text)
     return matches.string
 
 

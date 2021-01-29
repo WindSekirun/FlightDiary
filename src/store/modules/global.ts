@@ -16,7 +16,7 @@ export interface GlobalStateInterface {
 
 @Module({
   store,
-  name: "GlobalSatete",
+  name: "GlobalState",
   namespaced: true,
   dynamic: true
 })

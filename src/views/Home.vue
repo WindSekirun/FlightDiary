@@ -13,19 +13,17 @@
               hint="Departure, Arrival in IATA/ICAO"
             ></v-text-field>
           </v-responsive>
-
-          <v-list-item v-for="n in 5" :key="n" link>
-            <v-list-item-content>
-              <v-list-item-title> List Item {{ n }} </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
         </v-list>
       </v-sheet>
     </v-col>
 
     <v-col cols="12" sm="9">
-      <v-sheet color="#3b4252" min-height="80vh" rounded="lg">
-        This is Home Page
+      <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
+        <v-row>
+          <v-col v-for="item in listItems" :key="item" cols="6">
+            <FlightItem :item="item" />
+          </v-col>
+        </v-row>
       </v-sheet>
     </v-col>
   </v-row>
@@ -33,9 +31,25 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import FlightItem from "@/components/FlightItem.vue";
+import { ListItem } from "@/model/ListItem";
+import store from "@/store";
+import { LOAD_LIST } from "@/Constants";
 
 @Component({
-  components: {}
+  components: {
+    FlightItem
+  }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  searchText = "";
+
+  get listItems(): ListItem[] {
+    return store.state.itemList;
+  }
+
+  mounted() {
+    store.dispatch(LOAD_LIST);
+  }
+}
 </script>

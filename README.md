@@ -17,6 +17,7 @@ Data of `Flight Diary` hardily depends on [**Little Navmap**](https://albar965.g
 * Python 3
 * optipng
 * webp
+* pip install -r ./requirement.txt in importer folder
 
 ### Required file
 These files must indicate in importer/target **before** running script.

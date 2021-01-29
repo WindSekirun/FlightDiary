@@ -38,14 +38,12 @@ def read_approach(lnmpln_json):
 def read_waypoint(lnmpln_json):
     plan = read_plan(lnmpln_json)
     waypoints = plan["Waypoints"]["Waypoint"]
-    result = []
+    result = {}
     for waypoint in waypoints:
         key = waypoint["Ident"]
-        result.append({
-            key: {
-                "lat": waypoint["Pos"]["@Lat"],
-                "lon": waypoint["Pos"]["@Lon"],
-                "name": waypoint.get("Name", "")
-            }
-        })
+        result[key] = {
+            "lat": waypoint["Pos"]["@Lat"],
+            "lon": waypoint["Pos"]["@Lon"],
+            "name": waypoint.get("Name", "")
+        }
     return result

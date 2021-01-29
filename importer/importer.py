@@ -71,6 +71,36 @@ plan_distance = read_distance(html_soup)
 waypoint_from_html = read_waypoint_from_html(html_soup)
 
 # merge waypoints into single dict follow data type
+waypoint_merge = []
+for html_waypoint in waypoint_from_html:
+    key = html_waypoint["ident"]
+    is_procedure = key in waypoint_from_lnmpln
+
+    lat, lon, name = "", "", ""
+    if is_procedure:
+        lnmpln = waypoint_from_lnmpln[key]
+        lat = lnmpln["lat"]
+        lon = lnmpln["lon"]
+        name = lnmpln["name"]
+
+    value = {
+        "lat": lat,
+        "lng": lon,
+        "name": name,
+        "ident": key,
+        "alt": html_waypoint["alt"],
+        "region": html_waypoint["region"],
+        "procedure": html_waypoint["procedure"],
+        "airway": html_waypoint["airway"],
+        "restrictKt": html_waypoint["restrictKt"],
+        "type": html_waypoint["type"],
+        "freq": html_waypoint["freq"],
+        "distance": html_waypoint["distance"],
+        "wind": html_waypoint["wind"],
+        "remarks": html_waypoint["remark"],
+        "producure": not is_procedure
+    }
+    waypoint_merge.append(value)
 
 # rename plan file
 os.rename(target_lnmpln, os.path.join(pwd, 'target', f'{data_id}.lnmpln'))
@@ -114,25 +144,7 @@ metadata = {
         "sid": producers_sid,
         "approach": producers_approach
     },
-    "waypoint": [
-        {
-            "lat": "20.967005", # from lnm
-            "lng": "52.165108", # from lnm
-            "name": "Okecie",  # from lnm
-            "ident": "EPWA",  # from lnm, WILL UNIQUE
-            "alt": "353.00", # from html
-            "region": "EP", # from html
-            "procedure": "", # from html
-            "airway": "", # from html
-            "restrictKt": "", # from html
-            "type": "", # from html
-            "freq": "", # from html
-            "distance": "0.0", # from html
-            "wind": "", # from html
-            "remarks": "", # from html
-            "producure": False # from html
-        }
-    ]
+    "waypoint": waypoint_merge
 }
 
 os.mkdir(os.path.join(public_data_folder, data_id))

@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <v-container>
+    <v-row>
+      <!-- <v-col cols="2">
+        <v-sheet rounded="lg">
+          <v-list color="transparent">
+            <v-list-item v-for="n in 5" :key="n" link>
+              <v-list-item-content>
+                <v-list-item-title> List Item {{ n }} </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-sheet>
+      </v-col> -->
+
+      <v-col>
+        <v-sheet min-height="80vh" rounded="lg">
+          This is Home Page
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 
 @Component({
-  components: {
-    HelloWorld
-  }
+  components: {}
 })
 export default class Home extends Vue {}
 </script>

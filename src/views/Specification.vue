@@ -15,7 +15,7 @@
 
       <v-col>
         <v-sheet min-height="80vh" rounded="lg">
-          This is About Page
+          This is Specification Page
         </v-sheet>
       </v-col>
     </v-row>

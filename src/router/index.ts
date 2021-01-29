@@ -1,3 +1,4 @@
+import { pageAbout, pageHome, pageSpecification } from "@/model/PageRouter";
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
@@ -6,18 +7,19 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
-    name: "Home",
+    path: pageHome.path,
+    name: pageHome.name,
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: pageAbout.path,
+    name: pageAbout.name,
+    component: () => import("../views/About.vue") // route level code-splitting
+  },
+  {
+    path: pageSpecification.path,
+    name: pageSpecification.name,
+    component: () => import("../views/Specification.vue") // route level code-splitting
   }
 ];
 

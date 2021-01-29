@@ -9,6 +9,6 @@ export class PageRouter {
 }
 
 export const pageHome = new PageRouter("Home", "/");
-export const pageSpecification = new PageRouter("Specifictaion", "/spec");
+export const pageSpec = new PageRouter("Specs", "/spec");
 export const pageAbout = new PageRouter("About", "/about");
 export const pageDetail = new PageRouter("Detail", "/detail/:id");

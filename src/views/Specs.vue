@@ -1,7 +1,6 @@
 <template>
-  <v-container>
-    <v-row>
-      <!-- <v-col cols="2">
+  <v-row>
+    <!-- <v-col cols="2">
         <v-sheet rounded="lg">
           <v-list color="transparent">
             <v-list-item v-for="n in 5" :key="n" link>
@@ -13,11 +12,10 @@
         </v-sheet>
       </v-col> -->
 
-      <v-col>
-        <v-sheet min-height="80vh" rounded="lg">
-          This is Specification Page
-        </v-sheet>
-      </v-col>
-    </v-row>
-  </v-container>
+    <v-col>
+      <v-sheet min-height="80vh" rounded="lg">
+        This is Spec Page
+      </v-sheet>
+    </v-col>
+  </v-row>
 </template>

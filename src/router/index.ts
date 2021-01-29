@@ -1,9 +1,5 @@
-import {
-  pageAbout,
-  pageDetail,
-  pageHome,
-  pageSpecification
-} from "@/model/PageRouter";
+import { applicationTitle } from "@/Constants";
+import { pageAbout, pageDetail, pageHome, pageSpec } from "@/model/PageRouter";
 import Vue from "vue";
 import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
@@ -14,21 +10,33 @@ const routes: Array<RouteConfig> = [
   {
     path: pageHome.path,
     name: pageHome.name,
+    meta: {
+      title: `${pageHome.name} - ${applicationTitle}`
+    },
     component: Home
   },
   {
     path: pageAbout.path,
     name: pageAbout.name,
+    meta: {
+      title: `${pageAbout.name} - ${applicationTitle}`
+    },
     component: () => import("../views/About.vue")
   },
   {
-    path: pageSpecification.path,
-    name: pageSpecification.name,
-    component: () => import("../views/Specification.vue")
+    path: pageSpec.path,
+    name: pageSpec.name,
+    meta: {
+      title: `${pageSpec.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/Specs.vue")
   },
   {
     path: pageDetail.path,
     name: pageDetail.name,
+    meta: {
+      title: `${pageDetail.name} - ${applicationTitle}`
+    },
     component: () => import("../views/Detail.vue"),
     props: true
   }
@@ -36,6 +44,11 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   routes
+});
+
+router.beforeEach((to, _from, next) => {
+  document.title = to.meta.title;
+  next();
 });
 
 export default router;

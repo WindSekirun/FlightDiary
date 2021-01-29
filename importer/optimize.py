@@ -7,6 +7,7 @@ import subprocess
 pwd = os.path.dirname(os.path.realpath(__file__))
 desired = 1280, 720 
 
+
 def optimize(file):
     print(file)
 
@@ -42,6 +43,7 @@ def start():
         optimize(file)
     
     print("Completed Image Optimization!")
+
 
 # for debugging script
 start()

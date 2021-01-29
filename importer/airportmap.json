@@ -1,0 +1,12 @@
+{
+    "EPWA": {
+        "name": "Warsaw Chopin Airport",
+        "iata": "WAW",
+        "icao": "EPWA"
+    },
+    "LFPG": {
+        "name": "Charles de Gaulle Airport",
+        "iata": "CDG",
+        "icao": "LFPG"
+    }
+}

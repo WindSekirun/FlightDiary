@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d3322"],{"5c75":function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("v-row",[t("v-col",[t("v-sheet",{attrs:{"min-height":"80vh",rounded:"lg"}},[e._v(" This is Spec Page ")])],1)],1)},s=[],l=t("2877"),r={},u=Object(l["a"])(r,c,s,!1,null,null,null);n["default"]=u.exports}}]);
-//# sourceMappingURL=chunk-2d0d3322.2f348b24.js.map
+//# sourceMappingURL=chunk-2d0d3322.612aecc9.js.map

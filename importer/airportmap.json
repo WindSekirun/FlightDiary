@@ -1,17 +1,17 @@
 {
-    "EPWA": {
-        "name": "Warsaw Chopin Airport",
-        "iata": "WAW",
-        "icao": "EPWA"
-    },
-    "LFPG": {
-        "name": "Charles de Gaulle Airport",
-        "iata": "CDG",
-        "icao": "LFPG"
-    },
-    "KJFK": {
-        "name": "John F. Kennedy International Airport",
-        "iata": "JFK",
-        "icao": "KJFK"
-    }
+  "EPWA": {
+    "name": "Warsaw Chopin Airport",
+    "iata": "WAW",
+    "icao": "EPWA"
+  },
+  "LFPG": {
+    "name": "Charles de Gaulle Airport",
+    "iata": "CDG",
+    "icao": "LFPG"
+  },
+  "KJFK": {
+    "name": "John F. Kennedy International Airport",
+    "iata": "JFK",
+    "icao": "KJFK"
+  }
 }

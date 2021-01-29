@@ -1,6 +1,8 @@
 from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
+from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint
 from optimize import optimize_images
 from pathlib import Path
+import xmltodict
 import os
 import uuid
 import json
@@ -17,17 +19,6 @@ data_file = os.path.join(public_folder, 'data.json')
 # reading json
 airport_json = read_json(airport_map_file)
 data_json = read_json(data_file)
-
-# declare metadata variables for temp
-result_metadata_cruiseAlt = ""
-result_metadata_distance = ""
-result_metadata_sid = {
-
-}
-result_metadata_approach = {
-
-}
-result_metadata_waypoints = []
 
 # starting process
 print('Importer for FlightDiary')
@@ -46,11 +37,11 @@ print()
 
 # enter metadata of airport
 print('Enter ICAO code of departure airport. Example: RKSI RJAA LFPG KJFK')
-departure_icao = input('Departure Airport ICAO: ')
+departure_icao = input('Departure Airport ICAO: ').upper()
 
 print()
 print('Enter ICAO code of destination airport.')
-destination_icao = input('Destination Airport ICAO: ')
+destination_icao = input('Destination Airport ICAO: ').upper()
 
 if departure_icao not in airport_json:
     request_airport_data(departure_icao, airport_map_file)
@@ -62,7 +53,18 @@ print()
 print('Enter Start date of Flight, Example:  2021-01-30')
 flight_time = input('Start date of Flight: ')
 
-# read plan file (lnmpln, html)
+# read plan file (lnmpln)
+root = xmltodict.parse(Path(target_lnmpln).read_text())
+lnmpln_json = json.loads(json.dumps(root))
+cruising_alt = read_cruise(lnmpln_json)
+plan_type = read_plan_type(lnmpln_json)
+producers_sid = read_sid(lnmpln_json)
+producers_approach = read_approach(lnmpln_json)
+waypoint_from_lnmpln = read_waypoint(lnmpln_json)
+
+# read plan file (html)
+
+# merge waypoints into single dict follow data type
 
 # rename plan file
 os.rename(target_lnmpln, os.path.join(pwd, 'target', f'{data_id}.lnmpln'))
@@ -98,7 +100,33 @@ metadata = {
     "flightTime": flight_time,
     "mainThumbnail": main_thumbnail,
     "images": find_webp_files(target_folder),
-    "flightPlanFile": f"{data_id}.lnmpln"
+    "flightPlanFile": f"{data_id}.lnmpln",
+    "planType": plan_type,
+    "cruiseAlt": cruising_alt,
+    "distance": "",
+    "procedures": {
+        "sid": producers_sid,
+        "approach": producers_approach
+    },
+    "waypoint": [
+        {
+            "lat": "20.967005", # from lnm
+            "lng": "52.165108", # from lnm
+            "alt": "353.00", # from html
+            "ident": "EPWA", # from lnm, WILL UNIQUE
+            "name": "Okecie", # from lnm
+            "region": "EP", # from html
+            "procedure": "", # from html
+            "airway": "", # from html
+            "restrictKt": "", # from html
+            "type": "", # from html
+            "freq": "", # from html
+            "distance": "0.0", # from html
+            "wind": "", # from html
+            "remarks": "", # from html
+            "producure": False # from html
+        }
+    ]
 }
 
 os.mkdir(os.path.join(public_data_folder, data_id))

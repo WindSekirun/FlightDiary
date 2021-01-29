@@ -1,7 +1,9 @@
 from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
 from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint
+from tablereader import read_distance, read_waypoint_from_html
 from optimize import optimize_images
 from pathlib import Path
+from bs4 import BeautifulSoup
 import xmltodict
 import os
 import uuid
@@ -54,8 +56,8 @@ print('Enter Start date of Flight, Example:  2021-01-30')
 flight_time = input('Start date of Flight: ')
 
 # read plan file (lnmpln)
-root = xmltodict.parse(Path(target_lnmpln).read_text())
-lnmpln_json = json.loads(json.dumps(root))
+lnmpln_root = xmltodict.parse(Path(target_lnmpln).read_text())
+lnmpln_json = json.loads(json.dumps(lnmpln_root))
 cruising_alt = read_cruise(lnmpln_json)
 plan_type = read_plan_type(lnmpln_json)
 producers_sid = read_sid(lnmpln_json)
@@ -63,6 +65,10 @@ producers_approach = read_approach(lnmpln_json)
 waypoint_from_lnmpln = read_waypoint(lnmpln_json)
 
 # read plan file (html)
+html_root = Path(target_html).read_text()
+html_soup = BeautifulSoup(html_root, 'html.parser', from_encoding="iso-8859-1")
+plan_distance = read_distance(html_soup)
+waypoint_from_html = read_waypoint_from_html(html_soup)
 
 # merge waypoints into single dict follow data type
 
@@ -103,7 +109,7 @@ metadata = {
     "flightPlanFile": f"{data_id}.lnmpln",
     "planType": plan_type,
     "cruiseAlt": cruising_alt,
-    "distance": "",
+    "distance": plan_distance,
     "procedures": {
         "sid": producers_sid,
         "approach": producers_approach
@@ -112,9 +118,9 @@ metadata = {
         {
             "lat": "20.967005", # from lnm
             "lng": "52.165108", # from lnm
+            "name": "Okecie",  # from lnm
+            "ident": "EPWA",  # from lnm, WILL UNIQUE
             "alt": "353.00", # from html
-            "ident": "EPWA", # from lnm, WILL UNIQUE
-            "name": "Okecie", # from lnm
             "region": "EP", # from html
             "procedure": "", # from html
             "airway": "", # from html

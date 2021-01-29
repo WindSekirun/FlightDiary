@@ -1,2 +1,3 @@
 Pillow
 xmltodict
+beautifulsoup4

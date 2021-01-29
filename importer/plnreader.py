@@ -1,7 +1,3 @@
-from tools import find_plans
-import os
-
-
 def read_plan(lnmpln_json):
     return lnmpln_json['LittleNavmap']['Flightplan']
 

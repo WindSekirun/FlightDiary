@@ -24,8 +24,7 @@ def optimize(file):
     os.remove(os.path.join(pwd, 'target', f'{input_file_name}.png')) # remove png file
 
 
-def start():
-    print('Starting Image Optimization...')
+def optimize_images():
     target_files = find_png_files(os.path.join(pwd, 'target'))
     
     if not target_files:
@@ -43,7 +42,3 @@ def start():
         optimize(file)
     
     print("Completed Image Optimization!")
-
-
-# for debugging script
-start()

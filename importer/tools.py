@@ -1,18 +1,28 @@
 import glob
 import json
 
+
 def find_png_files(path):
     return sorted(glob.glob(f'{path}/*.png'))
 
+
+def find_webp_files(path):
+    return sorted(glob.glob(f'{path}/*.webp'))
+
+
+def find_all_files(path):
+    return sorted(glob.glob(f'{path}/*.*'))
+
+
 def find_plans(path, ext):
-    list = sorted(glob.glob(f'{path}/*.{ext}'))
-    if not list:
+    extlist = sorted(glob.glob(f'{path}/*.{ext}'))
+    if not extlist:
         raise Exception(f"{ext} file is missing!")
 
-    if len(list) != 1:
+    if len(extlist) != 1:
         raise Exception(f"Multiple {ext} files are exists!")
 
-    return list[0]
+    return extlist[0]
 
 
 def read_json(path):
@@ -22,7 +32,7 @@ def read_json(path):
 
 def write_json(data, file): 
     with open(file, 'w') as f:
-        json.dump(data, f, indent=4)
+        json.dump(data, f, indent=2)
 
 
 def request_airport_data(icao, json_file):

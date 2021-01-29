@@ -1,6 +1,6 @@
-from tools import check_program_exists
+from tools import check_program_exists, walkFile
+import os
 
-if not check_program_exists('optipng') or not check_program_exists('cwebp'):
-    raise Exception('Requirement is missing, please install optipng / webp')
-
-# organize images 
+# organize images
+pwd = os.path.dirname(os.path.realpath(__file__))
+print(pwd)

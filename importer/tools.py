@@ -1,6 +1,8 @@
 from subprocess import Popen, PIPE
+from os import listdir
+from os.path import isfile, join
+import sys
 
-def check_program_exists(name):
-    p = Popen(['/usr/bin/which', name], stdout=PIPE, stderr=PIPE)
-    p.communicate()
-    return p.returncode == 0
+
+def walkFile(path):
+    return [f for f in listdir(path) if isfile(join(path, f))]

@@ -3,6 +3,8 @@
     "ms-python.python",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "octref.vetur"
+    "octref.vetur",
+    "ms-python.vscode-pylance",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

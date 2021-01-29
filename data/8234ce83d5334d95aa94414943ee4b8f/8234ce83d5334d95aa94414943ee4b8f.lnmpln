@@ -4,7 +4,7 @@
     <Header>
       <FlightplanType>IFR</FlightplanType>
       <CruisingAlt>38000</CruisingAlt>
-      <CreationDate>2021-01-26T00:30:09</CreationDate>
+      <CreationDate>2021-01-30T00:24:08</CreationDate>
       <FileVersion>1.0</FileVersion>
       <ProgramName>Little Navmap</ProgramName>
       <ProgramVersion>2.6.7</ProgramVersion>
@@ -22,6 +22,10 @@
       <Start>15</Start>
     </Departure>
     <Procedures>
+      <SID>
+        <Name>LOLS7G</Name>
+        <Runway>29</Runway>
+      </SID>
       <Approach>
         <Name>FI26R</Name>
         <ARINC>I26R</ARINC>
@@ -43,35 +47,35 @@
         <Ident>WAR</Ident>
         <Region>EP</Region>
         <Type>VOR</Type>
-        <Pos Lon="20.657167" Lat="52.259251" Alt="6115.63"/>
+        <Pos Lon="20.657167" Lat="52.259251" Alt="31476.26"/>
       </Waypoint>
       <Waypoint>
         <Ident>KUKOP</Ident>
         <Region>EP</Region>
         <Airway>N871</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="20.410555" Lat="52.147778" Alt="11222.65"/>
+        <Pos Lon="20.410555" Lat="52.147778" Alt="36410.79"/>
       </Waypoint>
       <Waypoint>
         <Ident>SOXER</Ident>
         <Region>EP</Region>
         <Airway>N869</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="19.934973" Lat="52.043835" Alt="19655.68"/>
+        <Pos Lon="19.934973" Lat="52.043835" Alt="38000.00"/>
       </Waypoint>
       <Waypoint>
         <Ident>OTPOP</Ident>
         <Region>EP</Region>
         <Airway>N869</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="19.575001" Lat="51.965557" Alt="26046.68"/>
+        <Pos Lon="19.575001" Lat="51.965557" Alt="38000.00"/>
       </Waypoint>
       <Waypoint>
         <Ident>VAMPU</Ident>
         <Region>EP</Region>
         <Airway>N869</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="19.125000" Lat="51.865833" Alt="34067.21"/>
+        <Pos Lon="19.125000" Lat="51.865833" Alt="38000.00"/>
       </Waypoint>
       <Waypoint>
         <Ident>BAXIS</Ident>
@@ -260,21 +264,21 @@
         <Region>LF</Region>
         <Airway>UN857</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="4.220000" Lat="49.411667" Alt="31714.20"/>
+        <Pos Lon="4.220000" Lat="49.411667" Alt="32509.47"/>
       </Waypoint>
       <Waypoint>
         <Ident>GIMER</Ident>
         <Region>LF</Region>
         <Airway>UN857</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="3.973889" Lat="49.365555" Alt="28855.26"/>
+        <Pos Lon="3.973889" Lat="49.365555" Alt="29540.78"/>
       </Waypoint>
       <Waypoint>
         <Ident>PODUK</Ident>
         <Region>LF</Region>
         <Airway>UT300</Airway>
         <Type>WAYPOINT</Type>
-        <Pos Lon="3.350556" Lat="49.246113" Alt="21590.40"/>
+        <Pos Lon="3.350556" Lat="49.246113" Alt="21996.99"/>
       </Waypoint>
       <Waypoint>
         <Name>Boursonne</Name>
@@ -282,7 +286,7 @@
         <Region>LF</Region>
         <Airway>UT300</Airway>
         <Type>VOR</Type>
-        <Pos Lon="3.056528" Lat="49.188305" Alt="18150.70"/>
+        <Pos Lon="3.056528" Lat="49.188305" Alt="18425.24"/>
       </Waypoint>
       <Waypoint>
         <Name>Charles-De-Gaulle</Name>

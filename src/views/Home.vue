@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12" sm="3">
-      <v-sheet rounded="lg" min-height="268" color="#3b4252">
+      <v-sheet rounded="lg" min-height="120" color="#3b4252">
         <v-list color="transparent">
           <v-responsive class="ml-3 mr-3 mt-3">
             <v-text-field
@@ -20,7 +20,7 @@
     <v-col cols="12" sm="9">
       <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
         <v-row>
-          <v-col v-for="item in listItems" :key="item" cols="6">
+          <v-col v-for="item in listItems" :key="item" cols="6" sm="6" md="6">
             <FlightItem :item="item" />
           </v-col>
         </v-row>

@@ -30,13 +30,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import { pageAbout, pageHome, PageRouter, pageSpec } from "./model/PageRouter";
+import { pageAbout, pageHome, PageRouter } from "./model/PageRouter";
 
 @Component({})
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;
-  appBarLinks: PageRouter[] = [pageHome, pageSpec, pageAbout];
+  appBarLinks: PageRouter[] = [pageHome, pageAbout];
 
   async mounted() {
     this.title = applicationTitle;

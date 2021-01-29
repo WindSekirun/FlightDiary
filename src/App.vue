@@ -31,11 +31,18 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
 import { pageAbout, pageHome, PageRouter, pageSpec } from "./model/PageRouter";
+import { getModule } from "vuex-module-decorators";
+import { GlobalState } from "./store/modules/global";
 
 @Component({})
 export default class Home extends Vue {
   @Prop() title: string = applicationTitle;
   appBarLinks: PageRouter[] = [pageHome, pageSpec, pageAbout];
+  storeModule = getModule(GlobalState);
+
+  async mounted() {
+    await this.storeModule.loadList();
+  }
 
   clickAppBarLink(pageRouter: PageRouter) {
     this.$router.push(`${pageRouter.path}`);

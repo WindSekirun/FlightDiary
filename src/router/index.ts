@@ -67,5 +67,6 @@ VueRouter.prototype.push = async function(location: RawLocation) {
     }
   }
 
+  // eslint-disable-next-line
   return route!;
 };

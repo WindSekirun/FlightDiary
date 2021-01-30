@@ -6,7 +6,7 @@
           <v-avatar class="mr-4" size="32">
             <img src="./assets/profile_akari_circle.png" alt="Profile" />
           </v-avatar>
-          <b class="mr-4"> {{ title }}</b>
+          <b class="mr-4 d-none d-md-flex d-md-flex"> {{ title }}</b>
 
           <v-btn
             v-for="link in appBarLinks"
@@ -30,13 +30,13 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import { pageAbout, pageHome, PageRouter } from "./model/PageRouter";
+import { pageAbout, pageHome, pageSpec, PageRouter } from "./model/PageRouter";
 
 @Component({})
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;
-  appBarLinks: PageRouter[] = [pageHome, pageAbout];
+  appBarLinks: PageRouter[] = [pageHome, pageSpec, pageAbout];
 
   async mounted() {
     this.title = applicationTitle;

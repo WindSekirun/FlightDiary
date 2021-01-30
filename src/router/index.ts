@@ -1,5 +1,5 @@
 import { applicationTitle } from "@/Constants";
-import { pageAbout, pageDetail, pageHome } from "@/model/PageRouter";
+import { pageAbout, pageDetail, pageHome, pageSpec } from "@/model/PageRouter";
 import Vue from "vue";
 import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
@@ -22,6 +22,14 @@ const routes: Array<RouteConfig> = [
       title: `${pageAbout.name} - ${applicationTitle}`
     },
     component: () => import("../views/About.vue")
+  },
+  {
+    path: pageSpec.path,
+    name: pageSpec.name,
+    meta: {
+      title: `${pageSpec.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/Specs.vue")
   },
   {
     path: pageDetail.path,

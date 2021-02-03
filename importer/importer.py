@@ -183,4 +183,4 @@ for target in target_files:
     input_file = os.path.basename(target)
     shutil.move(target, os.path.join(public_data_folder, data_id, input_file))
 
-print('Import of data is complete, Don\'t forget to deploy!')
+print('Import of data is complete, Don\'t forget to deploy by sh ./scripts/build.sh')

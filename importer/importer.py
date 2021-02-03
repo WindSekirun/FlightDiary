@@ -1,5 +1,5 @@
 from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
-from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint
+from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint, read_aircraft
 from tablereader import read_distance, read_waypoint_from_html
 from optimize import optimize_images
 from datetime import date
@@ -62,6 +62,7 @@ flight_time = date.today().strftime("%Y-%m-%d")
 # read plan file (lnmpln)
 lnmpln_root = xmltodict.parse(Path(target_lnmpln).read_text())
 lnmpln_json = json.loads(json.dumps(lnmpln_root))
+aircraft_type = read_aircraft(lnmpln_json)
 cruising_alt = read_cruise(lnmpln_json)
 plan_type = read_plan_type(lnmpln_json)
 producers_sid = read_sid(lnmpln_json)
@@ -114,10 +115,15 @@ print()
 print('Starting Image Optimization...')
 optimize_images()
 
+result_images = list(map(lambda x: os.path.basename(x), find_webp_files(target_folder)))
+
 print()
 print('Select main thumbnail of this flight')
 print('See \'target\' folder and enter name of file. Example: 00001.webp')
 main_thumbnail = input('Name of main thumbnail file: ')
+if main_thumbnail not in result_images:
+    print(f'Invalid name for {main_thumbnail}, select first image as main thumbnail image')
+    main_thumbnail = result_images[0]
 
 print()
 print('Building metadata.json')
@@ -137,9 +143,10 @@ metadata = {
     "id": data_id,
     "departure": result_metadata_departure,
     "destination": result_metadata_destination,
+    "aircraft": aircraft_type,
     "flightTime": flight_time,
     "mainThumbnail": main_thumbnail,
-    "images": list(map(lambda x: os.path.basename(x), find_webp_files(target_folder))),
+    "images": result_images,
     "flightPlanFile": f"{data_id}.lnmpln",
     "planType": plan_type,
     "cruiseAlt": cruising_alt,
@@ -161,7 +168,8 @@ list_data = {
     "departure": result_metadata_departure,
     "destination": result_metadata_destination,
     "flightTime": flight_time,
-    "mainThumbnail": main_thumbnail
+    "mainThumbnail": main_thumbnail,
+    "aircraft": aircraft_type,
 }
 
 with open(data_file) as f:

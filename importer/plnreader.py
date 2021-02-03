@@ -2,6 +2,12 @@ def read_plan(lnmpln_json):
     return lnmpln_json['LittleNavmap']['Flightplan']
 
 
+def read_aircraft(lnmpln_json):
+    plan = read_plan(lnmpln_json)
+    performance = plan["AircraftPerformance"]
+    return f'{performance["Name"]} - {performance["Type"]}'
+
+
 def read_cruise(lnmpln_json):
     plan = read_plan(lnmpln_json)
     header = plan["Header"]

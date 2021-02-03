@@ -17,10 +17,10 @@ def find_all_files(path):
 def find_plans(path, ext):
     extlist = sorted(glob.glob(f'{path}/*.{ext}'))
     if not extlist:
-        raise Exception(f"{ext} file is missing!")
+        raise Exception(f'{ext} file is missing!')
 
     if len(extlist) != 1:
-        raise Exception(f"Multiple {ext} files are exists!")
+        raise Exception(f'Multiple {ext} files are exists!')
 
     return extlist[0]
 

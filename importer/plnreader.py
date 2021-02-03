@@ -37,7 +37,7 @@ def read_approach(lnmpln_json):
         "arinc": approach["ARINC"],
         "runway": approach["Runway"],
         "type": approach["Type"],
-        "transition": approach["Transition"],
+        "transition": approach.get("Transition", ""),
     }
 
 

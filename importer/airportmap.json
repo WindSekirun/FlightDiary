@@ -23,5 +23,10 @@
     "name": "Stewart International Airport",
     "iata": "SWF",
     "icao": "KSWF"
+  },
+  "KDFW": {
+    "name": "Dallas/Fort Worth International Airport",
+    "iata": "DFW",
+    "icao": "KDFW"
   }
 }

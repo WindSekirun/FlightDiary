@@ -1,12 +1,10 @@
 {
   "id": "0367087504854f50ae8005fda50f6540",
-  "departure": [
-    {
-      "name": "John F. Kennedy International Airport",
-      "iata": "JFK",
-      "icao": "KJFK"
-    }
-  ],
+  "departure": {
+    "name": "John F. Kennedy International Airport",
+    "iata": "JFK",
+    "icao": "KJFK"
+  },
   "destination": {
     "name": "Dallas/Fort Worth International Airport",
     "iata": "DFW",

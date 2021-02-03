@@ -128,16 +128,8 @@ if main_thumbnail not in result_images:
 print()
 print('Building metadata.json')
 
-result_metadata_departure = {
-    "name": airport_json[departure_icao]['name'],
-    "iata": airport_json[departure_icao]['iata'],
-    "icao": airport_json[departure_icao]['icao']
-},
-result_metadata_destination = {
-    "name": airport_json[destination_icao]['name'],
-    "iata": airport_json[destination_icao]['iata'],
-    "icao": airport_json[destination_icao]['icao']
-}
+result_metadata_departure = airport_json[departure_icao]
+result_metadata_destination = airport_json[destination_icao]
 
 metadata = {
     "id": data_id,

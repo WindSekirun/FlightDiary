@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmperf.xsd">
+  <AircraftPerf>
+    <Header>
+      <CreationDate>2020-12-18T20:14:21</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.6</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmperf.html</Documentation>
+    </Header>
+    <Options>
+      <Name>FlyByWire A32NX</Name>
+      <AircraftType>A20N</AircraftType>
+      <Description>A320Neo - A32NX by FBW</Description>
+      <FuelAsVolume>0</FuelAsVolume>
+      <JetFuel>1</JetFuel>
+    </Options>
+    <Perf>
+      <ContingencyFuelPercent>10.0</ContingencyFuelPercent>
+      <ExtraFuelLbsGal>1102.312</ExtraFuelLbsGal>
+      <MinRunwayLengthFt>5000.000</MinRunwayLengthFt>
+      <ReserveFuelLbsGal>2204.623</ReserveFuelLbsGal>
+      <RunwayType>HARD</RunwayType>
+      <TaxiFuelLbsGal>220.462</TaxiFuelLbsGal>
+      <UsableFuelLbsGal>46898.945</UsableFuelLbsGal>
+      <Alternate>
+        <FuelFlowLbsGalPerHour>4409.246</FuelFlowLbsGalPerHour>
+        <SpeedKtsTAS>300.000</SpeedKtsTAS>
+      </Alternate>
+      <Climb>
+        <FuelFlowLbsGalPerHour>5145.590</FuelFlowLbsGalPerHour>
+        <SpeedKtsTAS>364.000</SpeedKtsTAS>
+        <VertSpeedFtPerMin>2593.000</VertSpeedFtPerMin>
+      </Climb>
+      <Cruise>
+        <FuelFlowLbsGalPerHour>3968.321</FuelFlowLbsGalPerHour>
+        <SpeedKtsTAS>455.000</SpeedKtsTAS>
+      </Cruise>
+      <Descent>
+        <FuelFlowLbsGalPerHour>1450.642</FuelFlowLbsGalPerHour>
+        <SpeedKtsTAS>278.000</SpeedKtsTAS>
+        <VertSpeedFtPerMin>1238.000</VertSpeedFtPerMin>
+      </Descent>
+    </Perf>
+  </AircraftPerf>
+</LittleNavmap>

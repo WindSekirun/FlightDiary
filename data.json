@@ -12,7 +12,8 @@
       "icao": "LFPG"
     },
     "flightTime": "2021-01-25",
-    "mainThumbnail": "00003.webp"
+    "mainThumbnail": "00003.webp",
+    "aircraft": "FlyByWire A32NX - A20N"
   },
   {
     "id": "f13d27162df647aa9f33a5562c6486b0",
@@ -27,36 +28,25 @@
       "icao": "KSWF"
     },
     "flightTime": "2021-01-26",
-    "mainThumbnail": "00007.webp"
+    "mainThumbnail": "00007.webp",
+    "aircraft": "FlyByWire A32NX - A20N"
   },
   {
-    "id": "8234ce83d5334d95aa94414943ee4b8f",
-    "departure": {
-      "name": "Warsaw Chopin Airport",
-      "iata": "WAW",
-      "icao": "EPWA"
-    },
+    "id": "0367087504854f50ae8005fda50f6540",
+    "departure": [
+      {
+        "name": "John F. Kennedy International Airport",
+        "iata": "JFK",
+        "icao": "KJFK"
+      }
+    ],
     "destination": {
-      "name": "Charles de Gaulle Airport",
-      "iata": "CDG",
-      "icao": "LFPG"
+      "name": "Dallas/Fort Worth International Airport",
+      "iata": "DFW",
+      "icao": "KDFW"
     },
-    "flightTime": "2021-01-25",
-    "mainThumbnail": "00003.webp"
-  },
-  {
-    "id": "f13d27162df647aa9f33a5562c6486b0",
-    "departure": {
-      "name": "Davis\u2013Monthan Air Force Base",
-      "iata": "DMA",
-      "icao": "KDMA"
-    },
-    "destination": {
-      "name": "Stewart International Airport",
-      "iata": "SWF",
-      "icao": "KSWF"
-    },
-    "flightTime": "2021-01-26",
-    "mainThumbnail": "00007.webp"
+    "flightTime": "2021-02-03",
+    "mainThumbnail": "00016.webp",
+    "aircraft": "FlyByWire A32NX - A20N"
   }
 ]

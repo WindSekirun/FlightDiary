@@ -1,12 +1,7 @@
 <template>
   <v-row>
-    <v-col cols="12" sm="3">
-      <v-sheet
-        rounded="lg"
-        color="#3b4252"
-        class="pa-2"
-        :value="showSearchOption"
-      >
+    <v-col cols="12" sm="12" md="12" lg="3">
+      <v-sheet rounded="lg" color="#3b4252" class="pa-2">
         <v-expansion-panels v-model="searchOptions" accordion flat>
           <v-expansion-panel style="background:#3b4252;color:white">
             <v-expansion-panel-header>
@@ -52,7 +47,7 @@
       </v-sheet>
     </v-col>
 
-    <v-col cols="12" sm="9">
+    <v-col cols="12" sm="12" md="12" lg="9">
       <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
         <v-row>
           <v-col
@@ -72,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Model, Vue } from "vue-property-decorator";
+import { Component, Model, Vue, Watch } from "vue-property-decorator";
 import FlightItem from "@/components/FlightItem.vue";
 import { ListItem } from "@/model/metadata/ListItem";
 import store from "@/store";
@@ -96,7 +91,7 @@ import { SearchData } from "@/model/SearchData";
 export default class Home extends Vue {
   airportList!: Airport[];
   aircraftList!: Aircraft[];
-  @Model("input", { type: Array, default: 0 }) searchOptions: number[];
+  @Model("input", { type: Number, default: undefined }) searchOptions: number;
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
   @Model("input", { type: String, default: null }) selectedDestination!: string;
   @Model("input", { type: String, default: null }) selectedAircraft!: string;
@@ -110,8 +105,18 @@ export default class Home extends Vue {
     return store.getters.getMainList(searchData);
   }
 
+  @Watch("searchOptions")
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onSearchOptionsChanged(newVal: number, oldVal: number) {
+    console.log(`newVal: ${newVal} oldVal: ${oldVal}`);
+    localStorage.searchOptions = newVal;
+  }
+
   created() {
     store.dispatch(LOAD_MAIN_DATA);
+    if (localStorage.searchOptions == '0') {
+      this.searchOptions = 0;
+    }
   }
 
   clearOptions() {

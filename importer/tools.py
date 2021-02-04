@@ -44,7 +44,8 @@ def request_airport_data(icao, json_file):
     to_add = {
         "name": str(airport_name),
         "iata": airport_iata.upper(),
-        "icao": icao.upper()
+        "icao": icao.upper(),
+        "label": f'{icao.upper()} - {str(airport_name)}'
     }
     with open(json_file) as f:
         data = json.load(f)

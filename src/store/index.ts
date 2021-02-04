@@ -12,16 +12,14 @@ export type AirportMap = Map<string, Airport>; // key for ICAO
 const store = new Vuex.Store({
   state: {
     itemList: [],
-    airportMap: new Map()
+    airportList: []
   },
   mutations: {
     [SAVE_MAIN_LIST](state, value) {
       state.itemList = value;
     },
     [SAVE_AIRPORT_MAP](state, value) {
-      Object.keys(value).forEach((key) => {
-        state.airportMap.set(key, value[key]);
-      });
+      state.airportList = Object.values(value);
     }
   },
   actions: {
@@ -36,33 +34,31 @@ const store = new Vuex.Store({
   },
   getters: {
     getMainList: (state) => (searchData: SearchData) => {
-      const searchByDeparture = searchData.departure != "";
-      const searchByDestination = searchData.destination != "";
-      const searchByAircraft = searchData.aircraft != "";
+      const searchByDeparture =
+        searchData.departure != "" && searchData.departure != null;
+      const searchByDestination =
+        searchData.destination != "" && searchData.destination != null;
+      const searchByAircraft =
+        searchData.aircraft != "" && searchData.aircraft != null;
 
       return state.itemList
         .filter((element: ListItem) => {
           return (
-            searchByDeparture ||
+            !searchByDeparture ||
             element.departure.icao.includes(searchData.departure)
           );
         })
         .filter((element: ListItem) => {
           return (
-            searchByDestination ||
+            !searchByDestination ||
             element.destination.icao.includes(searchData.destination)
           );
         })
         .filter((element: ListItem) => {
           return (
-            searchByAircraft || element.aircraft.includes(searchData.aircraft)
+            !searchByAircraft || element.aircraft.includes(searchData.aircraft)
           );
         });
-    },
-    airportList: (state) => {
-      return Array.from(state.airportMap.keys()).map((key) =>
-        state.airportMap.get(key)
-      );
     }
   }
 });

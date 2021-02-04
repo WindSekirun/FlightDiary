@@ -9,6 +9,8 @@ import axios from "axios";
 import vSelect from "vue-select";
 import { baseDomain } from "./Constants";
 
+import "vue-select/dist/vue-select.css";
+
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.component("v-select", vSelect);

@@ -60,7 +60,9 @@ const store = new Vuex.Store({
         });
     },
     airportList: (state) => {
-      return state.airportMap.entries;
+      return Array.from(state.airportMap.keys()).map((key) =>
+        state.airportMap.get(key)
+      );
     }
   }
 });

@@ -17,6 +17,7 @@ target_folder = os.path.join(pwd, 'target')
 public_folder = os.path.join(os.path.realpath('..'), 'public')
 public_data_folder = os.path.join(os.path.realpath('..'), 'public', 'data')
 airport_map_file = os.path.join(public_folder, 'airportmap.json')
+aircraft_map_file = os.path.join(public_folder, 'aircraft.json')
 data_file = os.path.join(public_folder, 'data.json')
 
 # make data json if doesn't exist

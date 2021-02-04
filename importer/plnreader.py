@@ -5,7 +5,7 @@ def read_plan(lnmpln_json):
 def read_aircraft(lnmpln_json):
     plan = read_plan(lnmpln_json)
     performance = plan["AircraftPerformance"]
-    return f'{performance["Name"]} - {performance["Type"]}'
+    return performance["Name"]
 
 def read_cruise(lnmpln_json):
     plan = read_plan(lnmpln_json)

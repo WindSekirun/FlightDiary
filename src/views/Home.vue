@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="12" sm="4">
+    <v-col cols="12" sm="3">
       <v-sheet rounded="lg" min-height="120" color="#3b4252" class="pa-3">
         <p>Departure Airport</p>
         <v-select
@@ -9,14 +9,30 @@
           placeholder="Departure Airport"
           :options="airportList"
           :reduce="(airport) => airport.icao"
-          label="name"
-        ></v-select>
+          label="label"
+        />
         <p class="mt-5">Destination Airport</p>
+        <v-select
+          v-model="selectedDestination"
+          class="style-chooser"
+          placeholder="Destination Airport"
+          :options="airportList"
+          :reduce="(airport) => airport.icao"
+          label="label"
+        />
         <p class="mt-5">Aircraft</p>
+        <v-select
+          v-model="selectedAircraft"
+          class="style-chooser"
+          placeholder="Destination Airport"
+          :options="aircraftList"
+          :reduce="(aircraft) => aircraft.name"
+          label="name"
+        />
       </v-sheet>
     </v-col>
 
-    <v-col cols="12" sm="8">
+    <v-col cols="12" sm="9">
       <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
         <v-row>
           <v-col
@@ -43,6 +59,7 @@ import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
 import { mapState } from "vuex";
 import { Airport } from "@/model/metadata/Airport";
+import { Aircraft } from "@/model/metadata/Aircraft";
 import { SearchData } from "@/model/SearchData";
 
 @Component({
@@ -51,13 +68,17 @@ import { SearchData } from "@/model/SearchData";
   },
   computed: {
     ...mapState({
-      airportList: "airportList"
+      airportList: "airportList",
+      aircraftList: "aircraftList"
     })
   }
 })
 export default class Home extends Vue {
   airportList!: Airport[];
+  aircraftList!: Aircraft[];
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
+  @Model("input", { type: String, default: null }) selectedDestination!: string;
+  @Model("input", { type: String, default: null }) selectedAircraft!: string;
 
   get listItems(): ListItem[] {
     const searchData = new SearchData(this.selectedDeparture, "", "");
@@ -75,9 +96,7 @@ export default class Home extends Vue {
 .style-chooser .vs__dropdown-toggle,
 .style-chooser .vs__dropdown-menu {
   background: #d8dee9;
-  border: none;
   color: #4c566a;
-  margin-left: 0px;
 }
 .style-chooser .vs__clear,
 .style-chooser .vs__open-indicator {

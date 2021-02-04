@@ -1,7 +1,7 @@
 export class SearchData {
-  departure: string = "";
-  destination: string = "";
-  aircraft: string = "";
+  departure = "";
+  destination = "";
+  aircraft = "";
 
   constructor(departure: string, destination: string, aircraft: string) {
     this.departure = departure;

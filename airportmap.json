@@ -2,31 +2,37 @@
   "EPWA": {
     "name": "Warsaw Chopin Airport",
     "iata": "WAW",
-    "icao": "EPWA"
+    "icao": "EPWA",
+    "label": "EPWA - Warsaw Chopin Airport"
   },
   "LFPG": {
     "name": "Charles de Gaulle Airport",
     "iata": "CDG",
-    "icao": "LFPG"
+    "icao": "LFPG",
+    "label": "EPWA - Warsaw Chopin Airport"
   },
   "KJFK": {
     "name": "John F. Kennedy International Airport",
     "iata": "JFK",
-    "icao": "KJFK"
+    "icao": "KJFK",
+    "label": "KJFK - John F. Kennedy International Airport"
   },
   "KDMA": {
     "name": "Davis\u2013Monthan Air Force Base",
     "iata": "DMA",
-    "icao": "KDMA"
+    "icao": "KDMA",
+    "label": "KDMA - Davis\u2013Monthan Air Force Base"
   },
   "KSWF": {
     "name": "Stewart International Airport",
     "iata": "SWF",
-    "icao": "KSWF"
+    "icao": "KSWF",
+    "label": "KSWF - Stewart International Airport"
   },
   "KDFW": {
     "name": "Dallas/Fort Worth International Airport",
     "iata": "DFW",
-    "icao": "KDFW"
+    "icao": "KDFW",
+    "label": "KDFW - Dallas/Fort Worth International Airport"
   }
 }

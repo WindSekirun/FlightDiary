@@ -6,10 +6,12 @@ import vuetify from "./plugins/vuetify";
 import "@babel/polyfill";
 import VueAxios from "vue-axios";
 import axios from "axios";
+import vSelect from "vue-select";
 import { baseDomain } from "./Constants";
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+Vue.component("v-select", vSelect);
 Vue.axios.defaults.baseURL = baseDomain;
 
 new Vue({

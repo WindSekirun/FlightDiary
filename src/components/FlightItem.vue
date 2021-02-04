@@ -3,13 +3,18 @@
     <v-img max-height="250" :src="thumbnail"></v-img>
 
     <v-card-title>{{ title }}</v-card-title>
-    <v-card-subtitle>{{ item.flightTime }}</v-card-subtitle>
+    <v-card-subtitle>
+      {{ item.flightTime }}
+    </v-card-subtitle>
+    <v-card-text>
+      <p>Aircraft: {{ item.aircraft }}</p>
+    </v-card-text>
   </v-card>
 </template>
 
 <script lang="ts">
 import { baseDomain } from "@/Constants";
-import { ListItem } from "@/model/ListItem";
+import { ListItem } from "@/model/metadata/ListItem";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component

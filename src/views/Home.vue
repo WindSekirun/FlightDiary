@@ -2,18 +2,7 @@
   <v-row>
     <v-col cols="12" sm="3">
       <v-sheet rounded="lg" min-height="120" color="#3b4252">
-        <v-list color="transparent">
-          <v-responsive class="ml-3 mr-3 mt-3">
-            <v-text-field
-              dense
-              flat
-              rounded
-              solo-inverted
-              label="Search"
-              hint="Departure, Arrival in IATA/ICAO"
-            ></v-text-field>
-          </v-responsive>
-        </v-list>
+        <v-list color="transparent"> </v-list>
       </v-sheet>
     </v-col>
 
@@ -39,7 +28,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import FlightItem from "@/components/FlightItem.vue";
-import { ListItem } from "@/model/ListItem";
+import { ListItem } from "@/model/metadata/ListItem";
 import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
 
@@ -49,8 +38,6 @@ import { LOAD_MAIN_DATA } from "@/Constants";
   }
 })
 export default class Home extends Vue {
-  searchText = "";
-
   get listItems(): ListItem[] {
     return store.state.itemList;
   }

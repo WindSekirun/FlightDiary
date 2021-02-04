@@ -1,14 +1,13 @@
 <template>
-  <v-card class="mx-auto mb-2 ml-5 mr-5" elevation="2" outlined>
-    <v-img max-height="250" :src="thumbnail"></v-img>
-
-    <v-card-title>{{ title }}</v-card-title>
+  <v-card class="mx-auto mb-2 ml-5 mr-5" elevation="2" outlined shaped>
+    <v-img max-height="250" :src="thumbnail" class="white--text align-end">
+      <v-card-title>{{ title }}</v-card-title>
+    </v-img>
     <v-card-subtitle>
       {{ item.flightTime }}
+      <br />
+      {{ item.aircraft }}
     </v-card-subtitle>
-    <v-card-text>
-      <p>Aircraft: {{ item.aircraft }}</p>
-    </v-card-text>
   </v-card>
 </template>
 

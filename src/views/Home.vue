@@ -1,34 +1,41 @@
 <template>
   <v-row>
     <v-col cols="12" sm="3">
-      <v-sheet rounded="lg" min-height="120" color="#3b4252" class="pa-3">
-        <p>Departure Airport</p>
-        <v-select
-          v-model="selectedDeparture"
-          class="style-chooser"
-          placeholder="Departure Airport"
-          :options="airportList"
-          :reduce="(airport) => airport.icao"
-          label="label"
-        />
-        <p class="mt-5">Destination Airport</p>
-        <v-select
-          v-model="selectedDestination"
-          class="style-chooser"
-          placeholder="Destination Airport"
-          :options="airportList"
-          :reduce="(airport) => airport.icao"
-          label="label"
-        />
-        <p class="mt-5">Aircraft</p>
-        <v-select
-          v-model="selectedAircraft"
-          class="style-chooser"
-          placeholder="Destination Airport"
-          :options="aircraftList"
-          :reduce="(aircraft) => aircraft.name"
-          label="name"
-        />
+      <v-sheet rounded="lg" color="#3b4252" class="pa-2">
+        <v-expansion-panels accordion flat>
+          <v-expansion-panel style="background:#3b4252;color:white">
+            <v-expansion-panel-header>Search Options</v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <h4>Departure Airport</h4>
+              <v-select
+                v-model="selectedDeparture"
+                class="style-chooser"
+                placeholder="Departure Airport"
+                :options="airportList"
+                :reduce="(airport) => airport.icao"
+                label="label"
+              />
+              <h4 class="mt-5">Destination Airport</h4>
+              <v-select
+                v-model="selectedDestination"
+                class="style-chooser"
+                placeholder="Destination Airport"
+                :options="airportList"
+                :reduce="(airport) => airport.icao"
+                label="label"
+              />
+              <h4 class="mt-5">Aircraft</h4>
+              <v-select
+                v-model="selectedAircraft"
+                class="style-chooser"
+                placeholder="Used Aircraft"
+                :options="aircraftList"
+                :reduce="(aircraft) => aircraft.name"
+                label="name"
+              />
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
       </v-sheet>
     </v-col>
 
@@ -76,13 +83,22 @@ import { SearchData } from "@/model/SearchData";
 export default class Home extends Vue {
   airportList!: Airport[];
   aircraftList!: Aircraft[];
+  @Model("input", { type: Boolean, default: false }) showSearchOption!: boolean;
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
   @Model("input", { type: String, default: null }) selectedDestination!: string;
   @Model("input", { type: String, default: null }) selectedAircraft!: string;
 
   get listItems(): ListItem[] {
-    const searchData = new SearchData(this.selectedDeparture, "", "");
+    const searchData = new SearchData(
+      this.selectedDeparture,
+      this.selectedDestination,
+      this.selectedAircraft
+    );
     return store.getters.getMainList(searchData);
+  }
+
+  get searchOptionIcon() {
+    return this.showSearchOption ? "chevron-up" : "chevron-down";
   }
 
   created() {

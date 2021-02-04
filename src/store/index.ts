@@ -70,7 +70,8 @@ const store = new Vuex.Store({
           return (
             !searchByAircraft || element.aircraft.includes(searchData.aircraft)
           );
-        });
+        })
+        .reverse();
     }
   }
 });

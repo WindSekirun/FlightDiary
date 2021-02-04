@@ -1,10 +1,17 @@
 <template>
   <v-row>
     <v-col cols="12" sm="3">
-      <v-sheet rounded="lg" color="#3b4252" class="pa-2">
-        <v-expansion-panels accordion flat>
+      <v-sheet
+        rounded="lg"
+        color="#3b4252"
+        class="pa-2"
+        :value="showSearchOption"
+      >
+        <v-expansion-panels v-model="searchOptions" accordion flat>
           <v-expansion-panel style="background:#3b4252;color:white">
-            <v-expansion-panel-header>Search Options</v-expansion-panel-header>
+            <v-expansion-panel-header>
+              <h3>Search Options</h3>
+            </v-expansion-panel-header>
             <v-expansion-panel-content>
               <h4>Departure Airport</h4>
               <v-select
@@ -14,6 +21,7 @@
                 :options="airportList"
                 :reduce="(airport) => airport.icao"
                 label="label"
+                dark
               />
               <h4 class="mt-5">Destination Airport</h4>
               <v-select
@@ -23,6 +31,7 @@
                 :options="airportList"
                 :reduce="(airport) => airport.icao"
                 label="label"
+                dark
               />
               <h4 class="mt-5">Aircraft</h4>
               <v-select
@@ -32,7 +41,11 @@
                 :options="aircraftList"
                 :reduce="(aircraft) => aircraft.name"
                 label="name"
+                dark
               />
+              <v-btn class="mt-5" block depressed @click="clearOptions"
+                >Clear Options</v-btn
+              >
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
@@ -83,7 +96,7 @@ import { SearchData } from "@/model/SearchData";
 export default class Home extends Vue {
   airportList!: Airport[];
   aircraftList!: Aircraft[];
-  @Model("input", { type: Boolean, default: false }) showSearchOption!: boolean;
+  @Model("input", { type: Array, default: 0 }) searchOptions: number[];
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
   @Model("input", { type: String, default: null }) selectedDestination!: string;
   @Model("input", { type: String, default: null }) selectedAircraft!: string;
@@ -97,12 +110,14 @@ export default class Home extends Vue {
     return store.getters.getMainList(searchData);
   }
 
-  get searchOptionIcon() {
-    return this.showSearchOption ? "chevron-up" : "chevron-down";
-  }
-
   created() {
     store.dispatch(LOAD_MAIN_DATA);
+  }
+
+  clearOptions() {
+    this.selectedDeparture = "";
+    this.selectedDestination = "";
+    this.selectedAircraft = "";
   }
 }
 </script>
@@ -112,10 +127,13 @@ export default class Home extends Vue {
 .style-chooser .vs__dropdown-toggle,
 .style-chooser .vs__dropdown-menu {
   background: #d8dee9;
-  color: #4c566a;
+  color: #2e3440;
+  text-transform: lowercase;
+  font-variant: small-caps;
 }
+
 .style-chooser .vs__clear,
 .style-chooser .vs__open-indicator {
-  fill: #4c566a;
+  fill: #2e3440;
 }
 </style>

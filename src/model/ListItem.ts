@@ -6,4 +6,5 @@ export interface ListItem {
   destination: Airport;
   flightTime: string;
   mainThumbnail: string;
+  aircraft: string;
 }

@@ -20,7 +20,14 @@
     <v-col cols="12" sm="9">
       <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
         <v-row>
-          <v-col v-for="item in listItems" :key="item" cols="6" sm="6" md="6">
+          <v-col
+            v-for="(item, index) in listItems"
+            :key="index"
+            cols="12"
+            sm="12"
+            md="6"
+            lg="4"
+          >
             <FlightItem :item="item" />
           </v-col>
         </v-row>
@@ -34,7 +41,7 @@ import { Component, Vue } from "vue-property-decorator";
 import FlightItem from "@/components/FlightItem.vue";
 import { ListItem } from "@/model/ListItem";
 import store from "@/store";
-import { LOAD_LIST } from "@/Constants";
+import { LOAD_MAIN_DATA } from "@/Constants";
 
 @Component({
   components: {
@@ -49,7 +56,7 @@ export default class Home extends Vue {
   }
 
   mounted() {
-    store.dispatch(LOAD_LIST);
+    store.dispatch(LOAD_MAIN_DATA);
   }
 }
 </script>

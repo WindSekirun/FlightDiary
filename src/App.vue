@@ -9,8 +9,8 @@
           <b class="mr-4 d-none d-md-flex d-md-flex"> {{ title }}</b>
 
           <v-btn
-            v-for="link in appBarLinks"
-            :key="link.name"
+            v-for="(link, index) in appBarLinks"
+            :key="index"
             text
             @click="clickAppBarLink(link)"
           >

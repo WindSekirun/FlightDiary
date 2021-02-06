@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { baseDomain } from "@/Constants";
-import { ListItem } from "@/model/metadata/ListItem";
+import { ListItem } from "@/model/list/ListItem";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component

@@ -1,4 +1,4 @@
-import { Airport } from "./Airport";
+import { Airport } from "../list/Airport";
 import { Procedures } from "./Procedures";
 import { Waypoint } from "./Waypoint";
 

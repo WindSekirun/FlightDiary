@@ -69,13 +69,13 @@
 <script lang="ts">
 import { Component, Model, Vue, Watch } from "vue-property-decorator";
 import FlightItem from "@/components/FlightItem.vue";
-import { ListItem } from "@/model/metadata/ListItem";
 import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
 import { mapState } from "vuex";
-import { Airport } from "@/model/metadata/Airport";
 import { Aircraft } from "@/model/metadata/Aircraft";
 import { SearchData } from "@/model/SearchData";
+import { Airport } from "@/model/list/Airport";
+import { ListItem } from "@/model/list/ListItem";
 
 @Component({
   components: {

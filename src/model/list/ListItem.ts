@@ -7,4 +7,6 @@ export interface ListItem {
   flightTime: string;
   mainThumbnail: string;
   aircraft: string;
+  planType: string;
+  distance: string;
 }

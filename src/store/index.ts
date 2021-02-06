@@ -4,8 +4,8 @@ import {
   SAVE_AIRPORT_MAP,
   SAVE_AIRCRAFT
 } from "@/Constants";
-import { Airport } from "@/model/metadata/Airport";
-import { ListItem } from "@/model/metadata/ListItem";
+import { Airport } from "@/model/list/Airport";
+import { ListItem } from "@/model/list/ListItem";
 import { SearchData } from "@/model/SearchData";
 import Vue from "vue";
 import Vuex from "vuex";

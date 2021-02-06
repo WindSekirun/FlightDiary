@@ -1,6 +1,6 @@
 export interface Waypoint {
-  lat: string;
-  lng: string;
+  lat: number;
+  lng: number;
   name: string;
   ident: string;
   alt: string;

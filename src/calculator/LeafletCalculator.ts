@@ -1,12 +1,14 @@
+import { MarkerData } from "@/model/vo/MarkerData";
 import { Metadata } from "@/model/plan/Metadata";
 import { LatLngBounds, LatLngTuple } from "leaflet";
+
 
 /**
  * Getting Departure's LatLngs from Metadata
  * @param metadata Metadata object which contains departure data
  */
 export function getDeparture(metadata: Metadata): LatLngTuple {
-  return [Number(metadata.waypoint[0].lat), Number(metadata.waypoint[0].lng)];
+  return [metadata.waypoint[0].lat, metadata.waypoint[0].lng];
 }
 
 /**
@@ -15,10 +17,7 @@ export function getDeparture(metadata: Metadata): LatLngTuple {
  */
 export function getDestination(metadata: Metadata): LatLngTuple {
   const index = metadata.waypoint.length - 1;
-  return [
-    Number(metadata.waypoint[index].lat),
-    Number(metadata.waypoint[index].lng)
-  ];
+  return [metadata.waypoint[index].lat, metadata.waypoint[index].lng];
 }
 
 /**
@@ -35,6 +34,14 @@ export function getMapBounds(metadata: Metadata): LatLngBounds {
  */
 export function getWaypointTuple(metadata: Metadata): LatLngTuple[] {
   return metadata.waypoint
-    .map((element) => [Number(element.lat), Number(element.lng)] as LatLngTuple)
+    .map((element) => [element.lat, element.lng] as LatLngTuple)
     .filter((element) => element[0] != 0 && element[1] != 0);
+}
+
+export function getWaypointMarker(metadata: Metadata): MarkerData[] {
+  return metadata.waypoint.map((element) => {
+    const markerData = new MarkerData();
+    markerData.latLng = [element.lat, element.lng] as LatLngTuple;
+    return markerData;
+  });
 }

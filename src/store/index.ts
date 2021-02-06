@@ -15,10 +15,16 @@ import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
 import { Metadata } from "@/model/plan/Metadata";
 import { SearchData } from "@/model/SearchData";
-import { MapData } from "@/model/map/MapData";
+import { FlightPlanData } from "@/model/vo/FlightPlanData";
+import { DetailData } from "@/model/vo/DetailData";
 import Vue from "vue";
 import Vuex from "vuex";
-import { getMapBounds, getWaypointTuple } from "@/calculator/LeafletCalculator";
+import {
+  getMapBounds,
+  getWaypointMarker,
+  getWaypointTuple
+} from "@/calculator/LeafletCalculator";
+import { getPlanSubtitle, getPlanTitle } from "@/calculator/PlanCalculator";
 
 Vue.use(Vuex);
 
@@ -138,28 +144,20 @@ const store = new Vuex.Store({
         })
         .reverse();
     },
-    // from Detail.vue
-    getDetailTitle: (state) => {
-      return `${state.detailMetadata?.planType || ""} ${state.detailMetadata
-        ?.departure.icao || ""} → ${state.detailMetadata?.destination.icao ||
-        ""}`;
-    },
-    getDetailSubtitle: (state) => {
-      return `${state.detailMetadata?.flightTime || ""} | 
-      ${displayNm(state.detailMetadata?.distance)} |
-      ${state.detailMetadata?.aircraft || ""}`;
-    },
-    getDetailRouteContent: (state) => {
-      return state.detailMetadata?.waypoint
-        .filter((element) => !element.isProcedure)
-        .map((element) => element.ident)
-        .join(" ");
-    },
-    getDetailPlanData: (state) => {
-      const data = new MapData();
+    getDetailData: (state) => {
+      const data = new DetailData();
       const metadata = state.detailMetadata || ({} as Metadata);
+      data.planTitle = getPlanTitle(metadata);
+      data.planSubtitle = getPlanSubtitle(metadata);
+      return data;
+    },
+    getFlightPlanData: (state) => {
+      const data = new FlightPlanData();
+      const metadata = state.detailMetadata || ({} as Metadata);
+      data.planTitle = getPlanTitle(metadata);
       data.bounds = getMapBounds(metadata);
       data.latLngs = getWaypointTuple(metadata);
+      data.markers = getWaypointMarker(metadata);
       return data;
     }
   }

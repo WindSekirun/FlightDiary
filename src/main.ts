@@ -11,7 +11,7 @@ import { baseDomain } from "./Constants";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { LMap, LTileLayer, LMarker, LPolyline } from "vue2-leaflet";
+import { LMap, LTileLayer, LMarker, LPolyline, LControl } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import "vue-select/dist/vue-select.css";
@@ -28,6 +28,7 @@ Vue.component("l-map", LMap);
 Vue.component("l-tile-layer", LTileLayer);
 Vue.component("l-marker", LMarker);
 Vue.component("l-polyline", LPolyline);
+Vue.component("l-control", LControl);
 
 new Vue({
   router,

@@ -2,7 +2,11 @@ import {
   SAVE_MAIN_LIST,
   LOAD_MAIN_DATA,
   SAVE_AIRPORT_MAP,
-  SAVE_AIRCRAFT
+  SAVE_AIRCRAFT,
+  LOAD_DETAIL_DATA,
+  SAVE_DETAIL_DATA,
+  SAVE_DEPARTURE_DATA,
+  SAVE_DESTINATION_DATA
 } from "@/Constants";
 import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
@@ -18,7 +22,10 @@ const store = new Vuex.Store({
   state: {
     itemList: [],
     airportList: [],
-    aircraftList: []
+    aircraftList: [],
+    detailMetadata: {},
+    detailDeparture: {},
+    detailDestination: {}
   },
   mutations: {
     [SAVE_MAIN_LIST](state, value) {
@@ -29,19 +36,59 @@ const store = new Vuex.Store({
     },
     [SAVE_AIRCRAFT](state, value) {
       state.aircraftList = value;
+    },
+    [SAVE_DETAIL_DATA](state, value) {
+      state.detailMetadata = value;
+    },
+    [SAVE_DEPARTURE_DATA](state, value) {
+      state.detailDeparture = value;
+    },
+    [SAVE_DESTINATION_DATA](state, value) {
+      state.detailDestination = value;
     }
   },
   actions: {
     [LOAD_MAIN_DATA]({ commit }) {
+      const data = Vue.axios.get("data.json");
+      const airportMap = Vue.axios.get("airportmap.json");
+      const aircraft = Vue.axios.get("aircraft.json");
+
       Vue.axios
-        .get("data.json")
-        .then((response) => commit(SAVE_MAIN_LIST, response.data));
+        .all([data, airportMap, aircraft])
+        .then(
+          Vue.axios.spread((...responses) => {
+            commit(SAVE_MAIN_LIST, responses[0].data);
+            commit(SAVE_AIRPORT_MAP, responses[1].data);
+            commit(SAVE_AIRCRAFT, responses[2].data);
+          })
+        )
+        .catch((errors) => {
+          console.log(errors);
+          console.log("Can't log main information");
+        });
+    },
+    [LOAD_DETAIL_DATA]({ commit }, data) {
+      const id = data.id;
+      const departureIcao = data.airport.slice(0, 4);
+      const destinationIcao = data.airport.slice(4);
+
+      const metadata = Vue.axios.get(`data/${id}/metadata.json`);
+      const departure = Vue.axios.get(`data/airport/${departureIcao}.json`);
+      const destination = Vue.axios.get(`data/airport/${destinationIcao}.json`);
+
       Vue.axios
-        .get("airportmap.json")
-        .then((response) => commit(SAVE_AIRPORT_MAP, response.data));
-      Vue.axios
-        .get("aircraft.json")
-        .then((response) => commit(SAVE_AIRCRAFT, response.data));
+        .all([metadata, departure, destination])
+        .then(
+          Vue.axios.spread((...responses) => {
+            commit(SAVE_DETAIL_DATA, responses[0].data);
+            commit(SAVE_DEPARTURE_DATA, responses[1].data);
+            commit(SAVE_DESTINATION_DATA, responses[2].data);
+          })
+        )
+        .catch((errors) => {
+          console.log(errors);
+          console.log("Can't log metadata information");
+        });
     }
   },
   getters: {

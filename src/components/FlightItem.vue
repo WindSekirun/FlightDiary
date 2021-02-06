@@ -35,7 +35,7 @@
 import { baseDomain } from "@/Constants";
 import { ListItem } from "@/model/list/ListItem";
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { displayNm } from "@/formatter/UnitFormatter";
+import { displayNm } from "@/calculator/UnitCalculator";
 import { pageDetail } from "@/model/PageRouter";
 
 @Component

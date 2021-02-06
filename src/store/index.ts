@@ -8,25 +8,42 @@ import {
   SAVE_DEPARTURE_DATA,
   SAVE_DESTINATION_DATA
 } from "@/Constants";
+import { displayNm } from "@/calculator/UnitCalculator";
+import { AirportDetail } from "@/model/airport/AirportDetail";
+import { Aircraft } from "@/model/list/Aircraft";
 import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
+import { Metadata } from "@/model/plan/Metadata";
 import { SearchData } from "@/model/SearchData";
+import { MapData } from "@/model/map/MapData";
 import Vue from "vue";
 import Vuex from "vuex";
+import { getMapBounds, getWaypointTuple } from "@/calculator/LeafletCalculator";
 
 Vue.use(Vuex);
 
 export type AirportMap = Map<string, Airport>; // key for ICAO
 
+export interface StoreState {
+  itemList: ListItem[];
+  airportList: Airport[];
+  aircraftList: Aircraft[];
+  detailMetadata: Metadata | undefined;
+  detailDeparture: AirportDetail | undefined;
+  detailDestination: AirportDetail | undefined;
+}
+
+const state: StoreState = {
+  itemList: [],
+  airportList: [],
+  aircraftList: [],
+  detailMetadata: undefined,
+  detailDeparture: undefined,
+  detailDestination: undefined
+};
+
 const store = new Vuex.Store({
-  state: {
-    itemList: [],
-    airportList: [],
-    aircraftList: [],
-    detailMetadata: {},
-    detailDeparture: {},
-    detailDestination: {}
-  },
+  state: state,
   mutations: {
     [SAVE_MAIN_LIST](state, value) {
       state.itemList = value;
@@ -92,6 +109,7 @@ const store = new Vuex.Store({
     }
   },
   getters: {
+    // from Home.vue
     getMainList: (state) => (searchData: SearchData) => {
       const searchByDeparture =
         searchData.departure != "" && searchData.departure != null;
@@ -119,6 +137,30 @@ const store = new Vuex.Store({
           );
         })
         .reverse();
+    },
+    // from Detail.vue
+    getDetailTitle: (state) => {
+      return `${state.detailMetadata?.planType || ""} ${state.detailMetadata
+        ?.departure.icao || ""} → ${state.detailMetadata?.destination.icao ||
+        ""}`;
+    },
+    getDetailSubtitle: (state) => {
+      return `${state.detailMetadata?.flightTime || ""} | 
+      ${displayNm(state.detailMetadata?.distance)} |
+      ${state.detailMetadata?.aircraft || ""}`;
+    },
+    getDetailRouteContent: (state) => {
+      return state.detailMetadata?.waypoint
+        .filter((element) => !element.isProcedure)
+        .map((element) => element.ident)
+        .join(" ");
+    },
+    getDetailPlanData: (state) => {
+      const data = new MapData();
+      const metadata = state.detailMetadata || ({} as Metadata);
+      data.bounds = getMapBounds(metadata);
+      data.latLngs = getWaypointTuple(metadata);
+      return data;
     }
   }
 });

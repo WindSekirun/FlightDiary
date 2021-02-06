@@ -3,10 +3,14 @@
     <v-app id="inspire">
       <v-app-bar app color="#3b4252" flat>
         <v-container class="py-0 fill-height">
-          <v-avatar class="mr-4" size="32">
-            <img src="./assets/profile_akari_circle.png" alt="Profile" />
-          </v-avatar>
-          <b class="mr-4 d-none d-md-flex d-md-flex"> {{ title }}</b>
+          <v-btn text>
+            <v-avatar class="mr-4" size="32" @click="clickHome()">
+              <img src="./assets/profile_akari_circle.png" alt="Profile" />
+            </v-avatar>
+            <b class="mr-4 d-none d-md-flex d-md-flex" @click="clickHome()">
+              {{ title }}
+            </b>
+          </v-btn>
 
           <v-btn
             v-for="(link, index) in appBarLinks"
@@ -30,20 +34,24 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import { pageAbout, pageHome, pageSpec, PageRouter } from "./model/PageRouter";
+import { pageAbout, pageSpec, PageRouter } from "./model/PageRouter";
 
 @Component({})
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;
-  appBarLinks: PageRouter[] = [pageHome, pageSpec, pageAbout];
+  appBarLinks: PageRouter[] = [pageSpec, pageAbout];
 
   async mounted() {
     this.title = applicationTitle;
   }
 
+  clickHome() {
+    window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/");
+  }
+
   clickAppBarLink(pageRouter: PageRouter) {
-    this.$router.push(`${pageRouter.path}`);
+    this.$router.push(pageRouter.path);
   }
 }
 </script>

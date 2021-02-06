@@ -112,7 +112,7 @@ export default class Home extends Vue {
     localStorage.searchOptions = newVal;
   }
 
-  created() {
+  mounted() {
     store.dispatch(LOAD_MAIN_DATA);
     if (localStorage.searchOptions == "0") {
       this.searchOptions = 0;

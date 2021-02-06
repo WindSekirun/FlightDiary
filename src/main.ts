@@ -11,6 +11,8 @@ import { baseDomain } from "./Constants";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { LMap, LTileLayer, LMarker, LPolyline } from "vue2-leaflet";
+import "leaflet/dist/leaflet.css";
 
 import "vue-select/dist/vue-select.css";
 
@@ -21,6 +23,11 @@ Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.component("v-select", vSelect);
 Vue.axios.defaults.baseURL = baseDomain;
+
+Vue.component("l-map", LMap);
+Vue.component("l-tile-layer", LTileLayer);
+Vue.component("l-marker", LMarker);
+Vue.component("l-polyline", LPolyline);
 
 new Vue({
   router,

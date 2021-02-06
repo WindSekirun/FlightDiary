@@ -1,5 +1,5 @@
-export function displayNm(nm: string): string {
-  const unit = Number(nm.replace(/\D/g, ""));
+export function displayNm(nm: string | undefined): string {
+  const unit = Number((nm || "").replace(/\D/g, ""));
   const km = Math.ceil(unit * 1.1852)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");

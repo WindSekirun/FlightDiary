@@ -13,7 +13,7 @@
     "strictPropertyInitialization": false,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "mocha", "chai", "vuetify"],
+    "types": ["webpack-env", "mocha", "chai", "vuetify", "leaflet"],
     "paths": {
       "@/*": ["src/*"]
     },

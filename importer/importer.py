@@ -1,10 +1,10 @@
-from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
-from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint, read_aircraft
-from tablereader import read_distance, read_waypoint_from_html
-from optimize import optimize_images, resize
 from datetime import date
 from pathlib import Path
 from bs4 import BeautifulSoup
+import tools
+import plnreader
+import tablereader
+import optimize
 import xmltodict
 import os
 import uuid
@@ -17,17 +17,23 @@ pwd = os.path.dirname(os.path.realpath(__file__))
 target_folder = os.path.join(pwd, 'target')
 public_folder = os.path.join(os.path.realpath('..'), 'public')
 public_data_folder = os.path.join(os.path.realpath('..'), 'public', 'data')
+airport_metadata_folder = os.path.join(os.path.realpath('..'), 'public', 'data', 'airport')
 airport_map_file = os.path.join(public_folder, 'airportmap.json')
 aircraft_map_file = os.path.join(public_folder, 'aircraft.json')
 data_file = os.path.join(public_folder, 'data.json')
 
+flightplan_key = tools.read_flightplan_key(os.path.join(pwd, 'flightplan.key'))
+
+if not flightplan_key:
+    print('flightplan.key is missing. Docs: https://flightplandatabase.com/dev/api#intro')
+
 # make data json if doesn't exist
 if not os.path.isfile(data_file):
-    write_json([], data_file)
+    tools.write_json([], data_file)
 
 # reading json
-airport_json = read_json(airport_map_file)
-data_json = read_json(data_file)
+airport_json = tools.read_json(airport_map_file)
+data_json = tools.read_json(data_file)
 
 # starting process
 print('Importer for FlightDiary')
@@ -35,12 +41,12 @@ data_id = str(uuid.uuid4()).replace("-", "")
 
 # check required file
 print('Checking required file...')
-target_png = find_png_files(target_folder)
+target_png = tools.find_png_files(target_folder)
 if not target_png:
     raise Exception("At least one image is needed!")
 
-target_lnmpln = find_plans(target_folder, 'lnmpln')
-target_html = find_plans(target_folder, 'html')
+target_lnmpln = tools.find_plans(target_folder, 'lnmpln')
+target_html = tools.find_plans(target_folder, 'html')
 
 # enter metadata of airport
 # auto-resolve airport name
@@ -59,33 +65,36 @@ if not destination_icao:
     print('Enter ICAO code of destination airport. Example: RKSI RJAA LFPG KJFK')
     destination_icao = input('Destination Airport ICAO: ').upper()
 
-if departure_icao not in airport_json:
-    request_airport_data(departure_icao, airport_map_file)
+print()
+print("Building airport metdata...")
 
-if destination_icao not in airport_json and departure_icao != destination_icao:
-    request_airport_data(destination_icao, airport_map_file)
+# refresh metadata
+tools.build_airport_metadata(flightplan_key, departure_icao, airport_map_file,
+                             os.path.join(airport_metadata_folder, f'{departure_icao}.json'))
+tools.build_airport_metadata(flightplan_key, destination_icao, airport_map_file,
+                             os.path.join(airport_metadata_folder, f'{destination_icao}.json'))
 
 print()
 print("Reading Flight Plan Data...")
 
-airport_json = read_json(airport_map_file)
+airport_json = tools.read_json(airport_map_file)
 flight_time = date.today().strftime("%Y-%m-%d")
 
 # read plan file (lnmpln)
 lnmpln_root = xmltodict.parse(Path(target_lnmpln).read_text())
 lnmpln_json = json.loads(json.dumps(lnmpln_root))
-aircraft_type = read_aircraft(lnmpln_json)
-cruising_alt = read_cruise(lnmpln_json)
-plan_type = read_plan_type(lnmpln_json)
-producers_sid = read_sid(lnmpln_json)
-producers_approach = read_approach(lnmpln_json)
-waypoint_from_lnmpln = read_waypoint(lnmpln_json)
+aircraft_type = plnreader.read_aircraft(lnmpln_json)
+cruising_alt = plnreader.read_cruise(lnmpln_json)
+plan_type = plnreader.read_plan_type(lnmpln_json)
+producers_sid = plnreader.read_sid(lnmpln_json)
+producers_approach = plnreader.read_approach(lnmpln_json)
+waypoint_from_lnmpln = plnreader.read_waypoint(lnmpln_json)
 
 # read plan file (html)
 html_root = Path(target_html).read_text()
 html_soup = BeautifulSoup(html_root, 'html.parser')
-plan_distance = read_distance(html_soup)
-waypoint_from_html = read_waypoint_from_html(html_soup)
+plan_distance = tablereader.read_distance(html_soup)
+waypoint_from_html = tablereader.read_waypoint_from_html(html_soup)
 
 # merge waypoints into single dict follow data type
 waypoint_merge = []
@@ -125,10 +134,10 @@ os.remove(target_html)
 
 print()
 print('Starting Image Optimization...')
-optimize_images()
+optimize.optimize_images()
 
-result_images = list(map(lambda x: os.path.basename(x), find_webp_files(target_folder)))
-result_origin_images = list(map(lambda x: os.path.basename(x), find_png_files(target_folder)))
+result_images = list(map(lambda x: os.path.basename(x), tools.find_webp_files(target_folder)))
+result_origin_images = list(map(lambda x: os.path.basename(x), tools.find_png_files(target_folder)))
 
 print()
 print('Select main thumbnail of this flight')
@@ -136,10 +145,10 @@ print('See \'target\' folder and enter index of file')
 print('Possible answer')
 
 for index, origin_image in enumerate(result_origin_images):
-    print(f'{index} -> {origin_image}')
+    print(f'#{index + 1}: {origin_image}')
 
 main_thumbnail_index = input('Index of main thumbnail file: ')
-main_thumbnail = result_origin_images[int(main_thumbnail_index)]
+main_thumbnail = result_origin_images[int(main_thumbnail_index) - 1]
 if main_thumbnail not in result_origin_images:
     print(f'Invalid name for {main_thumbnail}, select first image as main thumbnail image')
     main_thumbnail = result_origin_images[0]
@@ -147,7 +156,7 @@ if main_thumbnail not in result_origin_images:
 thumbnail_file = os.path.join(target_folder, "main.png")
 shutil.copy(os.path.join(target_folder, main_thumbnail), thumbnail_file)
 print()
-resize(thumbnail_file, 640)
+optimize.resize(thumbnail_file, 640)
 
 # remove origin files
 for origin_image in result_origin_images:
@@ -178,7 +187,7 @@ metadata = {
 }
 
 os.mkdir(os.path.join(public_data_folder, data_id))
-write_json(metadata, os.path.join(
+tools.write_json(metadata, os.path.join(
     public_data_folder, data_id, "metadata.json"))
 
 print('Appending data to data.json')
@@ -194,10 +203,10 @@ list_data = {
 with open(data_file) as f:
     data = json.load(f)
     data.append(list_data)
-write_json(data, data_file)
+tools.write_json(data, data_file)
 
 print('Moving data')
-target_files = find_all_files(target_folder)
+target_files = tools.find_all_files(target_folder)
 for target in target_files:
     input_file = os.path.basename(target)
     shutil.move(target, os.path.join(public_data_folder, data_id, input_file))

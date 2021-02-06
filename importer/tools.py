@@ -1,6 +1,8 @@
 import glob
 import json
-
+import requests
+import os
+from pathlib import Path
 
 def find_png_files(path):
     return sorted(glob.glob(f'{path}/*.png'))
@@ -30,24 +32,49 @@ def read_json(path):
         return json.load(f)
 
 
-def write_json(data, file): 
+def write_json(data, file):
     with open(file, 'w') as f:
         json.dump(data, f, indent=2)
 
 
-def request_airport_data(icao, json_file):
-    print()
-    print(f'This is first time to visit {icao.upper()}, So we need some information of Airpot.')
-    print(f'You can find information from Wikipedia or other sites')
-    airport_name = input('Airport name: ')
-    airport_iata = input('Airport IATA code: ')
-    to_add = {
-        "name": str(airport_name),
-        "iata": airport_iata.upper(),
-        "icao": icao.upper(),
-        "label": f'{icao.upper()} - {str(airport_name)}'
+def read_flightplan_key(file):
+    with open(file) as f:
+        return f.read().replace('\n', '')
+
+
+def build_airport_metadata(api_key, icao, airport_json_file, output_file):
+    icao = icao.upper()
+    header = {'Authorization': api_key}
+    url = f'https://api.flightplandatabase.com/nav/airport/{icao}'
+    response = requests.get(url, headers=header).json()
+    airport_name = response["name"]
+    airport_label = f'{icao} - {airport_name}'
+    metadata = {
+        "ICAO": response["ICAO"],
+        "IATA": response["IATA"],
+        "name": response["name"],
+        "lat": response["lat"],
+        "lon": response["lon"],
+        "elevation": response["elevation"],
+        "regionName": response["regionName"],
+        "magneticVariation": response["magneticVariation"],
+        "runwayCount": response["runwayCount"],
+        "runways": response["runways"],
+        "frequencies": response["frequencies"]
     }
-    with open(json_file) as f:
-        data = json.load(f)
-        data[icao] = to_add
-    write_json(data, json_file)
+
+    if os.path.exists(output_file):
+        os.remove(output_file)
+
+    filename = Path(output_file)
+    filename.touch(exist_ok=True)
+    write_json(metadata, output_file)
+
+    with open(airport_json_file) as f:
+        map_data = json.load(f)
+        if icao not in map_data:
+            map_data[icao] = {
+                "icao": icao,
+                "label": airport_label
+            }
+        write_json(map_data, airport_json_file)

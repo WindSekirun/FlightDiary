@@ -1,3 +1,4 @@
 Pillow
 xmltodict
 beautifulsoup4
+requests

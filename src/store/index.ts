@@ -24,6 +24,8 @@ import {
   getWaypointTuple
 } from "@/calculator/LeafletCalculator";
 import {
+  getApproachInformation,
+  getFullPlanTitle,
   getPlanRoute,
   getPlanSubtitle,
   getPlanTitle
@@ -152,6 +154,8 @@ const store = new Vuex.Store({
       const metadata = state.detailMetadata || ({} as Metadata);
       data.planTitle = getPlanTitle(metadata);
       data.planSubtitle = getPlanSubtitle(metadata);
+      data.approachTitle = getApproachInformation(metadata);
+      data.fullPlanTitle = getFullPlanTitle(metadata);
       return data;
     },
     getFlightPlanData: (state) => {

@@ -5,4 +5,5 @@ export class MarkerData {
   anchor: [number, number];
   icon: string;
   ident: string;
+  tooltipText: string;
 }

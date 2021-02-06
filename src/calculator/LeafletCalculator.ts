@@ -1,7 +1,7 @@
 import { MarkerData } from "@/model/vo/MarkerData";
 import { Metadata } from "@/model/plan/Metadata";
 import { LatLngBounds, LatLngTuple, marker } from "leaflet";
-import { findIconOfWaypoint } from "./PlanCalculator";
+import { buildTooltipOfWaypoint, findIconOfWaypoint } from "./PlanCalculator";
 
 /**
  * Getting Departure's LatLngs from Metadata
@@ -51,6 +51,11 @@ export function getWaypointMarker(metadata: Metadata): MarkerData[] {
       markerData.anchor = [10, 12];
       markerData.icon = findIconOfWaypoint(index, lastIndex, element);
       markerData.ident = element.ident;
+      markerData.tooltipText = buildTooltipOfWaypoint(
+        index,
+        lastIndex,
+        element
+      );
       return markerData;
     })
     .filter((element) => element.latLng[0] != 0 && element.latLng[1] != 0);

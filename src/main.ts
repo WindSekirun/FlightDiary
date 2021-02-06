@@ -17,7 +17,8 @@ import {
   LMarker,
   LPolyline,
   LControl,
-  LIcon
+  LIcon,
+  LTooltip
 } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -37,6 +38,7 @@ Vue.component("l-marker", LMarker);
 Vue.component("l-polyline", LPolyline);
 Vue.component("l-control", LControl);
 Vue.component("l-icon", LIcon);
+Vue.component("l-tooltip", LTooltip);
 
 new Vue({
   router,

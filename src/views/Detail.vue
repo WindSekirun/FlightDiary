@@ -2,8 +2,9 @@
   <v-row>
     <v-col>
       <v-sheet color="#3b4252" rounded="lg" class="pa-5">
-        <h1>{{ detailData.planTitle }}</h1>
-        <h4>{{ detailData.planSubtitle }}</h4>
+        <h1>{{ detailData.fullPlanTitle }}</h1>
+        <h2 class="mt-2">{{ detailData.approachTitle }}</h2>
+        <h4 class="mt-1">{{ detailData.planSubtitle }}</h4>
         <flight-plan />
       </v-sheet>
     </v-col>

@@ -1,9 +1,19 @@
 <template>
   <div>
-    <h2 class="mt-5">Flight Plan</h2>
-    <p class="text-center mt-2">{{ planData.planRoute }}</p>
+    <v-row class="mt-5 ms-0">
+      <h2>Flight Plan</h2>
+      <v-btn class="ms-5" color="#8fbcbb" @click="showTable = !showTable">
+        Show on table
+      </v-btn>
+    </v-row>
+
+    <div v-if="showTable" class="mt-5">
+      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </div>
+
+    <p class="text-center mt-5">{{ planData.planRoute }}</p>
     <v-btn
-      class="mr-2 mt-2 mr-4 d-xs-flex d-sm-flex d-md-none"
+      class="mt-2 d-xs-flex d-sm-flex d-md-none"
       color="#2e3440"
       block
       @click="fitToPlan()"
@@ -17,7 +27,7 @@
           <l-polyline :lat-lngs="planData.latLngs" color="#4c566a"></l-polyline>
           <l-control>
             <v-btn
-              class="mr-2 mt-2 mr-4 d-none d-md-flex"
+              class="mt-2 mr-2 d-none d-md-flex"
               color="#2e3440"
               @click="fitToPlan()"
             >
@@ -29,6 +39,9 @@
           </l-control>
           <div v-for="(marker, index) in planData.markers" :key="index">
             <l-marker :lat-lng="marker.latLng">
+              <l-tooltip :options="{ direction: 'top' }">
+                {{ marker.tooltipText }}
+              </l-tooltip>
               <l-icon :icon-anchor="marker.anchor" class-name="marker-icon">
                 <img :src="marker.icon" />
               </l-icon>
@@ -41,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Model, Prop, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 import { FlightPlanData } from "@/model/vo/FlightPlanData";
 import { Map, Point } from "leaflet";
@@ -58,6 +71,7 @@ export default class FlightItem extends Vue {
   planData!: FlightPlanData;
   @Prop({ default: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" })
   url!: string;
+  @Model("input", { type: Boolean, default: false }) showTable!: boolean;
   @Prop({
     default:
       '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

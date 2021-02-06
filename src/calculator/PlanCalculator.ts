@@ -18,8 +18,31 @@ export function getPlanTitle(metadata: Metadata): string {
   return `${metadata.planType} ${metadata.departure.icao} → ${metadata.destination.icao}`;
 }
 
+/**
+ * Getting plan's full title including airport name
+ * @param metadata
+ */
 export function getFullPlanTitle(metadata: Metadata): string {
-  return `${metadata.planType} ${metadata.departure.icao} → ${metadata.destination.icao}`;
+  return `${metadata.planType} ${metadata.departure.name} (${metadata.departure.icao}) → ${metadata.destination.name} (${metadata.destination.icao})`;
+}
+
+/**
+ * Getting plan's approach information
+ */
+export function getApproachInformation(metadata: Metadata): string {
+  const sid = metadata.procedures.sid;
+  const approach = metadata.procedures.approach;
+
+  let information = `Depart runway ${sid.runway} via SID ${sid.name} . `;
+  if (approach.transition) {
+    information += `Via ${approach.transition} and `;
+  } else {
+    information += `Via `;
+  }
+
+  information += `${approach.transition} ${approach.name} (${approach.arinc}) to runway ${approach.runway} .`;
+
+  return information;
 }
 
 /**
@@ -28,7 +51,7 @@ export function getFullPlanTitle(metadata: Metadata): string {
  */
 export function getPlanSubtitle(metadata: Metadata): string {
   return `${metadata.flightTime} | ${displayNm(metadata.distance)} |
-  ${displayFt(metadata.cruiseAlt)} | ${metadata.aircraft}`;
+${displayFt(metadata.cruiseAlt)} | ${metadata.aircraft}`;
 }
 
 /**
@@ -77,4 +100,29 @@ export function findIconOfWaypoint(
   }
 
   return markerIcon;
+}
+
+export function buildTooltipOfWaypoint(
+  index: number,
+  lastIndex: number,
+  waypoint: Waypoint
+) {
+  const ident = waypoint.ident;
+  let tooltip;
+  if (index == 0) {
+    tooltip = `Departure ${ident}`;
+  } else if (index == lastIndex) {
+    tooltip = `Destination ${ident}`;
+  } else if (waypoint.type != "") {
+    tooltip = `${waypoint.type} - ${ident}`;
+    if (waypoint.alt != "") {
+      tooltip += ` in ${displayFt(waypoint.alt)}`;
+    }
+  } else {
+    tooltip = `${ident}`;
+    if (waypoint.alt != "") {
+      tooltip += ` in ${displayFt(waypoint.alt)}`;
+    }
+  }
+  return tooltip;
 }

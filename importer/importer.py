@@ -10,6 +10,7 @@ import os
 import uuid
 import json
 import shutil
+import re
 
 # declare variables
 pwd = os.path.dirname(os.path.realpath(__file__))
@@ -44,12 +45,20 @@ target_html = find_plans(target_folder, 'html')
 print()
 
 # enter metadata of airport
-print('Enter ICAO code of departure airport. Example: RKSI RJAA LFPG KJFK')
-departure_icao = input('Departure Airport ICAO: ').upper()
+# auto-resolve airport name
+lnmpln_name = str(os.path.basename(target_lnmpln))
+possible_airport_icao = re.findall('[(]+[\w]+', lnmpln_name, re.IGNORECASE)
+departure_icao = possible_airport_icao[0].replace('(', '')
+destination_icao = possible_airport_icao[1].replace('(', '')
+
+if not departure_icao:
+    print('Enter ICAO code of departure airport. Example: RKSI RJAA LFPG KJFK')
+    departure_icao = input('Departure Airport ICAO: ').upper()
 
 print()
-print('Enter ICAO code of destination airport.')
-destination_icao = input('Destination Airport ICAO: ').upper()
+if not destination_icao:
+    print('Enter ICAO code of destination airport. Example: RKSI RJAA LFPG KJFK')
+    destination_icao = input('Destination Airport ICAO: ').upper()
 
 if departure_icao not in airport_json:
     request_airport_data(departure_icao, airport_map_file)

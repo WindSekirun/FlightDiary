@@ -11,5 +11,5 @@ export function displayFt(ft: string): string {
   const km = Math.ceil(unit * 0.3048)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  return `${ft} / ${km} km`;
+  return `${ft.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ft / ${km} km`;
 }

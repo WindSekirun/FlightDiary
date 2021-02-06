@@ -8,7 +8,7 @@ import {
 } from "@/Constants";
 import { Metadata } from "@/model/plan/Metadata";
 import { Waypoint } from "@/model/plan/Waypoint";
-import { displayNm } from "./UnitCalculator";
+import { displayFt, displayNm } from "./UnitCalculator";
 
 /**
  * Getting plan's title
@@ -18,14 +18,17 @@ export function getPlanTitle(metadata: Metadata): string {
   return `${metadata.planType} ${metadata.departure.icao} → ${metadata.destination.icao}`;
 }
 
+export function getFullPlanTitle(metadata: Metadata): string {
+  return `${metadata.planType} ${metadata.departure.icao} → ${metadata.destination.icao}`;
+}
+
 /**
  * Getting plan's subtitle
  * @param metadata
  */
 export function getPlanSubtitle(metadata: Metadata): string {
-  return `${metadata.flightTime} | ${displayNm(metadata.distance)} | ${
-    metadata.aircraft
-  }`;
+  return `${metadata.flightTime} | ${displayNm(metadata.distance)} |
+  ${displayFt(metadata.cruiseAlt)} | ${metadata.aircraft}`;
 }
 
 /**

@@ -15,14 +15,18 @@ import { LOAD_DETAIL_DATA } from "@/Constants";
 import store from "@/store";
 import FlightPlan from "@/components/FlightPlan.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
+import { Metadata } from "@/model/plan/Metadata";
 
 @Component({
   components: {
     FlightPlan
   },
   computed: {
+    ...mapState({
+      metadata: "detailMetadata"
+    }),
     ...mapGetters({
       detailData: "getDetailData"
     })
@@ -30,6 +34,7 @@ import { DetailData } from "@/model/vo/DetailData";
 })
 export default class Detail extends Vue {
   detailData!: DetailData;
+  metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
 

@@ -8,7 +8,6 @@ import {
   SAVE_DEPARTURE_DATA,
   SAVE_DESTINATION_DATA
 } from "@/Constants";
-import { displayNm } from "@/calculator/UnitCalculator";
 import { AirportDetail } from "@/model/airport/AirportDetail";
 import { Aircraft } from "@/model/list/Aircraft";
 import { Airport } from "@/model/list/Airport";
@@ -24,7 +23,11 @@ import {
   getWaypointMarker,
   getWaypointTuple
 } from "@/calculator/LeafletCalculator";
-import { getPlanSubtitle, getPlanTitle } from "@/calculator/PlanCalculator";
+import {
+  getPlanRoute,
+  getPlanSubtitle,
+  getPlanTitle
+} from "@/calculator/PlanCalculator";
 
 Vue.use(Vuex);
 
@@ -157,6 +160,7 @@ const store = new Vuex.Store({
       data.planTitle = getPlanTitle(metadata);
       data.bounds = getMapBounds(metadata);
       data.latLngs = getWaypointTuple(metadata);
+      data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
       return data;
     }

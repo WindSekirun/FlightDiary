@@ -1,7 +1,7 @@
 import { MarkerData } from "@/model/vo/MarkerData";
 import { Metadata } from "@/model/plan/Metadata";
-import { LatLngBounds, LatLngTuple } from "leaflet";
-
+import { LatLngBounds, LatLngTuple, marker } from "leaflet";
+import { findIconOfWaypoint } from "./PlanCalculator";
 
 /**
  * Getting Departure's LatLngs from Metadata
@@ -38,10 +38,20 @@ export function getWaypointTuple(metadata: Metadata): LatLngTuple[] {
     .filter((element) => element[0] != 0 && element[1] != 0);
 }
 
+/**
+ * Getting waypoint's marker data from
+ * @param metadata
+ */
 export function getWaypointMarker(metadata: Metadata): MarkerData[] {
-  return metadata.waypoint.map((element) => {
-    const markerData = new MarkerData();
-    markerData.latLng = [element.lat, element.lng] as LatLngTuple;
-    return markerData;
-  });
+  const lastIndex = metadata.waypoint.length - 1;
+  return metadata.waypoint
+    .map((element, index) => {
+      const markerData = new MarkerData();
+      markerData.latLng = [element.lat, element.lng] as LatLngTuple;
+      markerData.anchor = [10, 12];
+      markerData.icon = findIconOfWaypoint(index, lastIndex, element);
+      markerData.ident = element.ident;
+      return markerData;
+    })
+    .filter((element) => element.latLng[0] != 0 && element.latLng[1] != 0);
 }

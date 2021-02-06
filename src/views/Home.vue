@@ -72,10 +72,10 @@ import FlightItem from "@/components/FlightItem.vue";
 import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
 import { mapState } from "vuex";
-import { Aircraft } from "@/model/metadata/Aircraft";
 import { SearchData } from "@/model/SearchData";
 import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
+import { Aircraft } from "@/model/list/Aircraft";
 
 @Component({
   components: {
@@ -114,7 +114,7 @@ export default class Home extends Vue {
 
   created() {
     store.dispatch(LOAD_MAIN_DATA);
-    if (localStorage.searchOptions == '0') {
+    if (localStorage.searchOptions == "0") {
       this.searchOptions = 0;
     }
   }

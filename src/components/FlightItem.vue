@@ -18,7 +18,7 @@
       </template>
     </v-img>
     <v-card-subtitle>
-      {{ item.flightTime }}
+      {{ item.flightTime }} | {{ distance }}
       <br />
       {{ item.aircraft }}
     </v-card-subtitle>
@@ -29,21 +29,22 @@
 import { baseDomain } from "@/Constants";
 import { ListItem } from "@/model/list/ListItem";
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { displayNm } from "@/formatter/UnitFormatter";
 
 @Component
 export default class FlightItem extends Vue {
   @Prop({ required: true }) item!: ListItem;
 
   get title(): string {
-    return `${this.item.departure.icao} → ${this.item.destination.icao}`;
-  }
-
-  get information(): string {
-    return `${this.item.flightTime} | ${this.item.aircraft}`;
+    return `${this.item.planType} ${this.item.departure.icao} → ${this.item.destination.icao}`;
   }
 
   get thumbnail(): string {
     return `${baseDomain}/data/${this.item.id}/${this.item.mainThumbnail}`;
+  }
+
+  get distance(): string {
+    return displayNm(this.item.distance);
   }
 }
 </script>

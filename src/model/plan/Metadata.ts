@@ -7,6 +7,7 @@ export interface Metadata {
   departure: Airport;
   destination: Airport;
   flightTime: string;
+  aircraft: string;
   mainThumbnail: string;
   images: string[];
   flightPlanFile: string;

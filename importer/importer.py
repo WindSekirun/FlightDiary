@@ -1,7 +1,7 @@
 from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
 from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint, read_aircraft
 from tablereader import read_distance, read_waypoint_from_html
-from optimize import optimize_images, optimize_thumbnail
+from optimize import optimize_images, resize
 from datetime import date
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -42,8 +42,6 @@ if not target_png:
 target_lnmpln = find_plans(target_folder, 'lnmpln')
 target_html = find_plans(target_folder, 'html')
 
-print()
-
 # enter metadata of airport
 # auto-resolve airport name
 lnmpln_name = str(os.path.basename(target_lnmpln))
@@ -52,11 +50,12 @@ departure_icao = possible_airport_icao[0].replace('(', '')
 destination_icao = possible_airport_icao[1].replace('(', '')
 
 if not departure_icao:
+    print()
     print('Enter ICAO code of departure airport. Example: RKSI RJAA LFPG KJFK')
     departure_icao = input('Departure Airport ICAO: ').upper()
 
-print()
 if not destination_icao:
+    print()
     print('Enter ICAO code of destination airport. Example: RKSI RJAA LFPG KJFK')
     destination_icao = input('Destination Airport ICAO: ').upper()
 
@@ -65,6 +64,9 @@ if departure_icao not in airport_json:
 
 if destination_icao not in airport_json and departure_icao != destination_icao:
     request_airport_data(destination_icao, airport_map_file)
+
+print()
+print("Reading Flight Plan Data...")
 
 airport_json = read_json(airport_map_file)
 flight_time = date.today().strftime("%Y-%m-%d")
@@ -126,17 +128,30 @@ print('Starting Image Optimization...')
 optimize_images()
 
 result_images = list(map(lambda x: os.path.basename(x), find_webp_files(target_folder)))
+result_origin_images = list(map(lambda x: os.path.basename(x), find_png_files(target_folder)))
 
 print()
 print('Select main thumbnail of this flight')
-print('See \'target\' folder and enter name of file. Example: 00001.webp')
-main_thumbnail = input('Name of main thumbnail file: ')
-if main_thumbnail not in result_images:
-    print(f'Invalid name for {main_thumbnail}, select first image as main thumbnail image')
-    main_thumbnail = result_images[0]
+print('See \'target\' folder and enter index of file')
+print('Possible answer')
 
-shutil.copy(os.path.join(target_folder, main_thumbnail), os.path.join(target_folder, "main.webp"))
-optimize_thumbnail(os.path.join(target_folder, "main.webp"))
+for index, origin_image in enumerate(result_origin_images):
+    print(f'{index} -> {origin_image}')
+
+main_thumbnail_index = input('Index of main thumbnail file: ')
+main_thumbnail = result_origin_images[int(main_thumbnail_index)]
+if main_thumbnail not in result_origin_images:
+    print(f'Invalid name for {main_thumbnail}, select first image as main thumbnail image')
+    main_thumbnail = result_origin_images[0]
+
+thumbnail_file = os.path.join(target_folder, "main.png")
+shutil.copy(os.path.join(target_folder, main_thumbnail), thumbnail_file)
+print()
+resize(thumbnail_file, 640)
+
+# remove origin files
+for origin_image in result_origin_images:
+    os.remove(os.path.join(target_folder, origin_image))
 
 print('Building metadata.json')
 

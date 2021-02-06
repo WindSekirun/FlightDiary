@@ -1,3 +1,7 @@
+import shutil
+
+import PIL
+from PIL.Image import NEAREST
 from tools import find_png_files
 from PIL import Image
 from pathlib import Path
@@ -6,31 +10,22 @@ import os
 import subprocess
 
 pwd = os.path.dirname(os.path.realpath(__file__))
-desired = 1280, 720
-desired_thumbnail = 640, 360
 
 
-def optimize(file):
-    print(file)
-
+def resize(file, desired_width):
     # resize to desired size
-    im = Image.open(file)
-    im.thumbnail(desired)
-    im.save(file, quality=100)
+    img = Image.open(file)
+    wpercent = (desired_width / float(img.size[0]))
+    hsize = int((float(img.size[1]) * float(wpercent)))
+    img = img.resize((desired_width, hsize), PIL.Image.ANTIALIAS)
+    img.save(file)
 
     # optipng -> cwebp lossless optimization
     input_file_name = Path(file).stem
     output_file = os.path.join(pwd, 'target', f'{input_file_name}.webp')
     subprocess.call(['optipng', '-o2', '-quiet', file])
     subprocess.call(['cwebp', '-lossless', '-q', '100', '-quiet', file, '-o', output_file])
-    os.remove(os.path.join(pwd, 'target', f'{input_file_name}.png')) # remove png file
-
-
-def optimize_thumbnail(file):
-    print(file)
-    im = Image.open(file)
-    im.thumbnail(desired_thumbnail)
-    im.save(file, quality=100)
+    os.remove(os.path.join(pwd, 'target', f'{input_file_name}.png'))  # remove png file
 
 
 def optimize_images():
@@ -49,7 +44,9 @@ def optimize_images():
 
     target_files = find_png_files(os.path.join(pwd, 'target'))
     for file in target_files:
-       optimize(file)
+        new_filename = "r" + os.path.basename(file)
+        shutil.copy(file, os.path.join(os.path.join(pwd, 'target'), new_filename))
+        resize(os.path.join(pwd, 'target', new_filename), 1280)
 
     t2 = time()
     elapsed = t2 - t1

@@ -112,11 +112,12 @@ export default class Home extends Vue {
     localStorage.searchOptions = newVal;
   }
 
-  mounted() {
-    store.dispatch(LOAD_MAIN_DATA);
-    if (localStorage.searchOptions == "0") {
-      this.searchOptions = 0;
-    }
+  async mounted() {
+    await store.dispatch(LOAD_MAIN_DATA).then(() => {
+      if (localStorage.searchOptions == "0") {
+        this.searchOptions = 0;
+      }
+    });
   }
 
   clearOptions() {

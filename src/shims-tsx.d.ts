@@ -11,3 +11,9 @@ declare global {
     }
   }
 }
+declare module "vue-router" {
+  interface Next<T extends Vue = Vue> {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    (to?: (vm: T) => any): void;
+  }
+}

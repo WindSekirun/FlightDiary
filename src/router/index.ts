@@ -1,7 +1,8 @@
-import { applicationTitle } from "@/Constants";
+import { applicationTitle, LOAD_DETAIL_DATA } from "@/Constants";
 import { pageAbout, pageDetail, pageHome, pageSpec } from "@/model/PageRouter";
+import store from "@/store";
 import Vue from "vue";
-import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
+import VueRouter, { Next, RawLocation, Route, RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -38,7 +39,15 @@ const routes: Array<RouteConfig> = [
       title: `${pageDetail.name} - ${applicationTitle}`
     },
     component: () => import("../views/Detail.vue"),
-    props: true
+    props: true,
+    beforeEnter: function(to: Route, from: Route, next) {
+      store
+        .dispatch(LOAD_DETAIL_DATA, {
+          id: to.params.id,
+          airport: to.params.airport
+        })
+        .then(() => next());
+    }
   }
 ];
 

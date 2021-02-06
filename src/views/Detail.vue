@@ -11,13 +11,13 @@
 </template>
 
 <script lang="ts">
-import { LOAD_DETAIL_DATA } from "@/Constants";
-import store from "@/store";
 import FlightPlan from "@/components/FlightPlan.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
+
+// Component.registerHooks(["beforeRouteEnter"]);
 
 @Component({
   components: {
@@ -37,9 +37,5 @@ export default class Detail extends Vue {
   metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
-
-  mounted() {
-    store.dispatch(LOAD_DETAIL_DATA, { id: this.id, airport: this.airport });
-  }
 }
 </script>

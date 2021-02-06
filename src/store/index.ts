@@ -79,7 +79,7 @@ const store = new Vuex.Store({
       const airportMap = Vue.axios.get("airportmap.json");
       const aircraft = Vue.axios.get("aircraft.json");
 
-      Vue.axios
+      return Vue.axios
         .all([data, airportMap, aircraft])
         .then(
           Vue.axios.spread((...responses) => {
@@ -102,7 +102,7 @@ const store = new Vuex.Store({
       const departure = Vue.axios.get(`data/airport/${departureIcao}.json`);
       const destination = Vue.axios.get(`data/airport/${destinationIcao}.json`);
 
-      Vue.axios
+      return Vue.axios
         .all([metadata, departure, destination])
         .then(
           Vue.axios.spread((...responses) => {

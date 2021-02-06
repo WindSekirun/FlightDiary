@@ -10,24 +10,9 @@
             <b> {{ title }}</b>
           </v-btn>
 
-          <v-btn
-            v-for="(link, index) in appBarLinks"
-            :key="index"
-            class="d-none d-md-flex"
-            text
-            @click="clickAppBarLink(link)"
-          >
-            {{ link.name }}
-          </v-btn>
-
           <v-spacer></v-spacer>
 
-          <v-menu
-            bottom
-            left
-            class="md-xs-flex d-sm-flex d-md-none"
-            :close-on-click="true"
-          >
+          <v-menu bottom left :close-on-click="true">
             <template v-slot:activator="{ on, attrs }">
               <v-btn dark icon v-bind="attrs" v-on="on">
                 <v-icon>mdi-dots-vertical</v-icon>
@@ -36,7 +21,9 @@
 
             <v-list>
               <v-list-item v-for="(item, index) in appBarLinks" :key="index">
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
+                <v-list-item-title @click="clickAppBarLink(item)">
+                  {{ item.name }}
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>

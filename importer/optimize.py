@@ -6,7 +6,8 @@ import os
 import subprocess
 
 pwd = os.path.dirname(os.path.realpath(__file__))
-desired = 1280, 720 
+desired = 1280, 720
+desired_thumbnail = 640, 360
 
 
 def optimize(file):
@@ -23,6 +24,13 @@ def optimize(file):
     subprocess.call(['optipng', '-o2', '-quiet', file])
     subprocess.call(['cwebp', '-lossless', '-q', '100', '-quiet', file, '-o', output_file])
     os.remove(os.path.join(pwd, 'target', f'{input_file_name}.png')) # remove png file
+
+
+def optimize_thumbnail(file):
+    print(file)
+    im = Image.open(file)
+    im.thumbnail(desired_thumbnail)
+    im.save(file, quality=100)
 
 
 def optimize_images():

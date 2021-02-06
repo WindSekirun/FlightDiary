@@ -1,7 +1,7 @@
 from tools import find_plans, find_png_files, find_webp_files, read_json, request_airport_data, write_json, find_all_files
 from plnreader import read_cruise, read_plan_type, read_sid, read_approach, read_waypoint, read_aircraft
 from tablereader import read_distance, read_waypoint_from_html
-from optimize import optimize_images
+from optimize import optimize_images, optimize_thumbnail
 from datetime import date
 from pathlib import Path
 from bs4 import BeautifulSoup
@@ -126,7 +126,9 @@ if main_thumbnail not in result_images:
     print(f'Invalid name for {main_thumbnail}, select first image as main thumbnail image')
     main_thumbnail = result_images[0]
 
-print()
+shutil.copy(os.path.join(target_folder, main_thumbnail), os.path.join(target_folder, "main.webp"))
+optimize_thumbnail(os.path.join(target_folder, "main.webp"))
+
 print('Building metadata.json')
 
 result_metadata_departure = airport_json[departure_icao]
@@ -138,7 +140,7 @@ metadata = {
     "destination": result_metadata_destination,
     "aircraft": aircraft_type,
     "flightTime": flight_time,
-    "mainThumbnail": main_thumbnail,
+    "mainThumbnail": "main.webp",
     "images": result_images,
     "flightPlanFile": f"{data_id}.lnmpln",
     "planType": plan_type,
@@ -161,7 +163,7 @@ list_data = {
     "departure": result_metadata_departure,
     "destination": result_metadata_destination,
     "flightTime": flight_time,
-    "mainThumbnail": main_thumbnail,
+    "mainThumbnail": "main.webp",
     "aircraft": aircraft_type,
 }
 

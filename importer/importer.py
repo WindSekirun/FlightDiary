@@ -198,6 +198,8 @@ list_data = {
     "flightTime": flight_time,
     "mainThumbnail": "main.webp",
     "aircraft": aircraft_type,
+    "planType": plan_type,
+    "distance": plan_distance,
 }
 
 with open(data_file) as f:

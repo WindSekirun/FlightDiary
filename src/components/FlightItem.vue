@@ -7,7 +7,7 @@
       :eager="16 / 9"
       class="white--text align-end"
     >
-      <v-card-title>{{ title }}</v-card-title>
+      <v-card-title class="text-stroke">{{ title }}</v-card-title>
       <template v-slot:placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
           <v-progress-circular
@@ -47,3 +47,10 @@ export default class FlightItem extends Vue {
   }
 }
 </script>
+
+<style>
+.text-stroke {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+</style>

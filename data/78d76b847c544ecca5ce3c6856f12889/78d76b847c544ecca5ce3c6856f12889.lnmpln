@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-01-26T22:26:22</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="1801">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="-110.883171" Lat="32.166382" Alt="2646.00"/>
+      <Start>12</Start>
+    </Departure>
+    <Procedures>
+      <Approach>
+        <Name>NEELY</Name>
+        <ARINC>I09</ARINC>
+        <Runway>09</Runway>
+        <Type>ILS</Type>
+        <Transition>SAX</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Davis Monthan AFB</Name>
+        <Ident>KDMA</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-110.883171" Lat="32.166382" Alt="2646.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SSAND</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-110.330894" Lat="32.159275" Alt="12665.75"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>San Simon</Name>
+        <Ident>SSO</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-109.263092" Lat="32.269245" Alt="32168.15"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WOBUG</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-108.895607" Lat="32.590012" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GREBE</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-108.163620" Lat="33.219101" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TMACK</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-108.045769" Lat="33.319115" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Socorro</Name>
+        <Ident>ONM</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-106.820473" Lat="34.338902" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Fort Union</Name>
+        <Ident>FTI</Ident>
+        <Region>K2</Region>
+        <Airway>J104</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-105.135597" Lat="35.657551" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KENTO</Ident>
+        <Region>K2</Region>
+        <Airway>J18</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-103.099205" Lat="36.738640" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DRAWL</Ident>
+        <Region>K3</Region>
+        <Airway>J18</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-101.617256" Lat="37.485409" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Garden City</Name>
+        <Ident>GCK</Ident>
+        <Region>K3</Region>
+        <Airway>J18</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-100.725006" Lat="37.919003" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Salina</Name>
+        <Ident>SLN</Ident>
+        <Region>K3</Region>
+        <Airway>J18</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-97.621330" Lat="38.925140" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>JUDGE</Ident>
+        <Region>K3</Region>
+        <Airway>J24</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-96.918839" Lat="39.019779" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Kansas City</Name>
+        <Ident>MCI</Ident>
+        <Region>K3</Region>
+        <Airway>J24</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-94.737061" Lat="39.285282" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SAAGS</Ident>
+        <Region>K3</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-93.286362" Lat="39.467838" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TWAIN</Ident>
+        <Region>K3</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-91.443092" Lat="39.672375" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BAYLI</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-91.079620" Lat="39.708961" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Spinner Springfield</Name>
+        <Ident>SPI</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-89.677734" Lat="39.839733" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GORDO</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-88.512032" Lat="39.841770" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>JAAVE</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-88.254723" Lat="39.840527" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Brickyard</Name>
+        <Ident>VHP</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-86.367500" Lat="39.814728" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>FYLLS</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-84.630508" Lat="39.906754" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CREEP</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-84.308723" Lat="39.920910" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>EMPTY</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-83.186943" Lat="39.963299" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BOWRR</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-83.032356" Lat="39.966114" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ZANDR</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-81.532875" Lat="40.005207" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CORVS</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-81.230942" Lat="40.011124" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Bellaire</Name>
+        <Ident>AIR</Ident>
+        <Region>K5</Region>
+        <Airway>J80</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-80.817230" Lat="40.017025" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LEJOY</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-79.414894" Lat="40.003395" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VINSE</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-77.955887" Lat="39.971169" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BEETS</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-77.449875" Lat="39.955715" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>HOTEE</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-76.493614" Lat="40.343334" Alt="36404.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MIKYG</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.819725" Lat="40.601665" Alt="28310.18"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SPOTZ</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.383057" Lat="40.765278" Alt="23102.50"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CANDR</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.959831" Lat="40.970985" Alt="17738.24"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>JEFFF</Ident>
+        <Region>K6</Region>
+        <Airway>Q480</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.462029" Lat="41.246216" Alt="11178.81"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Stewart Intl</Name>
+        <Ident>KSWF</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-74.102638" Lat="41.504124" Alt="465.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

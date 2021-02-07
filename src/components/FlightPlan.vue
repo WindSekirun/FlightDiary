@@ -8,7 +8,7 @@
     </v-row>
 
     <div v-if="showTable" class="mt-5">
-      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      <flight-plan-table />
     </div>
 
     <p class="text-center mt-5">{{ planData.planRoute }}</p>
@@ -58,9 +58,12 @@ import { Component, Model, Prop, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 import { FlightPlanData } from "@/model/vo/FlightPlanData";
 import { Map, Point } from "leaflet";
+import FlightPlanTable from "./FlightPlanTable.vue";
 
 @Component({
-  components: {},
+  components: {
+    FlightPlanTable
+  },
   computed: {
     ...mapGetters({
       planData: "getFlightPlanData"

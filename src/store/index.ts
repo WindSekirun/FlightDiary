@@ -27,6 +27,7 @@ import {
   getApproachInformation,
   getFullPlanTitle,
   getPlanRoute,
+  getPlanRouteTable,
   getPlanSubtitle,
   getPlanTitle
 } from "@/calculator/PlanCalculator";
@@ -167,6 +168,10 @@ const store = new Vuex.Store({
       data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
       return data;
+    },
+    getFlightPlanTable: (state) => {
+      const metadata = state.detailMetadata || ({} as Metadata);
+      return getPlanRouteTable(metadata);
     }
   }
 });

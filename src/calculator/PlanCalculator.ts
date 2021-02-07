@@ -8,6 +8,10 @@ import {
 } from "@/Constants";
 import { Metadata } from "@/model/plan/Metadata";
 import { Waypoint } from "@/model/plan/Waypoint";
+import {
+  FlightPlanRouteData,
+  FlightPlanTableContent
+} from "@/model/vo/FlightPlanRoute";
 import { displayFt, displayNm } from "./UnitCalculator";
 
 /**
@@ -124,4 +128,24 @@ export function buildTooltipOfWaypoint(
     }
   }
   return tooltip;
+}
+
+export function getPlanRouteTable(metadata: Metadata): FlightPlanRouteData {
+  const data = new FlightPlanRouteData();
+  data.contents = metadata.waypoint.map((element) => {
+    const route = new FlightPlanTableContent();
+    route.ident = element.ident;
+    route.region = element.region;
+    route.name = element.name;
+    route.procedure = element.procedure;
+    route.airway = element.airway;
+    route.restrictionKt = element.restrictKt;
+    route.type = element.type;
+    route.freq = element.freq;
+    route.distance = element.distance;
+    route.wind = element.wind;
+    route.remarks = element.remarks;
+    return route;
+  });
+  return data;
 }

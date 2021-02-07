@@ -20,6 +20,7 @@ import {
   LIcon,
   LTooltip
 } from "vue2-leaflet";
+
 import "leaflet/dist/leaflet.css";
 
 import "vue-select/dist/vue-select.css";

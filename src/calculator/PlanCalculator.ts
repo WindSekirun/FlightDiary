@@ -1,4 +1,5 @@
 import {
+  baseDomain,
   FP_DEPARTURE,
   FP_DESTINATION,
   FP_DME,
@@ -66,6 +67,14 @@ export function getApproachInformation(metadata: Metadata): string {
 export function getPlanSubtitle(metadata: Metadata): string {
   return `${metadata.flightTime} | ${displayNm(metadata.distance)} |
 ${displayFt(metadata.cruiseAlt)} | ${metadata.aircraft}`;
+}
+
+/**
+ * Getting plan's image list
+ * @param metadata
+ */
+export function getPlanImageList(metadata: Metadata): string[] {
+  return metadata.images.map((element) => `${baseDomain}data/${metadata.id}/${element}`);
 }
 
 /**

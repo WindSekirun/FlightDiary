@@ -3,4 +3,5 @@ export class DetailData {
   fullPlanTitle: string;
   approachTitle: string;
   planSubtitle: string;
+  imageList: string[];
 }

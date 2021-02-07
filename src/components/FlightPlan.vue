@@ -96,8 +96,10 @@ export default class FlightItem extends Vue {
         return 16 / 9;
       case "md":
         return 16 / 9;
-      default:
+      case "lg":
         return 21 / 9;
+      default:
+        return 25 / 9;
     }
   }
 

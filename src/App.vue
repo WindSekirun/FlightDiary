@@ -20,8 +20,12 @@
             </template>
 
             <v-list>
-              <v-list-item v-for="(item, index) in appBarLinks" :key="index">
-                <v-list-item-title @click="clickAppBarLink(item)">
+              <v-list-item
+                v-for="(item, index) in appBarLinks"
+                :key="index"
+                @click="clickAppBarLink(item)"
+              >
+                <v-list-item-title>
                   {{ item.name }}
                 </v-list-item-title>
               </v-list-item>

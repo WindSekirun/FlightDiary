@@ -18,8 +18,6 @@ import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
 
-// Component.registerHooks(["beforeRouteEnter"]);
-
 @Component({
   components: {
     FlightPlan

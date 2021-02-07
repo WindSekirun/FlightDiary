@@ -29,7 +29,8 @@ import {
   getPlanRoute,
   getFlightPlanRouteData,
   getPlanSubtitle,
-  getPlanTitle
+  getPlanTitle,
+  getPlanImageList
 } from "@/calculator/PlanCalculator";
 
 Vue.use(Vuex);
@@ -155,6 +156,7 @@ const store = new Vuex.Store({
       const metadata = state.detailMetadata || ({} as Metadata);
       data.planTitle = getPlanTitle(metadata);
       data.planSubtitle = getPlanSubtitle(metadata);
+      data.imageList = getPlanImageList(metadata);
       data.approachTitle = getApproachInformation(metadata);
       data.fullPlanTitle = getFullPlanTitle(metadata);
       return data;

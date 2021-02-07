@@ -1,5 +1,3 @@
-/* eslint @typescript-eslint/no-var-requires: "off" */
-
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -22,8 +20,9 @@ import {
   LIcon,
   LTooltip
 } from "vue2-leaflet";
-//
-const VuePictureSwipe = require("vue-picture-swipe");
+/* eslint-disable */
+// @ts-ignore
+import VuePictureSwipe from "vue-picture-swipe";
 
 import "leaflet/dist/leaflet.css";
 

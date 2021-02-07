@@ -2,7 +2,7 @@ import { applicationTitle, LOAD_DETAIL_DATA } from "@/Constants";
 import { pageAbout, pageDetail, pageHome, pageSpec } from "@/model/PageRouter";
 import store from "@/store";
 import Vue from "vue";
-import VueRouter, { Next, RawLocation, Route, RouteConfig } from "vue-router";
+import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);

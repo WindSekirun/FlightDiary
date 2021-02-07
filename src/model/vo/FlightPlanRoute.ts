@@ -28,7 +28,6 @@ export class FlightPlanTableContent {
   freq: string;
   distance: string;
   wind: string;
-  remarks: string;
   key: string;
 }
 
@@ -55,4 +54,3 @@ export const HEADER_DISTANCE = new FlightPlanTableHeader(
   "distance"
 );
 export const HEADER_WIND = new FlightPlanTableHeader("Wind °M/kts", "wind");
-export const HEADER_REMARKS = new FlightPlanTableHeader("Remarks", "remarks");

@@ -19,7 +19,6 @@ import {
   HEADER_NAME,
   HEADER_PROCEDURE,
   HEADER_REGION,
-  HEADER_REMARKS,
   HEADER_RESTRICT,
   HEADER_TYPE,
   HEADER_WIND
@@ -158,8 +157,7 @@ export function getFlightPlanRouteData(
     HEADER_TYPE,
     HEADER_FREQ,
     HEADER_DISTANCE,
-    HEADER_WIND,
-    HEADER_REMARKS
+    HEADER_WIND
   ];
   data.contents = metadata.waypoint.map((element, index) => {
     const route = new FlightPlanTableContent();
@@ -174,7 +172,6 @@ export function getFlightPlanRouteData(
     route.freq = element.freq;
     route.distance = element.distance;
     route.wind = element.wind;
-    route.remarks = element.remarks;
     route.key = `${route.ident} - ${route.procedure} - ${route.airway}`;
     return route;
   });

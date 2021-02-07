@@ -40,8 +40,7 @@ export function getApproachInformation(metadata: Metadata): string {
     information += `Via `;
   }
 
-  information += `${approach.transition} ${approach.name} (${approach.arinc}) to runway ${approach.runway} .`;
-
+  information += `${approach.name} (${approach.arinc}) to runway ${approach.runway} .`;
   return information;
 }
 

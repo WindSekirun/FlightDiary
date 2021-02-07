@@ -21,7 +21,7 @@
       Fit to Plan
     </v-btn>
     <v-card class="mt-2">
-      <v-responsive :aspect-ratio="16 / 9">
+      <v-responsive :aspect-ratio="mapAspectRatio">
         <l-map ref="myMap" :bounds="planData.bounds" @ready="readyLeaflet">
           <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
           <l-polyline :lat-lngs="planData.latLngs" color="#4c566a"></l-polyline>
@@ -79,6 +79,18 @@ export default class FlightItem extends Vue {
   attribution!: string;
   map!: Map;
   desireCenterZoom: number;
+
+  get mapAspectRatio() {
+    console.log(this.$vuetify.breakpoint.name);
+    switch (this.$vuetify.breakpoint.name) {
+      case "xs":
+        return 16 / 9;
+      case "md":
+        return 16 / 9;
+      default:
+        return 21 / 9;
+    }
+  }
 
   readyLeaflet(mapObject: Map) {
     // fit bounds from Metadata

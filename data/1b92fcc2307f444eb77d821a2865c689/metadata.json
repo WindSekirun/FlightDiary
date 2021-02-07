@@ -5,7 +5,7 @@
     "label": "KDMA - Davis Monthan AFB Airport",
     "name": "Davis Monthan AFB Airport"
   },
-  "KSWF": {
+  "destination": {
     "icao": "KSWF",
     "label": "KSWF - Stewart",
     "name": "Stewart"

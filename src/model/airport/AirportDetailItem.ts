@@ -1,7 +1,7 @@
 import { Frequency } from "./Frequency";
 import { Runway } from "./Runway";
 
-export interface AirportDetail {
+export interface AirportDetailItem {
   ICAO: string;
   IATA: string;
   name: string;

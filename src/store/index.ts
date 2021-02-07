@@ -8,7 +8,7 @@ import {
   SAVE_DEPARTURE_DATA,
   SAVE_DESTINATION_DATA
 } from "@/Constants";
-import { AirportDetail } from "@/model/airport/AirportDetail";
+import { AirportDetailItem } from "@/model/airport/AirportDetailItem";
 import { Aircraft } from "@/model/list/Aircraft";
 import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
@@ -32,6 +32,7 @@ import {
   getPlanTitle,
   getPlanImageList
 } from "@/calculator/PlanCalculator";
+import { AirportData } from "@/model/vo/AirportData";
 
 Vue.use(Vuex);
 
@@ -42,8 +43,8 @@ export interface StoreState {
   airportList: Airport[];
   aircraftList: Aircraft[];
   detailMetadata: Metadata | undefined;
-  detailDeparture: AirportDetail | undefined;
-  detailDestination: AirportDetail | undefined;
+  detailDeparture: AirportDetailItem | undefined;
+  detailDestination: AirportDetailItem | undefined;
 }
 
 const state: StoreState = {
@@ -174,6 +175,12 @@ const store = new Vuex.Store({
     getFlightPlanRouteData: (state) => {
       const metadata = state.detailMetadata || ({} as Metadata);
       return getFlightPlanRouteData(metadata);
+    },
+    getAirportData: (state) => {
+      const data = new AirportData();
+      data.departure = state.detailDeparture || ({} as AirportDetailItem);
+      data.destination = state.detailDestination || ({} as AirportDetailItem);
+      return data;
     }
   }
 });

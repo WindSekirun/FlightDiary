@@ -17,3 +17,5 @@ declare module "vue-router" {
     (to?: (vm: T) => any): void;
   }
 }
+
+declare module "vue-picture-swipe" {}

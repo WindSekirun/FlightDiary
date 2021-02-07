@@ -19,9 +19,9 @@
       "chai",
       "vuetify",
       "leaflet",
-      "v-lightbox"
+      "vue-picture-swipe"
     ],
-    "typeRoots": ["./types"],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "paths": {
       "@/*": ["src/*"]
     },

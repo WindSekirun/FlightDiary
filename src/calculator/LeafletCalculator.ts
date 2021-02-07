@@ -1,6 +1,6 @@
 import { MarkerData } from "@/model/vo/MarkerData";
 import { Metadata } from "@/model/plan/Metadata";
-import { LatLngBounds, LatLngTuple, marker } from "leaflet";
+import { LatLngBounds, LatLngTuple } from "leaflet";
 import { buildTooltipOfWaypoint, findIconOfWaypoint } from "./PlanCalculator";
 
 /**

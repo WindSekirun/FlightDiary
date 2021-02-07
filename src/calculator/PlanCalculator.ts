@@ -10,7 +10,19 @@ import { Metadata } from "@/model/plan/Metadata";
 import { Waypoint } from "@/model/plan/Waypoint";
 import {
   FlightPlanRouteData,
-  FlightPlanTableContent
+  FlightPlanTableContent,
+  HEADER_AIRWAY,
+  HEADER_DISTANCE,
+  HEADER_FREQ,
+  HEADER_ICON,
+  HEADER_IDENT,
+  HEADER_NAME,
+  HEADER_PROCEDURE,
+  HEADER_REGION,
+  HEADER_REMARKS,
+  HEADER_RESTRICT,
+  HEADER_TYPE,
+  HEADER_WIND
 } from "@/model/vo/FlightPlanRoute";
 import { displayFt, displayNm } from "./UnitCalculator";
 
@@ -130,10 +142,28 @@ export function buildTooltipOfWaypoint(
   return tooltip;
 }
 
-export function getPlanRouteTable(metadata: Metadata): FlightPlanRouteData {
+export function getFlightPlanRouteData(
+  metadata: Metadata
+): FlightPlanRouteData {
   const data = new FlightPlanRouteData();
-  data.contents = metadata.waypoint.map((element) => {
+  const lastIndex = metadata.waypoint.length - 1;
+  data.headers = [
+    HEADER_ICON,
+    HEADER_IDENT,
+    HEADER_REGION,
+    HEADER_NAME,
+    HEADER_PROCEDURE,
+    HEADER_AIRWAY,
+    HEADER_RESTRICT,
+    HEADER_TYPE,
+    HEADER_FREQ,
+    HEADER_DISTANCE,
+    HEADER_WIND,
+    HEADER_REMARKS
+  ];
+  data.contents = metadata.waypoint.map((element, index) => {
     const route = new FlightPlanTableContent();
+    route.icon = findIconOfWaypoint(index, lastIndex, element);
     route.ident = element.ident;
     route.region = element.region;
     route.name = element.name;
@@ -145,7 +175,9 @@ export function getPlanRouteTable(metadata: Metadata): FlightPlanRouteData {
     route.distance = element.distance;
     route.wind = element.wind;
     route.remarks = element.remarks;
+    route.key = `${route.ident} - ${route.procedure} - ${route.airway}`;
     return route;
   });
+  data.length = data.contents.length;
   return data;
 }

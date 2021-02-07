@@ -6,11 +6,6 @@
         Show on table
       </v-btn>
     </v-row>
-
-    <div v-if="showTable" class="mt-5">
-      <flight-plan-table />
-    </div>
-
     <p class="text-center mt-5">{{ planData.planRoute }}</p>
     <v-btn
       class="mt-2 d-xs-flex d-sm-flex d-md-none"
@@ -50,6 +45,9 @@
         </l-map>
       </v-responsive>
     </v-card>
+    <div v-if="showTable" class="mt-5 mb-2">
+      <flight-plan-table />
+    </div>
   </div>
 </template>
 
@@ -84,7 +82,6 @@ export default class FlightItem extends Vue {
   desireCenterZoom: number;
 
   get mapAspectRatio() {
-    console.log(this.$vuetify.breakpoint.name);
     switch (this.$vuetify.breakpoint.name) {
       case "xs":
         return 16 / 9;

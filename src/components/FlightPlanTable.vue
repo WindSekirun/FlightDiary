@@ -2,15 +2,20 @@
   <div>
     <v-data-table
       dense
-      :headers="flightPlanTable.headers"
-      :items="flightPlanTable.contents"
-      item-key="ident"
-      class="elevation-1"
-    ></v-data-table>
+      :headers="flightPlanRouteData.headers"
+      :items="flightPlanRouteData.contents"
+      item-key="key"
+      class="elevation-1 mytable"
+    >
+      <template v-slot:[`item.icon`]="{ item }">
+        <img :src="item.icon" />
+      </template>
+    </v-data-table>
   </div>
 </template>
 
 <script lang="ts">
+import { FlightPlanRouteData } from "@/model/vo/FlightPlanRoute";
 import { Component, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 
@@ -18,11 +23,19 @@ import { mapGetters } from "vuex";
   components: {},
   computed: {
     ...mapGetters({
-      flightPlanTable: "getFlightPlanTable"
+      flightPlanRouteData: "getFlightPlanRouteData"
     })
   }
 })
 export default class FlightPlanTable extends Vue {
-  flightPlanTable!: FlightPlanTable;
+  flightPlanRouteData!: FlightPlanRouteData;
 }
 </script>
+
+<style>
+.mytable table tr {
+  background-color: #2e3440;
+  color: #d8dee9;
+  border-bottom: none !important;
+}
+</style>

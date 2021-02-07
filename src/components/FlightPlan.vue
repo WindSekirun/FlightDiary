@@ -17,8 +17,17 @@
     </v-btn>
     <v-card class="mt-2">
       <v-responsive :aspect-ratio="mapAspectRatio">
-        <l-map ref="myMap" :bounds="planData.bounds" @ready="readyLeaflet">
-          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-map
+          ref="myMap"
+          :bounds="planData.bounds"
+          :options="{ scrollWheelZoom: false }"
+          @ready="readyLeaflet"
+        >
+          <l-tile-layer
+            :url="url"
+            :attribution="attribution"
+            :no-wrap="true"
+          ></l-tile-layer>
           <l-polyline :lat-lngs="planData.latLngs" color="#4c566a"></l-polyline>
           <l-control>
             <v-btn

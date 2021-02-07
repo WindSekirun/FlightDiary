@@ -174,7 +174,7 @@ metadata = {
     "aircraft": aircraft_type,
     "flightTime": flight_time,
     "mainThumbnail": "main.webp",
-    "images": result_images,
+    "images": list(filter(lambda x: x.startswith('r'), result_images)),
     "flightPlanFile": f"{data_id}.lnmpln",
     "planType": plan_type,
     "cruiseAlt": cruising_alt,

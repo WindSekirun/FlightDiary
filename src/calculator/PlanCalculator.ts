@@ -9,6 +9,7 @@ import {
 } from "@/Constants";
 import { Metadata } from "@/model/plan/Metadata";
 import { Waypoint } from "@/model/plan/Waypoint";
+import { ImageData } from "@/model/vo/DetailData";
 import {
   FlightPlanRouteData,
   FlightPlanTableContent,
@@ -73,8 +74,10 @@ ${displayFt(metadata.cruiseAlt)} | ${metadata.aircraft}`;
  * Getting plan's image list
  * @param metadata
  */
-export function getPlanImageList(metadata: Metadata): string[] {
-  return metadata.images.map((element) => `${baseDomain}data/${metadata.id}/${element}`);
+export function getPlanImageList(metadata: Metadata): ImageData[] {
+  return metadata.images.map(
+    (element) => new ImageData(`${baseDomain}data/${metadata.id}`, element)
+  );
 }
 
 /**

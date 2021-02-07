@@ -5,6 +5,8 @@
         <h1>{{ detailData.fullPlanTitle }}</h1>
         <h2 class="mt-2">{{ detailData.approachTitle }}</h2>
         <h4 class="mt-1">{{ detailData.planSubtitle }}</h4>
+        <h2 class="mt-5">Screenshots</h2>
+        <vue-picture-swipe :items="detailData.imageList" />
         <flight-plan />
       </v-sheet>
     </v-col>

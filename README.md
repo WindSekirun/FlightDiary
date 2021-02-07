@@ -27,5 +27,6 @@ These files must indicate in importer/target **before** running script.
 
 ### How to use?
 1. copy required files into importer/target
-2. `python importer.py`
-3. follow instruction of importer script
+2. `cd importer`
+3. `python importer.py`
+4. follow instruction of importer script

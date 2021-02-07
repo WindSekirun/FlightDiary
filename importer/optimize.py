@@ -44,9 +44,10 @@ def optimize_images():
 
     target_files = find_png_files(os.path.join(pwd, 'target'))
     for file in target_files:
-        new_filename = "r" + os.path.basename(file)
-        shutil.copy(file, os.path.join(os.path.join(pwd, 'target'), new_filename))
-        resize(os.path.join(pwd, 'target', new_filename), 1280)
+        shutil.copy(file, os.path.join(os.path.join(pwd, 'target'), f'r{os.path.basename(file)}'))
+        resize(os.path.join(pwd, 'target', f'r{os.path.basename(file)}'), 1280)
+        shutil.copy(file, os.path.join(os.path.join(pwd, 'target'), f'tr{os.path.basename(file)}'))
+        resize(os.path.join(pwd, 'target', f'tr{os.path.basename(file)}'), 160)
 
     t2 = time()
     elapsed = t2 - t1

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>18000</CruisingAlt>
+      <CreationDate>2021-02-08T23:04:48</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="1801">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="126.450485" Lat="37.469124" Alt="23.00"/>
+      <Start>33L</Start>
+    </Departure>
+    <Procedures>
+      <SID>
+        <Name>RADA3A</Name>
+        <Runway>33L</Runway>
+      </SID>
+      <Approach>
+        <Name>FF07</Name>
+        <ARINC>I07-Y</ARINC>
+        <Runway>07</Runway>
+        <Type>ILS</Type>
+        <Suffix>Y</Suffix>
+        <Transition>ANBIN</Transition>
+        <TransitionType>D</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Incheon Intl</Name>
+        <Ident>RKSI</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="126.450485" Lat="37.469124" Alt="23.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MONSI</Ident>
+        <Region>RK</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.837502" Lat="37.213055" Alt="17826.72"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BULTI</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.824913" Lat="36.722862" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GONAX</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.837776" Lat="36.386391" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BEDES</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.812225" Lat="36.151390" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MANGI</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.742142" Lat="35.503139" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DALSU</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.701805" Lat="35.125278" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DOTOL</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.610168" Lat="34.254276" Alt="18000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KIDOS</Ident>
+        <Region>RK</Region>
+        <Airway>Y711</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="126.567223" Lat="33.841110" Alt="11644.62"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Jeju Intl</Name>
+        <Ident>RKPC</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="126.489342" Lat="33.508961" Alt="83.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

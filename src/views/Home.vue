@@ -108,7 +108,6 @@ export default class Home extends Vue {
   @Watch("searchOptions")
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onSearchOptionsChanged(newVal: number, oldVal: number) {
-    console.log(`newVal: ${newVal} oldVal: ${oldVal}`);
     localStorage.searchOptions = newVal;
   }
 

@@ -28,6 +28,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
+import { applicationTitle } from "@/Constants";
 
 @Component({
   components: {
@@ -48,5 +49,9 @@ export default class Detail extends Vue {
   metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
+
+  mounted() {
+    document.title = `${this.detailData.planTitle} - ${applicationTitle}`;
+  }
 }
 </script>

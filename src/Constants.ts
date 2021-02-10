@@ -13,6 +13,12 @@ export const SAVE_DETAIL_DATA = "SAVE_DETAIL_DATA";
 export const SAVE_DEPARTURE_DATA = "SAVE_DEPARTURE_DATA";
 export const SAVE_DESTINATION_DATA = "SAVE_DESTINATION_DATA";
 
+// from LeafletMap.vue
+export const OPENSTREETMAP =
+         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+export const ATTRIBUTION =
+         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';        
+
 // from Collections.vue
 export const LOAD_COLLECTION_DATA = "LOAD_COLLECTION_DATA";
 export const SAVE_COLLECTION_DATA = "SAVE_COLLECTION_DATA";

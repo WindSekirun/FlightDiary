@@ -24,8 +24,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import {
   getMapBounds,
-  getWaypointMarker,
-  getWaypointTuple
+  getWaypointMarker
 } from "@/calculator/LeafletCalculator";
 import {
   getApproachInformation,
@@ -39,7 +38,6 @@ import {
 import { AirportData } from "@/model/vo/AirportData";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
 import { CollectionDetailData } from "@/model/vo/CollectionDetailData";
-import { Waypoint } from "@/model/plan/Waypoint";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 
 Vue.use(Vuex);
@@ -205,7 +203,6 @@ const store = new Vuex.Store({
       const metadata = state.detailMetadata || ({} as Metadata);
       data.planTitle = getPlanTitle(metadata);
       data.bounds = getMapBounds(metadata);
-      data.latLngs = getWaypointTuple(metadata);
       data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
       return data;

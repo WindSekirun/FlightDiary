@@ -1,4 +1,8 @@
-import { applicationTitle, LOAD_COLLECTION_DETAIL_DATA, LOAD_DETAIL_DATA } from "@/Constants";
+import {
+  applicationTitle,
+  LOAD_COLLECTION_DETAIL_DATA,
+  LOAD_DETAIL_DATA
+} from "@/Constants";
 import {
   pageAbout,
   pageCollection,
@@ -42,9 +46,6 @@ const routes: Array<RouteConfig> = [
   {
     path: pageDetail.path,
     name: pageDetail.name,
-    meta: {
-      title: `${pageDetail.name} - ${applicationTitle}`
-    },
     component: () => import("../views/Detail.vue"),
     props: true,
     beforeEnter: function(to: Route, from: Route, next) {
@@ -87,7 +88,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, _from, next) => {
-  document.title = to.meta.title;
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
   next();
 });
 

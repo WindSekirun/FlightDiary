@@ -22,10 +22,7 @@ import { FlightPlanData } from "@/model/vo/FlightPlanData";
 import { DetailData } from "@/model/vo/DetailData";
 import Vue from "vue";
 import Vuex from "vuex";
-import {
-  getMapBounds,
-  getWaypointMarker
-} from "@/calculator/LeafletCalculator";
+import { getWaypointMarker } from "@/calculator/LeafletCalculator";
 import {
   getApproachInformation,
   getFullPlanTitle,
@@ -202,7 +199,6 @@ const store = new Vuex.Store({
       const data = new FlightPlanData();
       const metadata = state.detailMetadata || ({} as Metadata);
       data.planTitle = getPlanTitle(metadata);
-      data.bounds = getMapBounds(metadata);
       data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
       return data;

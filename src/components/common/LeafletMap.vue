@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-card :class="mapClass">
     <v-btn
       class="mt-2 d-xs-flex d-sm-flex d-md-none"
       color="#2e3440"
@@ -11,14 +11,13 @@
     <v-responsive :aspect-ratio="mapAspectRatio">
       <l-map
         ref="myMap"
-        :bounds="latLngBounds"
         :options="{
           scrollWheelZoom: false
         }"
         @ready="readyLeaflet"
       >
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <!-- <l-polyline :lat-lngs="planData.latLngs" color="#4c566a"></l-polyline> -->
+        <l-polyline :lat-lngs="meriodianPolylines" color="#4c566a"></l-polyline>
         <l-control>
           <v-btn
             class="mt-2 mr-2 d-none d-md-flex"
@@ -31,7 +30,7 @@
         <l-control :position="'bottomleft'" class="map-watermark">
           {{ title }}
         </l-control>
-        <!-- <div v-for="(marker, index) in markers" :key="index">
+        <div v-for="(marker, index) in meridianMarkers" :key="index">
           <l-marker :lat-lng="marker.latLng">
             <l-tooltip :options="{ direction: 'top' }">
               {{ marker.tooltipText }}
@@ -40,32 +39,21 @@
               <img :src="marker.icon" />
             </l-icon>
           </l-marker>
-        </div> -->
+        </div>
       </l-map>
     </v-responsive>
-  </div>
+  </v-card>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import {
-  LatLng,
-  LatLngBounds,
-  LatLngExpression,
-  Map,
-  Point,
-  polyline
-} from "leaflet";
+import { latLngBounds, LatLngExpression, Map, Point, polyline } from "leaflet";
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { MarkerData } from "@/model/vo/MarkerData";
-import { first } from "lodash";
+import { calculateMeridian } from "@/calculator/LeafletCalculator";
 
-@Component({
-  components: {},
-  computed: {}
-})
+@Component({})
 export default class LeafletMap extends Vue {
-  @Prop({ type: LatLngBounds }) latLngBounds!: LatLngBounds;
   @Prop({ type: Array }) markers: MarkerData[];
   @Prop({ type: String }) title: string;
   @Prop({ default: OPENSTREETMAP }) url!: string;
@@ -91,17 +79,42 @@ export default class LeafletMap extends Vue {
     }
   }
 
+  get mapClass() {
+    switch (this.$vuetify.breakpoint.name) {
+      case "lg":
+        return "mt-2 ms-5 me-5";
+      case "xl":
+        return "mt-2 ms-8 me-8";
+      default:
+        return "mt-2";
+    }
+  }
+
+  get meridianMarkers() {
+    return this.markers.map((element) => {
+      element.latLng = calculateMeridian(element.latLng);
+      return element;
+    });
+  }
+
+  get meriodianPolylines() {
+    return this.markers.map((element) => {
+      return calculateMeridian(element.latLng);
+    });
+  }
+
   readyLeaflet(mapObject: Map) {
-    // fit bounds from Metadata
     this.map = mapObject;
     this.fitToPlan();
-    const a = new LatLng(35.777054, 140.382431);
-    const b = new LatLng(61.174202, -149.997498);
-    this.attachIntersection(a, b, mapObject);
   }
 
   fitToPlan() {
-    this.map.fitBounds(this.latLngBounds, {
+    const lastIndex = this.markers.length - 1;
+    const departure = calculateMeridian(this.markers[0].latLng);
+    const destination = calculateMeridian(this.markers[lastIndex].latLng);
+    const bounds = latLngBounds([departure, destination]);
+
+    this.map.fitBounds(bounds, {
       paddingTopLeft: new Point(25, 25),
       paddingBottomRight: new Point(25, 25)
     });
@@ -109,73 +122,6 @@ export default class LeafletMap extends Vue {
 
   addPolyline(tuple: LatLngExpression[], map: Map) {
     polyline(tuple, this.polylineOptions).addTo(map);
-  }
-
-  calculateAnti(latLng: LatLng): number {
-    return latLng.lng > 0 ? 180 - latLng.lng : 180 + latLng.lng;
-  }
-
-  attachIntersection(current: LatLng, next: LatLng, map: Map) {
-    /*
-     * Resolve break-line polyline by Spherical Coordinates (https://mathworld.wolfram.com/SphericalCoordinates.html)
-     *
-     * Legend: lat0, lon0 is represented as current.lat, current,lng.
-     * For lat1, lon1, also represented as next.lat, next.lng.
-     *
-     * (x0, y0, z0) = (cos(lon0)*sin(lat0), sin(lon0)*sin(lat0), cos(lat0))
-     * (x1, y1, z1) = (cos(lon1)*sin(lat1), sin(lon1)*sin(lat1), cos(lat1))
-     * t: t = y1 / (y1 - y0).
-     * (x, y, z) = (t * x0 + (1-t) * x1, 0, t * z0 + (1-t) * z1)
-     * lat2 = ATan(z/x)
-     *
-     * Attaching:
-     * current
-     * a -> if current.lng is negative, use (lat2, -180) otherwise (lat2, 180)
-     * b -> if next.lng is negative, use (lat2, -180) otherwise (lat2, 180)
-     * next
-     *
-     * If neither break point exists, attaching [current, next]
-     */
-
-    if (Math.abs(current.lng - next.lng) > 180.0) {
-      //   const currentDistToAnti = this.calculateAnti(current);
-      //   const nextDistToAnti = this.calculateAnti(next);
-      //   const latDiff = Math.abs(current.lat - next.lat);
-      //   const angleAtan = Math.atan(
-      //     latDiff / (currentDistToAnti + nextDistToAnti)
-      //   );
-      //   const angle = angleAtan * this.degree * (current.lng > 0 ? 1 : -1);
-      //   const latDiffAnti = Math.tan(angle * this.radian) * currentDistToAnti;
-      //   const intersection = current.lat + latDiffAnti;
-      //   const a = new LatLng(intersection, current.lng > 0 ? 180 : -180);
-      //   const b = new LatLng(intersection, next.lng > 0 ? 180 : -180);
-      //   console.log(a, b);
-      //   this.addPolyline([current, a], map);
-      //   this.addPolyline([b, next], map);
-
-      const startDistToAntimeridian =
-        current.lng > 0 ? 180 - current.lng : 180 + current.lng;
-      const endDistToAntimeridian =
-        next.lng > 0 ? 180 - next.lng : 180 + next.lng;
-      const latDifference = Math.abs(current.lat - next.lat);
-      const alphaAngle =
-        Math.atan(
-          latDifference /
-            (startDistToAntimeridian + endDistToAntimeridian)
-        ) *
-        (180 / Math.PI) *
-        (current.lng > 0 ? 1 : -1);
-      const latDiffAtAntimeridian =
-        Math.tan((alphaAngle * Math.PI) / 180) * startDistToAntimeridian;
-      const intersectionLat = current.lat + latDiffAtAntimeridian;
-      const firstLineEnd = new LatLng(intersectionLat, current.lng > 0 ? 180 : -180);
-      const secondLineStart = new LatLng(intersectionLat, next.lng > 0 ? 180 : -180);
-      this.addPolyline([current, firstLineEnd], map);
-      this.addPolyline([secondLineStart, next], map);
-      console.log(firstLineEnd, secondLineStart);
-    } else {
-      this.addPolyline([current, next], map);
-    }
   }
 }
 </script>

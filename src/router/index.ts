@@ -1,5 +1,12 @@
-import { applicationTitle, LOAD_DETAIL_DATA } from "@/Constants";
-import { pageAbout, pageDetail, pageHome, pageSpec } from "@/model/PageRouter";
+import { applicationTitle, LOAD_COLLECTION_DETAIL_DATA, LOAD_DETAIL_DATA } from "@/Constants";
+import {
+  pageAbout,
+  pageCollection,
+  pageCollectionDetail,
+  pageDetail,
+  pageHome,
+  pageSpec
+} from "@/model/PageRouter";
 import store from "@/store";
 import Vue from "vue";
 import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
@@ -45,6 +52,30 @@ const routes: Array<RouteConfig> = [
         .dispatch(LOAD_DETAIL_DATA, {
           id: to.params.id,
           airport: to.params.airport
+        })
+        .then(() => next());
+    }
+  },
+  {
+    path: pageCollection.path,
+    name: pageCollection.name,
+    meta: {
+      title: `${pageCollection.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/Collections.vue")
+  },
+  {
+    path: pageCollectionDetail.path,
+    name: pageCollectionDetail.name,
+    meta: {
+      title: `${pageCollectionDetail.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/CollectionsDetail.vue"),
+    props: true,
+    beforeEnter: function(to: Route, from: Route, next) {
+      store
+        .dispatch(LOAD_COLLECTION_DETAIL_DATA, {
+          id: to.params.id
         })
         .then(() => next());
     }

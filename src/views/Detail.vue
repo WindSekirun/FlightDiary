@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
-import FlightPlan from "@/components/FlightPlan.vue";
-import AirportDetail from "@/components/AirportDetail.vue";
+import FlightPlan from "@/components/plan/FlightPlan.vue";
+import AirportDetail from "@/components/plan/AirportDetail.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";

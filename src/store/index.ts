@@ -6,7 +6,11 @@ import {
   LOAD_DETAIL_DATA,
   SAVE_DETAIL_DATA,
   SAVE_DEPARTURE_DATA,
-  SAVE_DESTINATION_DATA
+  SAVE_DESTINATION_DATA,
+  LOAD_COLLECTION_DATA,
+  SAVE_COLLECTION_DATA,
+  SAVE_COLLECTION_DETAIL_DATA,
+  LOAD_COLLECTION_DETAIL_DATA
 } from "@/Constants";
 import { AirportDetailItem } from "@/model/airport/AirportDetailItem";
 import { Aircraft } from "@/model/list/Aircraft";
@@ -33,6 +37,10 @@ import {
   getPlanImageList
 } from "@/calculator/PlanCalculator";
 import { AirportData } from "@/model/vo/AirportData";
+import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
+import { CollectionDetailData } from "@/model/vo/CollectionDetailData";
+import { Waypoint } from "@/model/plan/Waypoint";
+import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 
 Vue.use(Vuex);
 
@@ -45,6 +53,8 @@ export interface StoreState {
   detailMetadata: Metadata | undefined;
   detailDeparture: AirportDetailItem | undefined;
   detailDestination: AirportDetailItem | undefined;
+  collectionList: CollectionDataItem[];
+  collectionDetail: CollectionDetailData | undefined;
 }
 
 const state: StoreState = {
@@ -53,7 +63,9 @@ const state: StoreState = {
   aircraftList: [],
   detailMetadata: undefined,
   detailDeparture: undefined,
-  detailDestination: undefined
+  detailDestination: undefined,
+  collectionList: [],
+  collectionDetail: undefined
 };
 
 const store = new Vuex.Store({
@@ -76,6 +88,12 @@ const store = new Vuex.Store({
     },
     [SAVE_DESTINATION_DATA](state, value) {
       state.detailDestination = value;
+    },
+    [SAVE_COLLECTION_DATA](state, value) {
+      state.collectionList = value;
+    },
+    [SAVE_COLLECTION_DETAIL_DATA](state, value) {
+      state.collectionDetail = value;
     }
   },
   actions: {
@@ -120,6 +138,26 @@ const store = new Vuex.Store({
           console.log(errors);
           console.log("Can't log metadata information");
         });
+    },
+    async [LOAD_COLLECTION_DATA]({ commit }) {
+      const response = await Vue.axios.get("collection.json");
+      commit(SAVE_COLLECTION_DATA, response.data);
+    },
+    [LOAD_COLLECTION_DETAIL_DATA]({ commit, getters }, data) {
+      const id = data.id;
+      const currentItem: CollectionDataItem = getters.getCollectionData(id);
+      const metadataRequestList = currentItem.flights.map((element) =>
+        Vue.axios.get(`data/${element}/metadata.json`)
+      );
+      return Vue.axios.all(metadataRequestList).then(
+        Vue.axios.spread((...responses) => {
+          const data = new CollectionDetailData();
+          data.item = currentItem;
+          data.metadataList = responses.map((element) => element.data);
+          data.waypoints = mergeCollectionWaypoint(data.metadataList);
+          commit(SAVE_COLLECTION_DETAIL_DATA, data);
+        })
+      );
     }
   },
   getters: {
@@ -181,6 +219,15 @@ const store = new Vuex.Store({
       data.departure = state.detailDeparture || ({} as AirportDetailItem);
       data.destination = state.detailDestination || ({} as AirportDetailItem);
       return data;
+    },
+    getCollectionList: (state) => {
+      return state.collectionList.reverse();
+    },
+    getCollectionData: (state) => (id: string) => {
+      const item = state.collectionList.filter((element) =>
+        element.id.includes(id)
+      );
+      return item;
     }
   }
 });

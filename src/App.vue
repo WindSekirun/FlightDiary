@@ -10,6 +10,15 @@
             <b> {{ title }}</b>
           </v-btn>
 
+          <v-btn
+            v-for="(link, index) in appBarLinks"
+            :key="index"
+            text
+            @click="clickAppBarLink(link)"
+          >
+            {{ link.name }}
+          </v-btn>
+
           <v-spacer></v-spacer>
 
           <v-menu bottom left :close-on-click="true">
@@ -21,7 +30,7 @@
 
             <v-list>
               <v-list-item
-                v-for="(item, index) in appBarLinks"
+                v-for="(item, index) in subBarLinks"
                 :key="index"
                 @click="clickAppBarLink(item)"
               >
@@ -45,13 +54,20 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import { pageAbout, pageSpec, PageRouter, pageHome } from "./model/PageRouter";
+import {
+  pageAbout,
+  pageSpec,
+  PageRouter,
+  pageHome,
+  pageCollection
+} from "./model/PageRouter";
 
 @Component({})
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;
-  appBarLinks: PageRouter[] = [pageSpec, pageAbout];
+  appBarLinks: PageRouter[] = [pageCollection];
+  subBarLinks: PageRouter[] = [pageSpec, pageAbout];
 
   async mounted() {
     this.title = applicationTitle;

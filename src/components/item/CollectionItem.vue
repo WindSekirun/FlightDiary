@@ -13,7 +13,7 @@
       aspect-ratio="1.7778"
       class="white--text align-end"
     >
-      <v-card-title class="text-stroke">{{ title }}</v-card-title>
+      <v-card-title class="text-stroke">{{ item.title }}</v-card-title>
       <template v-slot:placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
           <v-progress-circular
@@ -24,7 +24,7 @@
       </template>
     </v-img>
     <v-card-subtitle>
-      {{ item.flightTime }} | {{ distance }}
+      {{ item.flightStartTime }} - {{ item.flightEndTime }}
       <br />
       {{ item.aircraft }}
     </v-card-subtitle>
@@ -33,33 +33,25 @@
 
 <script lang="ts">
 import { baseDomain } from "@/Constants";
-import { ListItem } from "@/model/list/ListItem";
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { displayNm } from "@/calculator/UnitCalculator";
-import { pageDetail } from "@/model/PageRouter";
+import { pageCollectionDetail } from "@/model/PageRouter";
+import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
+import * as _ from "lodash";
 
 @Component
-export default class FlightItem extends Vue {
-  @Prop({ required: true }) item!: ListItem;
-
-  get title(): string {
-    return `${this.item.planType} ${this.item.departure.icao} → ${this.item.destination.icao}`;
-  }
+export default class CollectionItem extends Vue {
+  @Prop({ required: true }) item!: CollectionDataItem;
 
   get thumbnail(): string {
-    return `${baseDomain}/data/${this.item.id}/${this.item.mainThumbnail}`;
-  }
-
-  get distance(): string {
-    return displayNm(this.item.distance);
+    const id = _.sample(this.item.flights);
+    return `${baseDomain}/data/${id}/main.webp`;
   }
 
   moveToDetail() {
     this.$router.push({
-      name: pageDetail.name,
+      name: pageCollectionDetail.name,
       params: {
-        id: this.item.id,
-        airport: this.item.departure.icao + this.item.destination.icao
+        id: this.item.id
       }
     });
   }

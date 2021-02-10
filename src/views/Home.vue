@@ -68,7 +68,7 @@
 
 <script lang="ts">
 import { Component, Model, Vue, Watch } from "vue-property-decorator";
-import FlightItem from "@/components/FlightItem.vue";
+import FlightItem from "@/components/item/FlightItem.vue";
 import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
 import { mapState } from "vuex";
@@ -113,11 +113,10 @@ export default class Home extends Vue {
   }
 
   async mounted() {
-    await store.dispatch(LOAD_MAIN_DATA).then(() => {
-      if (localStorage.searchOptions == "0") {
-        this.searchOptions = 0;
-      }
-    });
+    await store.dispatch(LOAD_MAIN_DATA);
+    if (localStorage.searchOptions == "0") {
+      this.searchOptions = 0;
+    }
   }
 
   clearOptions() {

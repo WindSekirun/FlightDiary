@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-02-10T22:09:32</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="1801">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="140.382431" Lat="35.777054" Alt="136.00"/>
+      <Start>34L</Start>
+    </Departure>
+    <Procedures>
+      <SID>
+        <Name>SAKUR4</Name>
+        <Runway>34L</Runway>
+      </SID>
+      <Approach>
+        <Name>KANSY</Name>
+        <ARINC>I15</ARINC>
+        <Runway>15</Runway>
+        <Type>ILS</Type>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Narita Intl</Name>
+        <Ident>RJAA</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="140.382431" Lat="35.777054" Alt="136.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>INUBO</Ident>
+        <Region>RJ</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="140.799423" Lat="35.726471" Alt="24127.76"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KAGIS</Ident>
+        <Region>RJ</Region>
+        <Airway>Y51</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="142.563477" Lat="35.820248" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PABBA</Ident>
+        <Region>RJ</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="143.996353" Lat="37.003216" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PUTER</Ident>
+        <Region>RJ</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="145.518677" Lat="38.332382" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>POXED</Ident>
+        <Region>RJ</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="148.942398" Lat="41.084587" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PUGAL</Ident>
+        <Region>RJ</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="154.416672" Lat="44.857712" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>POWAL</Ident>
+        <Region>PA</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="165.513504" Lat="50.405724" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PLADO</Ident>
+        <Region>PA</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="170.533920" Lat="52.254528" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>POOFF</Ident>
+        <Region>PA</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="178.618011" Lat="55.298992" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PINTT</Ident>
+        <Region>PA</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-176.307388" Lat="56.717335" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PTZGR</Ident>
+        <Region>PA</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-173.683411" Lat="57.333363" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PUGGY</Ident>
+        <Region>PA</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-170.760941" Lat="57.952194" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>POETT</Ident>
+        <Region>PA</Region>
+        <Airway>A590</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-166.996201" Lat="58.710739" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Bethel</Name>
+        <Ident>BET</Ident>
+        <Region>PA</Region>
+        <Airway>J120</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-161.824326" Lat="60.784836" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VIDDA</Ident>
+        <Region>PA</Region>
+        <Airway>J501</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-160.475861" Lat="60.878071" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Sparrevohn</Name>
+        <Ident>SQA</Ident>
+        <Region>PA</Region>
+        <Airway>J501</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-155.634583" Lat="61.098579" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TORTE</Ident>
+        <Region>PA</Region>
+        <Airway>J501</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-151.926620" Lat="61.170826" Alt="18196.35"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>YONEK</Ident>
+        <Region>PA</Region>
+        <Airway>J501</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-151.235641" Lat="61.173046" Alt="13476.23"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Anchorage</Name>
+        <Ident>TED</Ident>
+        <Region>PA</Region>
+        <Airway>J501</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-149.960144" Lat="61.167866" Alt="4762.78"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Ted Stevens Anchorage Intl</Name>
+        <Ident>PANC</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-149.997498" Lat="61.174202" Alt="121.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

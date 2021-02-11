@@ -2,7 +2,7 @@ import { CollectionDataItem } from "../collection/CollectionDataItem";
 import { Metadata } from "../plan/Metadata";
 import { Waypoint } from "../plan/Waypoint";
 import { MarkerData } from "./MarkerData";
-import { DataTableHeader } from "../DataTableHeader";
+import { DataTableHeader, TableContents } from "../DataTableHeader";
 import { getPlanRoute } from "@/calculator/PlanCalculator";
 import { displayFt } from "@/calculator/UnitCalculator";
 
@@ -15,7 +15,7 @@ export class CollectionDetailData {
   tableContents: CollectionDetailTableContent[];
 }
 
-export class CollectionDetailTableContent {
+export class CollectionDetailTableContent implements TableContents {
   id: string;
   departure: string;
   destination: string;
@@ -25,6 +25,7 @@ export class CollectionDetailTableContent {
   distance: string;
   route: string;
   detailKey: string;
+  doNothing: boolean;
 
   constructor(metadata: Metadata) {
     this.id = metadata.id;

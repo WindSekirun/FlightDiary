@@ -11,6 +11,12 @@
           :markers="collectionDetail.markers"
           :title="collectionDetail.item.title"
         />
+        <data-table
+          class="mt-5"
+          :headers="collectionDetail.tableHeaders"
+          :contents="collectionDetail.tableContents"
+          @row-click="clickDetail"
+        />
         <v-data-table
           dense
           :headers="collectionDetail.tableHeaders"
@@ -36,10 +42,12 @@ import { mapState } from "vuex";
 import { applicationTitle } from "@/Constants";
 import LeafletMap from "@/components/common/LeafletMap.vue";
 import { pageDetail } from "@/model/PageRouter";
+import DataTable from "@/components/common/DataTable.vue";
 
 @Component({
   components: {
-    LeafletMap
+    LeafletMap,
+    DataTable
   },
   computed: {
     ...mapState({
@@ -70,11 +78,3 @@ export default class CollectionsDetail extends Vue {
   }
 }
 </script>
-
-<style>
-.mytable table tr {
-  background-color: #2e3440;
-  color: #d8dee9;
-  border-bottom: none !important;
-}
-</style>

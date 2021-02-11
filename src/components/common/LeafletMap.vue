@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { latLngBounds, LatLngExpression, Map, Point, polyline } from "leaflet";
+import { latLngBounds, Map, Point } from "leaflet";
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { MarkerData } from "@/model/vo/MarkerData";
 import { calculateMeridian } from "@/calculator/LeafletCalculator";
@@ -59,12 +59,6 @@ export default class LeafletMap extends Vue {
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
   map!: Map;
-
-  polylineOptions = {
-    color: "#4c566a"
-  };
-  degree = 180 / Math.PI;
-  radian = Math.PI / 180;
 
   get mapAspectRatio() {
     switch (this.$vuetify.breakpoint.name) {
@@ -118,10 +112,6 @@ export default class LeafletMap extends Vue {
       paddingTopLeft: new Point(25, 25),
       paddingBottomRight: new Point(25, 25)
     });
-  }
-
-  addPolyline(tuple: LatLngExpression[], map: Map) {
-    polyline(tuple, this.polylineOptions).addTo(map);
   }
 }
 </script>

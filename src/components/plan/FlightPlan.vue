@@ -7,7 +7,7 @@
       </v-btn>
     </v-row>
     <p class="text-center mt-5">{{ planData.planRoute }}</p>
-       <leaflet-map :markers="planData.markers" :title="planData.planTitle" />
+    <leaflet-map :markers="planData.markers" :title="planData.planTitle" />
     <div v-if="showTable" class="mt-5 mb-2">
       <flight-plan-table />
     </div>

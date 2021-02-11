@@ -10,6 +10,7 @@ export interface Waypoint {
   restrictKt: string;
   type: string;
   freq: string;
+  courseM: string;
   distance: string;
   wind: string;
   remarks: string;

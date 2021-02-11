@@ -21,6 +21,7 @@ def read_waypoint_from_html(soup):
                 "restrictKt": cells[6].text,
                 "type": cells[7].text,
                 "freq": cells[8].text,
+                "courseM": cells[10].text,
                 "distance": cells[12].text,
                 "wind": cells[18].text,
                 "alt": cells[20].text,

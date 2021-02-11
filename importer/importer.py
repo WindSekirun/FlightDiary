@@ -121,6 +121,7 @@ for html_waypoint in waypoint_from_html:
         "restrictKt": html_waypoint["restrictKt"],
         "type": html_waypoint["type"],
         "freq": html_waypoint["freq"],
+        "courseM": html_waypoint["courseM"],
         "distance": html_waypoint["distance"],
         "wind": html_waypoint["wind"],
         "remarks": html_waypoint["remark"],

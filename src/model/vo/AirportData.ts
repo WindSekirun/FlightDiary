@@ -9,14 +9,14 @@ import { AirportDetailItem } from "../airport/AirportDetailItem";
 import { Frequency } from "../airport/Frequency";
 import { Navaid } from "../airport/Navaid";
 import { Runway } from "../airport/Runway";
-import { DataTableHeader } from "../DataTableHeader";
+import { DataTableHeader, TableContents } from "../DataTableHeader";
 
 export class AirportData {
   departure: AirportDetailItem;
   destination: AirportDetailItem;
 }
 
-export class AirportRunwaysContent {
+export class AirportRunwaysContent implements TableContents {
   id: string;
   width: string;
   length: string;
@@ -26,6 +26,7 @@ export class AirportRunwaysContent {
   overrun: string;
   markings: string;
   lighting: string;
+  doNothing: boolean;
 
   constructor(runway: Runway, variation: number) {
     this.id = runway.ident;
@@ -40,7 +41,7 @@ export class AirportRunwaysContent {
   }
 }
 
-export class AirportRunwayNavaidContent {
+export class AirportRunwayNavaidContent implements TableContents {
   runway: string;
   type: string;
   ident: string;
@@ -50,6 +51,7 @@ export class AirportRunwayNavaidContent {
   slope: string;
   elevation: string;
   sortKey: string;
+  doNothing: boolean;
 
   constructor(runway: string, navaid: Navaid, variation: number) {
     this.runway = runway;

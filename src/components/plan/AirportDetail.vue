@@ -34,34 +34,25 @@
       </v-responsive>
     </v-card>
     <h3 class="mt-8">Runways</h3>
-    <v-data-table
-      dense
+    <data-table
       :headers="runwayHeader"
-      :items="runwayContents"
+      :contents="runwayContents"
       :items-per-page="runwayContentsLength"
-      item-key="key"
       hide-default-footer
-      class="elevation-1 mytable mt-5"
     />
     <h3 class="mt-8">{{ navAidsTitle }}</h3>
-    <v-data-table
-      dense
+    <data-table
       :headers="navAidsHeader"
-      :items="navAidsContents"
-      item-key="key"
+      :contents="navAidsContents"
       :items-per-page="navAidsLength"
       hide-default-footer
-      class="elevation-1 mytable mt-5"
     />
     <h3 class="mt-8">Frequencies</h3>
-    <v-data-table
-      dense
+    <data-table
       :headers="freqHeader"
-      :items="freqContents"
-      item-key="key"
+      :contents="freqContents"
       :items-per-page="freqLength"
       hide-default-footer
-      class="elevation-1 mytable mt-5"
     />
   </div>
 </template>
@@ -87,6 +78,7 @@ import {
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { LatLng, Map } from "leaflet";
 import { MarkerData } from "@/model/vo/MarkerData";
+import DataTable from "@/components/common/DataTable.vue";
 
 class InfoKeyValue {
   key: string;
@@ -99,7 +91,9 @@ class InfoKeyValue {
 }
 
 @Component({
-  components: {},
+  components: {
+    DataTable
+  },
   computed: {
     ...mapGetters({
       airportData: "getAirportData"
@@ -212,11 +206,6 @@ export default class AirportDetail extends Vue {
 </script>
 
 <style>
-.mytable table tr {
-  background-color: #2e3440;
-  color: #d8dee9;
-  border-bottom: none !important;
-}
 .map-watermark {
   font-size: 150%;
   font-weight: bolder;

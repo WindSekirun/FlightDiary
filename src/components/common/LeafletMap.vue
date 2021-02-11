@@ -12,7 +12,8 @@
       <l-map
         ref="myMap"
         :options="{
-          scrollWheelZoom: false
+          scrollWheelZoom: false,
+          preferCanvas: true
         }"
         @ready="readyLeaflet"
       >

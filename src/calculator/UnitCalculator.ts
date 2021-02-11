@@ -12,10 +12,18 @@ export function displayNm(nm: string | undefined): string {
 
 export function displayFt(ft: string): string {
   const unit = Number(ft.replace(/\D/g, ""));
-  const km = Math.ceil(unit * 0.3048)
+  const km = Math.ceil(unit * 0.0003048)
     .toString()
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   return `${ft.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ft / ${km} km`;
+}
+
+export function displayFtM(ft: string): string {
+  const unit = Number(ft.replace(/\D/g, ""));
+  const km = Math.ceil(unit * 0.3048)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  return `${ft.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ft / ${km} m`;
 }
 
 export function calculateTotalDistance(nm: string[]): string {

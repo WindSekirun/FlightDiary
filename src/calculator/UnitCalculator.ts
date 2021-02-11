@@ -1,29 +1,32 @@
-export function displayNm(nm: string | undefined): string {
-  const unit = Number((nm || "").replace(/\D/g, ""));
-  const km = Math.ceil(unit * 1.1852)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+function formatComma(str: string) {
+  return str.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
 
-  const nmUnit = unit
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  return `${nmUnit} nm / ${km} km`;
+function strToNum(str: string) {
+  return Number((str || "").replace(/\D/g, ""));
+}
+
+export function displayNm(nm: string | undefined): string {
+  const unit = strToNum(nm || "");
+  const km = formatComma(Math.ceil(unit * 1.1852).toString());
+  return `${formatComma(unit.toString())} nm / ${km} km`;
 }
 
 export function displayFt(ft: string): string {
-  const unit = Number(ft.replace(/\D/g, ""));
-  const km = Math.ceil(unit * 0.0003048)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  return `${ft.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ft / ${km} km`;
+  const unit = strToNum(ft || "");
+  const km = formatComma(Math.ceil(unit * 0.0003048).toString());
+  return `${formatComma(ft)} ft / ${km} km`;
 }
 
 export function displayFtM(ft: string): string {
-  const unit = Number(ft.replace(/\D/g, ""));
-  const km = Math.ceil(unit * 0.3048)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-  return `${ft.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")} ft / ${km} m`;
+  const unit = strToNum(ft || "");
+  const km = formatComma(Math.ceil(unit * 0.3048).toString());
+  return `${formatComma(ft)} ft / ${km} m`;
+}
+
+export function displayFtMFloor(ft: number): string {
+  const floor = Math.floor(ft);
+  return displayFtM(floor.toString());
 }
 
 export function calculateTotalDistance(nm: string[]): string {

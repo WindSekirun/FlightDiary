@@ -7,7 +7,15 @@
         <h4 class="mt-2">{{ detailData.planSubtitle }}</h4>
         <h2 class="mt-5">Screenshots</h2>
         <vue-picture-swipe class="mt-2" :items="detailData.imageList" />
-        <flight-plan />
+        <h2 class="mt-5">Flight Plan</h2>
+        <p class="text-center mt-5">{{ detailData.planRoute }}</p>
+        <leaflet-map
+          :markers="detailData.markers"
+          :title="detailData.planTitle"
+        />
+        <div class="mt-5 mb-2">
+          <data-table />
+        </div>
         <v-row class="mt-2">
           <v-col cols="12" sm="12" md="12" lg="6">
             <airport-detail :is-destination="false" />
@@ -22,8 +30,9 @@
 </template>
 
 <script lang="ts">
-import FlightPlan from "@/components/plan/FlightPlan.vue";
 import AirportDetail from "@/components/plan/AirportDetail.vue";
+import DataTable from "@/components/common/DataTable.vue";
+import LeafletMap from "@/components/common/LeafletMap.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
@@ -32,8 +41,9 @@ import { applicationTitle } from "@/Constants";
 
 @Component({
   components: {
-    FlightPlan,
-    AirportDetail
+    AirportDetail,
+    DataTable,
+    LeafletMap
   },
   computed: {
     ...mapState({

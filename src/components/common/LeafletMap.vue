@@ -1,5 +1,5 @@
 <template>
-  <v-card :class="mapClass">
+  <v-card>
     <v-btn
       class="mt-2 d-xs-flex d-sm-flex d-md-none"
       color="#2e3440"
@@ -74,17 +74,6 @@ export default class LeafletMap extends Vue {
         return 21 / 9;
       default:
         return 25 / 9;
-    }
-  }
-
-  get mapClass() {
-    switch (this.$vuetify.breakpoint.name) {
-      case "lg":
-        return "mt-2 ms-5 me-5";
-      case "xl":
-        return "mt-2 ms-8 me-8";
-      default:
-        return "mt-2";
     }
   }
 

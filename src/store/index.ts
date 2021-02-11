@@ -18,7 +18,6 @@ import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
 import { Metadata } from "@/model/plan/Metadata";
 import { SearchData } from "@/model/SearchData";
-import { FlightPlanData } from "@/model/vo/FlightPlanData";
 import { DetailData } from "@/model/vo/DetailData";
 import Vue from "vue";
 import Vuex from "vuex";
@@ -163,8 +162,8 @@ const store = new Vuex.Store({
             (element) => new CollectionDetailTableContent(element)
           );
           const lastIndex = data.waypoints.length - 1;
-          data.markers = data.waypoints.map(
-            (element, index) => new MarkerData(index, lastIndex, element)
+          data.markers = data.waypoints.map((element, index) =>
+            MarkerData.makeByWaypoint(index, lastIndex, element)
           );
           commit(SAVE_COLLECTION_DETAIL_DATA, data);
         })
@@ -209,12 +208,6 @@ const store = new Vuex.Store({
       data.imageList = getPlanImageList(metadata);
       data.approachTitle = getApproachInformation(metadata);
       data.fullPlanTitle = getFullPlanTitle(metadata);
-      return data;
-    },
-    getFlightPlanData: (state) => {
-      const data = new FlightPlanData();
-      const metadata = state.detailMetadata || ({} as Metadata);
-      data.planTitle = getPlanTitle(metadata);
       data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
       return data;

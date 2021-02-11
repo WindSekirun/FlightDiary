@@ -1,9 +1,13 @@
+import { MarkerData } from "./MarkerData";
+
 export class DetailData {
   planTitle: string;
   fullPlanTitle: string;
   approachTitle: string;
   planSubtitle: string;
   imageList: ImageData[];
+  planRoute: string;
+  markers: MarkerData[];
 }
 
 export class ImageData {

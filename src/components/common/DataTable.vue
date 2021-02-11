@@ -27,7 +27,7 @@ import { mapGetters } from "vuex";
     })
   }
 })
-export default class FlightPlanTable extends Vue {
+export default class DataTable extends Vue {
   flightPlanRouteData!: FlightPlanRouteData;
 }
 </script>

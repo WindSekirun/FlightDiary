@@ -4,13 +4,89 @@
     <div v-for="(item, index) in details" :key="index">
       <strong>{{ item.key }}</strong> → {{ item.value }}
     </div>
+    <v-card class="mt-5">
+      <v-responsive :aspect-ratio="mapAspectRatio">
+        <l-map
+          ref="myMap"
+          :options="{
+            scrollWheelZoom: false,
+            preferCanvas: true
+          }"
+          :zoom="12"
+          :center="mapCenter"
+          @ready="readyLeaflet"
+        >
+          <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+          <l-control :position="'bottomleft'" class="map-watermark">
+            {{ title }}
+          </l-control>
+          <div v-for="(marker, index) in mapMarker" :key="index">
+            <l-marker :lat-lng="marker.latLng">
+              <l-icon :icon-anchor="marker.anchor" class-name="marker-icon">
+                <img :src="marker.icon" />
+                <div v-if="marker.headline" class="ident">
+                  {{ marker.headline }}
+                </div>
+              </l-icon>
+            </l-marker>
+          </div>
+        </l-map>
+      </v-responsive>
+    </v-card>
+    <h3 class="mt-8">Runways</h3>
+    <v-data-table
+      dense
+      :headers="runwayHeader"
+      :items="runwayContents"
+      :items-per-page="runwayContentsLength"
+      item-key="key"
+      hide-default-footer
+      class="elevation-1 mytable mt-5"
+    />
+    <h3 class="mt-8">{{ navAidsTitle }}</h3>
+    <v-data-table
+      dense
+      :headers="navAidsHeader"
+      :items="navAidsContents"
+      item-key="key"
+      :items-per-page="navAidsLength"
+      hide-default-footer
+      class="elevation-1 mytable mt-5"
+    />
+    <h3 class="mt-8">Frequencies</h3>
+    <v-data-table
+      dense
+      :headers="freqHeader"
+      :items="freqContents"
+      item-key="key"
+      :items-per-page="freqLength"
+      hide-default-footer
+      class="elevation-1 mytable mt-5"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { AirportData } from "@/model/vo/AirportData";
+import {
+  AirportData,
+  AIRPORT_HEADER_FREQ,
+  AIRPORT_HEADER_NAVAIDS,
+  AIRPORT_HEADER_RUNWAYS
+} from "@/model/vo/AirportData";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
+import { displayFtMFloor } from "@/calculator/UnitCalculator";
+import {
+  displayMagnetic,
+  getAirportCenter,
+  getAirportFrequency,
+  getAirportMarkers,
+  getRunwayNavaidsData,
+  getRunwayTableData
+} from "@/calculator/AirportDetailCalculator";
+import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
+import { LatLng, Map } from "leaflet";
+import { MarkerData } from "@/model/vo/MarkerData";
 
 class InfoKeyValue {
   key: string;
@@ -32,7 +108,18 @@ class InfoKeyValue {
 })
 export default class AirportDetail extends Vue {
   @Prop({ type: Boolean, default: false }) isDestination: boolean;
+  @Prop({ default: OPENSTREETMAP }) url!: string;
+  @Prop({ default: ATTRIBUTION }) attribution!: string;
   airportData!: AirportData;
+  map!: Map;
+
+  KV(key: string, value: string) {
+    return new InfoKeyValue(key, value);
+  }
+
+  readyLeaflet(mapObject: Map) {
+    this.map = mapObject;
+  }
 
   get airport() {
     return this.isDestination
@@ -47,11 +134,99 @@ export default class AirportDetail extends Vue {
   }
 
   get details(): InfoKeyValue[] {
+    const airport = this.airport;
+    const KV = this.KV;
+
     return [
-      new InfoKeyValue("ICAO", `${this.airport.ICAO} (${this.airport.IATA})`),
-      new InfoKeyValue("Name", this.airport.name),
-      new InfoKeyValue("Region", this.airport.regionName)
+      KV("ICAO", `${airport.ICAO} (${airport.IATA})`),
+      KV("Name", airport.name),
+      KV("Region", airport.regionName),
+      KV("Elevation", `${displayFtMFloor(airport.elevation)} (AMSL)`),
+      KV("Location", `${airport.lat}°, ${airport.lon}°`),
+      KV("Runway", airport.runwayCount.toString()),
+      KV("Magnetic Variation", displayMagnetic(airport))
     ];
+  }
+
+  get mapCenter(): LatLng {
+    return getAirportCenter(this.airport);
+  }
+
+  get mapMarker(): MarkerData[] {
+    return getAirportMarkers(this.airport);
+  }
+
+  get runwayHeader() {
+    return AIRPORT_HEADER_RUNWAYS;
+  }
+
+  get runwayContents() {
+    return getRunwayTableData(this.airport);
+  }
+
+  get runwayContentsLength() {
+    return getRunwayTableData(this.airport).length;
+  }
+
+  get navAidsTitle() {
+    return this.isDestination ? `Destination Navaids` : `Departure Navaids`;
+  }
+
+  get navAidsHeader() {
+    return AIRPORT_HEADER_NAVAIDS;
+  }
+
+  get navAidsContents() {
+    return getRunwayNavaidsData(this.airport);
+  }
+
+  get navAidsLength() {
+    return getRunwayNavaidsData(this.airport).length;
+  }
+
+  get freqHeader() {
+    return AIRPORT_HEADER_FREQ;
+  }
+
+  get freqContents() {
+    return getAirportFrequency(this.airport);
+  }
+
+  get freqLength() {
+    return getAirportFrequency(this.airport).length;
+  }
+
+  get mapAspectRatio() {
+    switch (this.$vuetify.breakpoint.name) {
+      case "xs":
+        return 16 / 9;
+      case "md":
+        return 16 / 9;
+      case "lg":
+        return 21 / 9;
+      default:
+        return 25 / 9;
+    }
   }
 }
 </script>
+
+<style>
+.mytable table tr {
+  background-color: #2e3440;
+  color: #d8dee9;
+  border-bottom: none !important;
+}
+.map-watermark {
+  font-size: 150%;
+  font-weight: bolder;
+  color: #2e3440;
+  text-shadow: #555;
+}
+.ident {
+  font-size: 1em;
+  white-space: nowrap;
+  color: #2e3440;
+  margin-top: -3px;
+}
+</style>

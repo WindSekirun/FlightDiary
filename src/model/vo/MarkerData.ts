@@ -5,9 +5,11 @@ import {
   FP_DME,
   FP_ILS,
   FP_TAC,
-  FP_WAYPOINT
+  FP_WAYPOINT,
+  TRANSPARENT_ICON
 } from "@/Constants";
 import { LatLng } from "leaflet";
+import { Runway } from "../airport/Runway";
 import { Waypoint } from "../plan/Waypoint";
 
 export class TooltipMaterial {
@@ -90,19 +92,34 @@ export function buildHeadline(material: TooltipMaterial): string {
 
 export class MarkerData {
   latLng: LatLng;
-  anchor = [10, 12];
+  anchor: number[];
   icon: string;
   ident: string;
   tooltipText: string;
   headline: string;
 
-  constructor(index: number, lastIndex: number, current: Waypoint) {
+  static makeByWaypoint(
+    index: number,
+    lastIndex: number,
+    current: Waypoint
+  ): MarkerData {
     const material = new TooltipMaterial(index, lastIndex, current);
+    const data = new MarkerData();
+    data.latLng = new LatLng(current.lat, current.lng);
+    data.anchor = [10, 12];
+    data.icon = findIconOfWaypoint(material);
+    data.ident = current.ident;
+    data.tooltipText = buildTooltipOfWaypoint(material);
+    data.headline = buildHeadline(material);
+    return data;
+  }
 
-    this.latLng = new LatLng(current.lat, current.lng);
-    this.icon = findIconOfWaypoint(material);
-    this.ident = current.ident;
-    this.tooltipText = buildTooltipOfWaypoint(material);
-    this.headline = buildHeadline(material);
+  static makeByRunway(runway: Runway, latLng: LatLng): MarkerData {
+    const data = new MarkerData();
+    data.anchor = [10, 20];
+    data.latLng = latLng;
+    data.icon = TRANSPARENT_ICON;
+    data.headline = runway.ident;
+    return data;
   }
 }

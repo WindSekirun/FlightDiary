@@ -9,7 +9,10 @@ import { LatLng } from "leaflet";
 export function getWaypointMarker(metadata: Metadata): MarkerData[] {
   const lastIndex = metadata.waypoint.length - 1;
   return metadata.waypoint
-    .map((element, index) => new MarkerData(index, lastIndex, element))
+    .map(
+      (element, index) =>
+        MarkerData.makeByWaypoint(index, lastIndex, element)
+    )
     .filter((element) => element.latLng.lat != 0 && element.latLng.lng != 0);
 }
 

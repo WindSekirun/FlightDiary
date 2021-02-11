@@ -1,22 +1,12 @@
 import { baseDomain } from "@/Constants";
 import { Metadata } from "@/model/plan/Metadata";
-import { ImageData } from "@/model/vo/DetailData";
+import { FlightPlanTableContent, ImageData } from "@/model/vo/DetailData";
 import {
-  FlightPlanRouteData,
-  FlightPlanTableContent,
-  HEADER_AIRWAY,
-  HEADER_DISTANCE,
-  HEADER_FREQ,
-  HEADER_ICON,
-  HEADER_IDENT,
-  HEADER_NAME,
-  HEADER_PROCEDURE,
-  HEADER_REGION,
-  HEADER_RESTRICT,
-  HEADER_TYPE,
-  HEADER_WIND
-} from "@/model/vo/FlightPlanRoute";
-import { findIconOfWaypoint, TooltipMaterial } from "@/model/vo/MarkerData";
+  findIconOfWaypoint,
+  MarkerData,
+  TooltipMaterial
+} from "@/model/vo/MarkerData";
+import { meta } from "@turf/turf";
 import { displayFt, displayNm } from "./UnitCalculator";
 
 /**
@@ -83,25 +73,22 @@ export function getPlanRoute(metadata: Metadata): string {
     .join(" ");
 }
 
-export function getFlightPlanRouteData(
-  metadata: Metadata
-): FlightPlanRouteData {
-  const data = new FlightPlanRouteData();
+/**
+ * Getting waypoint's marker data from
+ * @param metadata
+ */
+export function getWaypointMarker(metadata: Metadata): MarkerData[] {
   const lastIndex = metadata.waypoint.length - 1;
-  data.headers = [
-    HEADER_ICON,
-    HEADER_IDENT,
-    HEADER_REGION,
-    HEADER_NAME,
-    HEADER_PROCEDURE,
-    HEADER_AIRWAY,
-    HEADER_RESTRICT,
-    HEADER_TYPE,
-    HEADER_FREQ,
-    HEADER_DISTANCE,
-    HEADER_WIND
-  ];
-  data.contents = metadata.waypoint.map((element, index) => {
+  return metadata.waypoint
+    .map((element, index) =>
+      MarkerData.makeByWaypoint(index, lastIndex, element)
+    )
+    .filter((element) => element.latLng.lat != 0 && element.latLng.lng != 0);
+}
+
+export function getRouteTable(metadata: Metadata): FlightPlanTableContent[] {
+  const lastIndex = metadata.waypoint.length - 1;
+  return metadata.waypoint.map((element, index) => {
     const material = new TooltipMaterial(index, lastIndex, element);
     const route = new FlightPlanTableContent();
     route.icon = findIconOfWaypoint(material);
@@ -118,6 +105,4 @@ export function getFlightPlanRouteData(
     route.key = `${route.ident} - ${route.procedure} - ${route.airway}`;
     return route;
   });
-  data.length = data.contents.length;
-  return data;
 }

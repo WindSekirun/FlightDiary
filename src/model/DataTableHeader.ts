@@ -9,3 +9,7 @@ export class DataTableHeader {
     this.value = value;
   }
 }
+
+export interface TableContents {
+  doNothing: boolean;
+}

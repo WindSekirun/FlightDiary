@@ -2,8 +2,9 @@
   <div>
     <v-data-table
       dense
-      :headers="flightPlanRouteData.headers"
-      :items="flightPlanRouteData.contents"
+      :headers="headers"
+      :items="contents"
+      :items-per-page="itemPerPage"
       item-key="key"
       class="elevation-1 mytable"
     >
@@ -15,20 +16,17 @@
 </template>
 
 <script lang="ts">
-import { FlightPlanRouteData } from "@/model/vo/FlightPlanRoute";
-import { Component, Vue } from "vue-property-decorator";
-import { mapGetters } from "vuex";
+import { TableContents, DataTableHeader } from "@/model/DataTableHeader";
+import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component({
   components: {},
-  computed: {
-    ...mapGetters({
-      flightPlanRouteData: "getFlightPlanRouteData"
-    })
-  }
+  computed: {}
 })
 export default class DataTable extends Vue {
-  flightPlanRouteData!: FlightPlanRouteData;
+  @Prop({ type: Array }) headers: DataTableHeader[];
+  @Prop({ type: Array }) contents: TableContents[];
+  @Prop({ type: Number, default: 10 }) itemPerPage: number;
 }
 </script>
 

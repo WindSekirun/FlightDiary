@@ -18,18 +18,21 @@ import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
 import { Metadata } from "@/model/plan/Metadata";
 import { SearchData } from "@/model/SearchData";
-import { DetailData } from "@/model/vo/DetailData";
+import {
+  DetailData,
+  DETAIL_HEADER_ROUTE
+} from "@/model/vo/DetailData";
 import Vue from "vue";
 import Vuex from "vuex";
-import { getWaypointMarker } from "@/calculator/LeafletCalculator";
 import {
   getApproachInformation,
   getFullPlanTitle,
   getPlanRoute,
-  getFlightPlanRouteData,
   getPlanSubtitle,
   getPlanTitle,
-  getPlanImageList
+  getPlanImageList,
+  getWaypointMarker,
+  getRouteTable
 } from "@/calculator/PlanCalculator";
 import { AirportData } from "@/model/vo/AirportData";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
@@ -39,7 +42,9 @@ import {
   COLLECTION_DETAIL_TABLE_HEADER
 } from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
-import { MarkerData } from "@/model/vo/MarkerData";
+import {
+  MarkerData,
+} from "@/model/vo/MarkerData";
 
 Vue.use(Vuex);
 
@@ -210,11 +215,9 @@ const store = new Vuex.Store({
       data.fullPlanTitle = getFullPlanTitle(metadata);
       data.planRoute = getPlanRoute(metadata);
       data.markers = getWaypointMarker(metadata);
+      data.headers = DETAIL_HEADER_ROUTE;
+      data.contents = getRouteTable(metadata);
       return data;
-    },
-    getFlightPlanRouteData: (state) => {
-      const metadata = state.detailMetadata || ({} as Metadata);
-      return getFlightPlanRouteData(metadata);
     },
     getAirportData: (state) => {
       const data = new AirportData();

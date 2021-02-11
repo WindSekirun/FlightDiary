@@ -14,7 +14,10 @@
           :title="detailData.planTitle"
         />
         <div class="mt-5 mb-2">
-          <data-table />
+          <data-table
+            :headers="detailData.headers"
+            :contents="detailData.contents"
+          />
         </div>
         <v-row class="mt-2">
           <v-col cols="12" sm="12" md="12" lg="6">

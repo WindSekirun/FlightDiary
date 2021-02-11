@@ -47,6 +47,9 @@ const routes: Array<RouteConfig> = [
     path: pageDetail.path,
     name: pageDetail.name,
     component: () => import("../views/Detail.vue"),
+    meta: {
+      title: `${pageDetail.name} - ${applicationTitle}`
+    },
     props: true,
     beforeEnter: function(to: Route, from: Route, next) {
       store

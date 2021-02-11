@@ -34,8 +34,13 @@ import {
 } from "@/calculator/PlanCalculator";
 import { AirportData } from "@/model/vo/AirportData";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
-import { CollectionDetailData } from "@/model/vo/CollectionDetailData";
+import {
+  CollectionDetailData,
+  CollectionDetailTableContent,
+  COLLECTION_DETAIL_TABLE_HEADER
+} from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
+import { MarkerData } from "@/model/vo/MarkerData";
 
 Vue.use(Vuex);
 
@@ -138,9 +143,12 @@ const store = new Vuex.Store({
       const response = await Vue.axios.get("collection.json");
       commit(SAVE_COLLECTION_DATA, response.data);
     },
-    [LOAD_COLLECTION_DETAIL_DATA]({ commit, getters }, data) {
+    async [LOAD_COLLECTION_DETAIL_DATA]({ commit }, data) {
       const id = data.id;
-      const currentItem: CollectionDataItem = getters.getCollectionData(id);
+      const response = await Vue.axios.get("collection.json");
+      const currentItem: CollectionDataItem = response.data.filter(
+        (element: CollectionDataItem) => element.id.includes(id)
+      )[0];
       const metadataRequestList = currentItem.flights.map((element) =>
         Vue.axios.get(`data/${element}/metadata.json`)
       );
@@ -150,6 +158,14 @@ const store = new Vuex.Store({
           data.item = currentItem;
           data.metadataList = responses.map((element) => element.data);
           data.waypoints = mergeCollectionWaypoint(data.metadataList);
+          data.tableHeaders = COLLECTION_DETAIL_TABLE_HEADER;
+          data.tableContents = data.metadataList.map(
+            (element) => new CollectionDetailTableContent(element)
+          );
+          const lastIndex = data.waypoints.length - 1;
+          data.markers = data.waypoints.map(
+            (element, index) => new MarkerData(index, lastIndex, element)
+          );
           commit(SAVE_COLLECTION_DETAIL_DATA, data);
         })
       );
@@ -215,12 +231,6 @@ const store = new Vuex.Store({
     },
     getCollectionList: (state) => {
       return state.collectionList.reverse();
-    },
-    getCollectionData: (state) => (id: string) => {
-      const item = state.collectionList.filter((element) =>
-        element.id.includes(id)
-      );
-      return item;
     }
   }
 });

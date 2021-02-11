@@ -18,7 +18,6 @@
 import { Component, Model, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 import { FlightPlanData } from "@/model/vo/FlightPlanData";
-
 import FlightPlanTable from "./FlightPlanTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
 

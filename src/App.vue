@@ -47,6 +47,9 @@
           <router-view />
         </v-container>
       </v-main>
+      <v-footer padless color="#2e3440">
+        <flight-footer class="mt-5" />
+      </v-footer>
     </v-app>
   </div>
 </template>
@@ -54,6 +57,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
+import FlightFooter from "@/components/common/FlightFooter.vue";
 import {
   pageAbout,
   pageSpec,
@@ -62,7 +66,11 @@ import {
   pageCollection
 } from "./model/PageRouter";
 
-@Component({})
+@Component({
+  components: {
+    FlightFooter
+  }
+})
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;

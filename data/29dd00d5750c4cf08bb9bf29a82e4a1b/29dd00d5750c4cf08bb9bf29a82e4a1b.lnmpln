@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-02-11T20:13:08</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="1801">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="-149.997498" Lat="61.174202" Alt="121.00"/>
+      <Start>07R</Start>
+    </Departure>
+    <Procedures>
+      <SID>
+        <Name>ANCHO8</Name>
+        <Runway>33</Runway>
+      </SID>
+      <Approach>
+        <Name>MEALS</Name>
+        <ARINC>I31L</ARINC>
+        <Runway>31L</Runway>
+        <Type>ILS</Type>
+        <Transition>DPK</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Ted Stevens Anchorage Intl</Name>
+        <Ident>PANC</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-149.997498" Lat="61.174202" Alt="121.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ELLAM</Ident>
+        <Region>PA</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-149.339005" Lat="61.378307" Alt="11538.72"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TIEKL</Ident>
+        <Region>PA</Region>
+        <Airway>NCA20</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-145.058502" Lat="61.393764" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>HOGAR</Ident>
+        <Region>CY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-116.661034" Lat="59.355206" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Red Lake</Name>
+        <Ident>YRL</Ident>
+        <Region>CY</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-93.762039" Lat="51.071552" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WOZEE</Ident>
+        <Region>K6</Region>
+        <Airway>NCA20</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-78.738792" Lat="42.933792" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KELIE</Ident>
+        <Region>K6</Region>
+        <Airway>Q818</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-77.744736" Lat="42.660366" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VIEEW</Ident>
+        <Region>K6</Region>
+        <Airway>Q818</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-77.025917" Lat="42.439465" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Binghamton</Name>
+        <Ident>CFB</Ident>
+        <Region>K6</Region>
+        <Airway>Q818</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-76.136475" Lat="42.157486" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KODEY</Ident>
+        <Region>K6</Region>
+        <Airway>J190</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.784447" Lat="42.279869" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ARKKK</Ident>
+        <Region>K6</Region>
+        <Airway>Q140</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.316780" Lat="42.063477" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RODYY</Ident>
+        <Region>K6</Region>
+        <Airway>Q140</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.597054" Lat="41.873848" Alt="31508.68"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>YODAA</Ident>
+        <Region>K6</Region>
+        <Airway>Q140</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.031319" Lat="41.722553" Alt="25080.16"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GANDE</Ident>
+        <Region>K6</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.814453" Lat="41.510181" Alt="21246.79"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DUEYS</Ident>
+        <Region>K6</Region>
+        <Airway>J37</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.796814" Lat="41.152626" Alt="16113.38"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LLUND</Ident>
+        <Region>K6</Region>
+        <Airway>J37</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.782585" Lat="40.862511" Alt="11948.21"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Kennedy Intl</Name>
+        <Ident>KJFK</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-73.776520" Lat="40.640137" Alt="13.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

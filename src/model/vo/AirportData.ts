@@ -83,7 +83,7 @@ export class AirportFreqContent {
         this.type = "Approach";
         break;
       case "CLD":
-        this.type = "Clearance Delivery";
+        this.type = "Clearance";
         break;
       case "TWR":
         this.type = "Tower";
@@ -92,7 +92,7 @@ export class AirportFreqContent {
         this.type = "Unicom";
         break;
       case "REC":
-        this.type = "D-ATIS";
+        this.type = "Recorded";
         break;
       case "DEP":
         this.type = "Departure";

@@ -37,6 +37,9 @@
             </l-tooltip>
             <l-icon :icon-anchor="marker.anchor" class-name="marker-icon">
               <img :src="marker.icon" />
+              <div v-if="marker.headline" class="ident">
+                {{ marker.headline }}
+              </div>
             </l-icon>
           </l-marker>
         </div>
@@ -123,8 +126,10 @@ export default class LeafletMap extends Vue {
   color: #2e3440;
   text-shadow: #555;
 }
-.marker-text {
-  font-size: 100%;
+.ident {
+  font-size: 1em;
+  white-space: nowrap;
   color: #2e3440;
+  margin-top: -3px;
 }
 </style>

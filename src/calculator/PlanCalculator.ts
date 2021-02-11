@@ -1,14 +1,5 @@
-import {
-  baseDomain,
-  FP_DEPARTURE,
-  FP_DESTINATION,
-  FP_DME,
-  FP_ILS,
-  FP_TAC,
-  FP_WAYPOINT
-} from "@/Constants";
+import { baseDomain } from "@/Constants";
 import { Metadata } from "@/model/plan/Metadata";
-import { Waypoint } from "@/model/plan/Waypoint";
 import { ImageData } from "@/model/vo/DetailData";
 import {
   FlightPlanRouteData,
@@ -25,6 +16,7 @@ import {
   HEADER_TYPE,
   HEADER_WIND
 } from "@/model/vo/FlightPlanRoute";
+import { findIconOfWaypoint, TooltipMaterial } from "@/model/vo/MarkerData";
 import { displayFt, displayNm } from "./UnitCalculator";
 
 /**
@@ -91,68 +83,6 @@ export function getPlanRoute(metadata: Metadata): string {
     .join(" ");
 }
 
-/**
- * Finding icon of Waypoint
- * @param index current index of waypoint
- * @param lastIndex last index of waypoint[]
- * @param waypoint waypoint object
- */
-export function findIconOfWaypoint(
-  index: number,
-  lastIndex: number,
-  waypoint: Waypoint
-): string {
-  let markerIcon;
-  if (index == 0) {
-    // departure airport
-    markerIcon = FP_DEPARTURE;
-  } else if (index == lastIndex) {
-    // destination airport
-    markerIcon = FP_DESTINATION;
-  } else if (waypoint.type.includes("VORTAC")) {
-    // VORTAC (H)
-    markerIcon = FP_TAC;
-  } else if (waypoint.type.includes("VORDME")) {
-    // VORDME (H)
-    markerIcon = FP_DME;
-  } else if (waypoint.type.includes("ILS")) {
-    // ILS
-    markerIcon = FP_ILS;
-  } else if (waypoint.ident == "" && waypoint.isProcedure) {
-    // if waypoint is procedure and ident is empty
-    markerIcon = FP_ILS;
-  } else {
-    markerIcon = FP_WAYPOINT;
-  }
-
-  return markerIcon;
-}
-
-export function buildTooltipOfWaypoint(
-  index: number,
-  lastIndex: number,
-  waypoint: Waypoint
-) {
-  const ident = waypoint.ident;
-  let tooltip;
-  if (index == 0) {
-    tooltip = `Departure ${ident}`;
-  } else if (index == lastIndex) {
-    tooltip = `Destination ${ident}`;
-  } else if (waypoint.type != "") {
-    tooltip = `${waypoint.type} - ${ident}`;
-    if (waypoint.alt != "") {
-      tooltip += ` in ${displayFt(waypoint.alt)}`;
-    }
-  } else {
-    tooltip = `${ident}`;
-    if (waypoint.alt != "") {
-      tooltip += ` in ${displayFt(waypoint.alt)}`;
-    }
-  }
-  return tooltip;
-}
-
 export function getFlightPlanRouteData(
   metadata: Metadata
 ): FlightPlanRouteData {
@@ -172,8 +102,9 @@ export function getFlightPlanRouteData(
     HEADER_WIND
   ];
   data.contents = metadata.waypoint.map((element, index) => {
+    const material = new TooltipMaterial(index, lastIndex, element);
     const route = new FlightPlanTableContent();
-    route.icon = findIconOfWaypoint(index, lastIndex, element);
+    route.icon = findIconOfWaypoint(material);
     route.ident = element.ident;
     route.region = element.region;
     route.name = element.name;

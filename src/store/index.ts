@@ -18,10 +18,7 @@ import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
 import { Metadata } from "@/model/plan/Metadata";
 import { SearchData } from "@/model/SearchData";
-import {
-  DetailData,
-  DETAIL_HEADER_ROUTE
-} from "@/model/vo/DetailData";
+import { DetailData, DETAIL_HEADER_ROUTE } from "@/model/vo/DetailData";
 import Vue from "vue";
 import Vuex from "vuex";
 import {
@@ -42,9 +39,7 @@ import {
   COLLECTION_DETAIL_TABLE_HEADER
 } from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
-import {
-  MarkerData,
-} from "@/model/vo/MarkerData";
+import { MarkerData } from "@/model/vo/MarkerData";
 
 Vue.use(Vuex);
 

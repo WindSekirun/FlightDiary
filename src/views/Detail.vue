@@ -15,16 +15,17 @@
         />
         <div class="mt-5 mb-2">
           <data-table
+            :table-id="tableId"
             :headers="detailData.headers"
             :contents="detailData.contents"
           />
         </div>
         <v-row class="mt-2">
           <v-col cols="12" sm="12" md="12" lg="6">
-            <airport-detail :is-destination="false" />
+            <airport-detail :is-destination="false" :metadata-id="id" />
           </v-col>
           <v-col cols="12" sm="12" md="12" lg="6">
-            <airport-detail :is-destination="true" />
+            <airport-detail :is-destination="true" :metadata-id="id" />
           </v-col>
         </v-row>
       </v-sheet>
@@ -62,6 +63,10 @@ export default class Detail extends Vue {
   metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
+
+  get tableId() {
+    return "planDetail";
+  }
 
   mounted() {
     document.title = `${this.detailData.planTitle} - ${applicationTitle}`;

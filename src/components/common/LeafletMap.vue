@@ -15,8 +15,8 @@
           scrollWheelZoom: false,
           preferCanvas: true
         }"
-        @ready="readyLeaflet"
         style="z-index: 0;"
+        @ready="readyLeaflet"
       >
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <l-polyline :lat-lngs="meriodianPolylines" color="#4c566a"></l-polyline>

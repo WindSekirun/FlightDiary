@@ -13,19 +13,11 @@
         />
         <data-table
           class="mt-5"
+          :table-id="tableId"
           :headers="collectionDetail.tableHeaders"
           :contents="collectionDetail.tableContents"
           @row-click="clickDetail"
         />
-        <v-data-table
-          dense
-          :headers="collectionDetail.tableHeaders"
-          :items="collectionDetail.tableContents"
-          item-key="key"
-          class="mt-5 elevation-1 mytable"
-          @click:row="clickDetail"
-        >
-        </v-data-table>
       </v-sheet>
     </v-col>
   </v-row>
@@ -61,6 +53,10 @@ export default class CollectionsDetail extends Vue {
 
   get totalDistance() {
     return calculateTotalDistance(this.collectionDetail.item.distances);
+  }
+
+  get tableId() {
+    return `collection detail-${this.id}`;
   }
 
   mounted() {

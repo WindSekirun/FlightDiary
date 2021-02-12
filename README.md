@@ -30,3 +30,24 @@ These files must indicate in importer/target **before** running script.
 2. `cd importer`
 3. `python importer.py`
 4. follow instruction of importer script
+
+## Troubleshooting for build
+
+### chmod geo2topo ENOENT: no such file or directory.
+
+```sh
+npm ERR! code ENOENT
+npm ERR! syscall chmod
+npm ERR! path /usr/local/lib/node_modules/@turf/turf/node_modules/topojson/node_modules/topojson-server/bin/geo2topo
+npm ERR! errno -2
+npm ERR! enoent ENOENT: no such file or directory, chmod '/usr/local/lib/node_modules/@turf/turf/node_modules/topojson/node_modules/topojson-server/bin/geo2topo'
+npm ERR! enoent This is related to npm not being able to find a file.
+npm ERR! enoent 
+```
+
+This error can be fixed by these commands.
+
+```sh
+npm install -g node-pre-gyp
+npm install --no-bin-links
+```

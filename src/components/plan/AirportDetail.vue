@@ -14,6 +14,7 @@
           }"
           :zoom="12"
           :center="mapCenter"
+          style="z-index: 0;"
           @ready="readyLeaflet"
         >
           <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>

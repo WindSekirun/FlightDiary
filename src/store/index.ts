@@ -29,7 +29,8 @@ import {
   getPlanTitle,
   getPlanImageList,
   getWaypointMarker,
-  getRouteTable
+  getRouteTable,
+  getPlanElevation
 } from "@/calculator/PlanCalculator";
 import { AirportData } from "@/model/vo/AirportData";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
@@ -40,6 +41,7 @@ import {
 } from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 import { MarkerData } from "@/model/vo/MarkerData";
+import { meta } from "@turf/turf";
 
 Vue.use(Vuex);
 
@@ -212,6 +214,10 @@ const store = new Vuex.Store({
       data.markers = getWaypointMarker(metadata);
       data.headers = DETAIL_HEADER_ROUTE;
       data.contents = getRouteTable(metadata);
+
+      const elevation = getPlanElevation(metadata);
+      data.elevationHeader = elevation[0];
+      data.elevationContent = elevation[1];
       return data;
     },
     getAirportData: (state) => {

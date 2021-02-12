@@ -1,15 +1,17 @@
 {
-  "language": "en",
-  "words": [
-    "lnmplns",
-    "Navmap",
-    "optipng",
-    "webp",
-    "cwebp",
-    "lnmpln",
-    "vuex",
-    "fortawesome",
-    "vuetify",
-    "fontawesome"
-  ]
+    "version": "0.1",
+    "language": "en",
+    "words": [
+        "cwebp",
+        "fontawesome",
+        "fortawesome",
+        "lnmpln",
+        "lnmplns",
+        "Mixins",
+        "Navmap",
+        "optipng",
+        "vuetify",
+        "vuex",
+        "webp"
+    ]
 }

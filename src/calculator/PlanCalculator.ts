@@ -106,3 +106,18 @@ export function getRouteTable(metadata: Metadata): FlightPlanTableContent[] {
     return route;
   });
 }
+
+export function getPlanElevation(metadata: Metadata): [string[], number[]] {
+  const contents: number[] = [];
+  const headers: string[] = [];
+
+  metadata.waypoint.forEach((waypoint) => {
+    const alt = Number((waypoint.alt || "").replace(/\D/g, "")).valueOf();
+    if (alt != 0 && waypoint.ident != "") {
+      headers.push(waypoint.ident);
+      contents.push(alt);
+    }
+  });
+
+  return [headers, contents];
+}

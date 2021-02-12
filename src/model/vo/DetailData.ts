@@ -11,6 +11,8 @@ export class DetailData {
   markers: MarkerData[];
   headers: DataTableHeader[];
   contents: FlightPlanTableContent[];
+  elevationHeader: string[];
+  elevationContent: number[];
 }
 
 export class ImageData {

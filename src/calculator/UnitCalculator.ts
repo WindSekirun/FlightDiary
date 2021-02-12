@@ -24,6 +24,11 @@ export function displayFtM(ft: string): string {
   return `${formatComma(ft)} ft / ${km} m`;
 }
 
+export function displayFtOnly(ft: string): string {
+  const unit = strToNum(ft || "");
+  return `${formatComma(ft)} ft`;
+}
+
 export function displayFtMFloor(ft: number): string {
   const floor = Math.floor(ft);
   return displayFtM(floor.toString());

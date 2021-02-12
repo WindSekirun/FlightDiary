@@ -20,6 +20,14 @@
             :contents="detailData.contents"
           />
         </div>
+        <h2 class="mt-5">Elevation Profile</h2>
+        <elevation-chart
+          class="mt-5"
+          :options="chartOptions"
+          style="height: 30vh"
+          :chart-header="detailData.elevationHeader"
+          :chart-data="detailData.elevationContent"
+        />
         <v-row class="mt-2">
           <v-col cols="12" sm="12" md="12" lg="6">
             <airport-detail :is-destination="false" :metadata-id="id" />
@@ -37,17 +45,21 @@
 import AirportDetail from "@/components/plan/AirportDetail.vue";
 import DataTable from "@/components/common/DataTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
+import ElevationChart from "@/components/plan/ElevationChart";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
 import { applicationTitle } from "@/Constants";
+import { ChartOptions } from "chart.js";
+import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
 
 @Component({
   components: {
     AirportDetail,
     DataTable,
-    LeafletMap
+    LeafletMap,
+    ElevationChart
   },
   computed: {
     ...mapState({
@@ -63,6 +75,54 @@ export default class Detail extends Vue {
   metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
+
+  fontColor = "#d8dee9";
+
+  chartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    tooltips: {
+      callbacks: {
+        label: (tooltipItem) =>
+          `${tooltipItem.xLabel} - ${displayFt(
+            tooltipItem.yLabel?.toString() || ""
+          )}`,
+        title: () => ""
+      }
+    },
+    scales: {
+      xAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            fontColor: this.fontColor
+          },
+          ticks: {
+            fontColor: this.fontColor,
+            fontSize: 14
+          }
+        }
+      ],
+      yAxes: [
+        {
+          scaleLabel: {
+            display: true,
+            fontColor: this.fontColor
+          },
+          ticks: {
+            fontColor: this.fontColor,
+            fontSize: 14,
+            callback: function(label: number, index, labels) {
+              return displayFtOnly(label.toString());
+            }
+          }
+        }
+      ]
+    }
+  };
 
   get tableId() {
     return "planDetail";

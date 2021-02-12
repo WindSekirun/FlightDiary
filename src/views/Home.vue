@@ -48,7 +48,7 @@
     </v-col>
 
     <v-col cols="12" sm="12" md="12" lg="9">
-      <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
+      <v-sheet color="#3b4252" rounded="lg" class="mt-3">
         <v-row>
           <v-col
             v-for="(item, index) in listItems"

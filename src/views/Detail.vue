@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-sheet color="#3b4252" rounded="lg" class="pa-5">
+      <v-sheet color="#3b4252" rounded="lg" class="pa-5 mr-1">
         <h1>{{ detailData.fullPlanTitle }}</h1>
         <h2 class="mt-2">{{ detailData.approachTitle }}</h2>
         <h4 class="mt-2">{{ detailData.planSubtitle }}</h4>

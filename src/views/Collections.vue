@@ -1,5 +1,5 @@
 <template>
-  <v-sheet color="#3b4252" min-height="80vh" rounded="lg" class="mt-3">
+  <v-sheet color="#3b4252" rounded="lg" class="mt-3">
     <v-row>
       <v-col
         v-for="(item, index) in listItems"
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import CollectionItem from "@/components/item/CollectionItem.vue";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
 import { LOAD_COLLECTION_DATA } from "@/Constants";

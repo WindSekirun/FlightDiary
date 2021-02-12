@@ -1,7 +1,13 @@
 <template>
   <div id="app">
     <v-app id="inspire">
-      <v-app-bar app color="#3b4252" flat>
+      <v-app-bar
+        app
+        color="#3b4252"
+        flat
+        elevate-on-scroll
+        scroll-target="#scrolling-panel"
+      >
         <v-container class="py-0 fill-height">
           <v-btn text @click="clickHome()">
             <v-avatar class="mr-4" size="32">
@@ -42,8 +48,8 @@
           </v-menu>
         </v-container>
       </v-app-bar>
-      <v-main>
-        <v-container>
+      <v-main id="scrolling-panel">
+        <v-container fluid>
           <router-view />
         </v-container>
       </v-main>

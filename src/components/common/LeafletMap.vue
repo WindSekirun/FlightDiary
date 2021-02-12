@@ -63,6 +63,7 @@ export default class LeafletMap extends Vue {
   @Prop({ type: String }) title: string;
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
+  @Prop({ type: Boolean, default: true }) useMeridian: boolean;
   map!: Map;
 
   get mapAspectRatio() {
@@ -80,14 +81,20 @@ export default class LeafletMap extends Vue {
 
   get meridianMarkers() {
     return this.markers.map((element) => {
-      element.latLng = calculateMeridian(element.latLng);
+      if (this.useMeridian) {
+        element.latLng = calculateMeridian(element.latLng);
+      }
       return element;
     });
   }
 
   get meriodianPolylines() {
     return this.markers.map((element) => {
-      return calculateMeridian(element.latLng);
+      if (this.useMeridian) {
+        return calculateMeridian(element.latLng);
+      } else {
+        return element.latLng;
+      }
     });
   }
 

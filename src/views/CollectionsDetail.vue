@@ -9,6 +9,7 @@
         <h2 class="mt-5">Flight Plan</h2>
         <leaflet-map
           class="mt-2"
+          :use-meridian="false"
           :markers="collectionDetail.markers"
           :title="collectionDetail.item.title"
         />

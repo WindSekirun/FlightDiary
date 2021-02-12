@@ -5,6 +5,14 @@
       <strong>{{ item.key }}</strong> → {{ item.value }}
     </div>
     <v-card class="mt-5">
+      <v-btn
+        class="mt-2 d-xs-flex d-sm-flex d-md-none"
+        color="#2e3440"
+        block
+        @click="fitToPlan()"
+      >
+        Fit to Center
+      </v-btn>
       <v-responsive :aspect-ratio="mapAspectRatio">
         <l-map
           ref="myMap"
@@ -12,7 +20,7 @@
             scrollWheelZoom: false,
             preferCanvas: true
           }"
-          :zoom="12"
+          :zoom="defaultZoom"
           :center="mapCenter"
           style="z-index: 0;"
           @ready="readyLeaflet"
@@ -20,6 +28,15 @@
           <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
           <l-control :position="'bottomleft'" class="map-watermark">
             {{ title }}
+          </l-control>
+          <l-control>
+            <v-btn
+              class="mt-2 mr-2 d-none d-md-flex"
+              color="#2e3440"
+              @click="fitToPlan()"
+            >
+              Fit to Center
+            </v-btn>
           </l-control>
           <div v-for="(marker, index) in mapMarker" :key="index">
             <l-marker :lat-lng="marker.latLng">
@@ -109,6 +126,8 @@ export default class AirportDetail extends Vue {
   @Prop({ type: Boolean, default: false }) isDestination: boolean;
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
+  airportCenter: LatLng | undefined;
+  defaultZoom = 12;
   airportData!: AirportData;
   map!: Map;
 
@@ -118,6 +137,14 @@ export default class AirportDetail extends Vue {
 
   readyLeaflet(mapObject: Map) {
     this.map = mapObject;
+  }
+
+  fitToPlan() {
+    if (this.airportCenter == undefined) {
+      this.airportCenter = getAirportCenter(this.airport);
+    }
+    this.map.panTo(this.airportCenter);
+    this.map.setZoom(this.defaultZoom);
   }
 
   get airport() {
@@ -148,7 +175,10 @@ export default class AirportDetail extends Vue {
   }
 
   get mapCenter(): LatLng {
-    return getAirportCenter(this.airport);
+    if (this.airportCenter == undefined) {
+      this.airportCenter = getAirportCenter(this.airport);
+    }
+    return this.airportCenter;
   }
 
   get mapMarker(): MarkerData[] {
@@ -156,7 +186,7 @@ export default class AirportDetail extends Vue {
   }
 
   get runwayTableId() {
-    return `runway table-${this.metadataId}`;
+    return `runway table-${this.metadataId}-${this.isDestination}`;
   }
 
   get runwayHeader() {
@@ -172,7 +202,7 @@ export default class AirportDetail extends Vue {
   }
 
   get navAidsTableId() {
-    return `navaids table-${this.metadataId}`;
+    return `navaids table-${this.metadataId}-${this.isDestination}`;
   }
 
   get navAidsTitle() {
@@ -192,7 +222,7 @@ export default class AirportDetail extends Vue {
   }
 
   get freqTableId() {
-    return `freq table-${this.metadataId}`;
+    return `freq table-${this.metadataId}-${this.isDestination}`;
   }
 
   get freqHeader() {

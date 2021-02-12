@@ -1,15 +1,10 @@
 <template>
   <div>
-    <v-btn
-      block
-      class="mt-2 mb-2 d-xs-flex d-sm-flex d-md-none"
-      color="#2e3440"
-      @click="clickToggleTable"
-    >
-      {{ showTableButtonText }}
+    <v-btn block class="mt-2 mb-2" color="#2e3440" @click="clickToggleTable">
+      {{ hideTableButtonText }}
     </v-btn>
     <v-data-table
-      v-if="showTable"
+      v-if="!hideTable"
       dense
       :headers="headers"
       :items="contents"
@@ -28,7 +23,7 @@
 
 <script lang="ts">
 import { TableContents, DataTableHeader } from "@/model/DataTableHeader";
-import { Component, Model, Prop, Vue } from "vue-property-decorator";
+import { Component, Model, Prop, Vue, Watch } from "vue-property-decorator";
 
 export const EVENT_ROW_CLICK = "row-click";
 
@@ -42,25 +37,33 @@ export default class DataTable extends Vue {
   @Prop({ type: Array }) contents: TableContents[];
   @Prop({ type: Number, default: 10 }) itemPerPage: number;
   @Prop({ type: Boolean, default: false }) hideDefaultFooter: boolean;
-  @Model("input", { type: Boolean, default: false }) showTable: boolean;
+  @Model("input", { type: Boolean, default: false }) hideTable: boolean;
 
-  get showTableButtonText() {
-    return this.showTable ? "Hide table" : "Show Table";
+  get hideTableButtonText() {
+    return this.hideTable ? "Show table" : "Hide Table";
+  }
+
+  @Watch("hideTable")
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onSearchOptionsChanged(newVal: boolean, oldVal: boolean) {
+    localStorage[`hideTable${this.tableId}`] = newVal;
   }
 
   mounted() {
-    if (localStorage[`showTable${this.tableId}`] == true) {
-      this.showTable = true;
+    if (localStorage[`hideTable${this.tableId}`] == true) {
+      console.log(`storage fetched with ${this.tableId}`);
+      this.hideTable = true;
     } else {
+      console.log(`storage doesn't fetched with ${this.tableId}`);
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
-          this.showTable = false;
+          this.hideTable = true;
           break;
         case "sm":
-          this.showTable = false;
+          this.hideTable = true;
           break;
         default:
-          this.showTable = true;
+          this.hideTable = false;
           break;
       }
     }
@@ -71,8 +74,7 @@ export default class DataTable extends Vue {
   }
 
   clickToggleTable() {
-    this.showTable = !this.showTable;
-    localStorage[`showTable${this.tableId}`] = this.showTable;
+    this.hideTable = !this.hideTable;
   }
 }
 </script>

@@ -6,7 +6,7 @@
       block
       @click="fitToPlan()"
     >
-      Fit to Plan
+      Fit to Center
     </v-btn>
     <v-responsive :aspect-ratio="mapAspectRatio">
       <l-map
@@ -26,7 +26,7 @@
             color="#2e3440"
             @click="fitToPlan()"
           >
-            Fit to Plan
+            Fit to Center
           </v-btn>
         </l-control>
         <l-control :position="'bottomleft'" class="map-watermark">

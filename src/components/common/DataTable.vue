@@ -43,18 +43,20 @@ export default class DataTable extends Vue {
     return this.hideTable ? "Show table" : "Hide Table";
   }
 
+  getLocalStorageKey() {
+    return `hideTable${this.tableId}`;
+  }
+
   @Watch("hideTable")
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onSearchOptionsChanged(newVal: boolean, oldVal: boolean) {
-    localStorage[`hideTable${this.tableId}`] = newVal;
+    localStorage[this.getLocalStorageKey()] = newVal;
   }
 
   mounted() {
-    if (localStorage[`hideTable${this.tableId}`] == true) {
-      console.log(`storage fetched with ${this.tableId}`);
+    if (localStorage[this.getLocalStorageKey()] == "true") {
       this.hideTable = true;
     } else {
-      console.log(`storage doesn't fetched with ${this.tableId}`);
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
           this.hideTable = true;

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-02-12T19:44:21</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData>MSFS</SimData>
+    <NavData Cycle="1801">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="-73.776520" Lat="40.640137" Alt="13.00"/>
+      <Start>13R</Start>
+    </Departure>
+    <Procedures>
+      <SID>
+        <Name>DEEZZ4</Name>
+        <Runway>22R</Runway>
+      </SID>
+      <Approach>
+        <Name>FD08L</Name>
+        <ARINC>D08L</ARINC>
+        <Runway>08L</Runway>
+        <Type>VORDME</Type>
+        <Transition>MOP4E</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Kennedy Intl</Name>
+        <Ident>KJFK</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-73.776520" Lat="40.640137" Alt="13.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GREKI</Ident>
+        <Region>K6</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.314163" Lat="41.480007" Alt="36704.77"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>JUDDS</Ident>
+        <Region>K6</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.108246" Lat="41.634674" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SEAER</Ident>
+        <Region>K6</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-69.491798" Lat="43.924557" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>EBONY</Ident>
+        <Region>K6</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-67.156570" Lat="44.902412" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VINSI</Ident>
+        <Region>CY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-57.365833" Lat="47.898335" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ELSIR</Ident>
+        <Region>CY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-52.000000" Lat="49.500000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>5145N</Ident>
+        <Region>CY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-45.000000" Lat="51.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>5240N</Ident>
+        <Region>CY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-40.000000" Lat="52.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>5230N</Ident>
+        <Region>EG</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-30.000000" Lat="52.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>5220N</Ident>
+        <Region>EG</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-20.000000" Lat="52.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LIMRI</Ident>
+        <Region>EI</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-15.000000" Lat="52.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LESLU</Ident>
+        <Region>EG</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-8.000000" Lat="51.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DAWLY</Ident>
+        <Region>EG</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-3.463889" Lat="50.574165" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LUKIP</Ident>
+        <Region>LF</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.496389" Lat="49.315834" Alt="21736.45"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KOLIV</Ident>
+        <Region>LF</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.570556" Lat="49.299973" Alt="11741.43"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Charles-De-Gaulle</Name>
+        <Ident>LFPG</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="2.562621" Lat="49.009758" Alt="355.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

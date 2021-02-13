@@ -115,9 +115,8 @@ export default class Detail extends Vue {
           ticks: {
             fontColor: this.fontColor,
             fontSize: 14,
-            callback: function(label: number, index, labels) {
-              return displayFtOnly(label.toString());
-            }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            callback: (label: number, index) => displayFtOnly(label.toString())
           }
         }
       ]

@@ -41,7 +41,6 @@ import {
 } from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 import { MarkerData } from "@/model/vo/MarkerData";
-import { meta } from "@turf/turf";
 
 Vue.use(Vuex);
 

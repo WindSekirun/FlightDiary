@@ -25,7 +25,6 @@ export function displayFtM(ft: string): string {
 }
 
 export function displayFtOnly(ft: string): string {
-  const unit = strToNum(ft || "");
   return `${formatComma(ft)} ft`;
 }
 

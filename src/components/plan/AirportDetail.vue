@@ -55,7 +55,7 @@
     <data-table
       :headers="runwayHeader"
       :contents="runwayContents"
-      :table-id="runwayTableId"
+      :table-id="`runway table-${metadataId}-${isDestination}`"
       :items-per-page="runwayContentsLength"
       hide-default-footer
     />
@@ -63,14 +63,14 @@
     <data-table
       :headers="navAidsHeader"
       :contents="navAidsContents"
-      :table-id="navAidsTableId"
+      :table-id="`navaids table-${metadataId}-${isDestination}`"
       :items-per-page="navAidsLength"
       hide-default-footer
     />
     <h3 class="mt-8">Frequencies</h3>
     <data-table
       :headers="freqHeader"
-      :table-id="freqTableId"
+      :table-id="`freq table-${metadataId}-${isDestination}`"
       :contents="freqContents"
       :items-per-page="freqLength"
       hide-default-footer
@@ -185,10 +185,6 @@ export default class AirportDetail extends Vue {
     return getAirportMarkers(this.airport);
   }
 
-  get runwayTableId() {
-    return `runway table-${this.metadataId}-${this.isDestination}`;
-  }
-
   get runwayHeader() {
     return AIRPORT_HEADER_RUNWAYS;
   }
@@ -199,10 +195,6 @@ export default class AirportDetail extends Vue {
 
   get runwayContentsLength() {
     return getRunwayTableData(this.airport).length;
-  }
-
-  get navAidsTableId() {
-    return `navaids table-${this.metadataId}-${this.isDestination}`;
   }
 
   get navAidsTitle() {
@@ -219,10 +211,6 @@ export default class AirportDetail extends Vue {
 
   get navAidsLength() {
     return getRunwayNavaidsData(this.airport).length;
-  }
-
-  get freqTableId() {
-    return `freq table-${this.metadataId}-${this.isDestination}`;
   }
 
   get freqHeader() {

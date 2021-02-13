@@ -6,7 +6,6 @@ import {
   MarkerData,
   TooltipMaterial
 } from "@/model/vo/MarkerData";
-import { meta } from "@turf/turf";
 import { displayFt, displayNm } from "./UnitCalculator";
 
 /**

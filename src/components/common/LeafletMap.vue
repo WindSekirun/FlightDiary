@@ -51,6 +51,9 @@
 </template>
 
 <script lang="ts">
+/* eslint-disable */
+// @ts-ignore
+import { wrappedPolyline } from "@/antimeridian/Wrapped.Polyline";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { latLngBounds, Map, Point } from "leaflet";
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
@@ -65,6 +68,10 @@ export default class LeafletMap extends Vue {
   @Prop({ default: ATTRIBUTION }) attribution!: string;
   @Prop({ type: Boolean, default: true }) useMeridian: boolean;
   map!: Map;
+
+  polylineOptions = {
+    color: "#4c566a"
+  };
 
   get mapAspectRatio() {
     switch (this.$vuetify.breakpoint.name) {
@@ -101,6 +108,7 @@ export default class LeafletMap extends Vue {
   readyLeaflet(mapObject: Map) {
     this.map = mapObject;
     this.fitToPlan();
+    this.drawPolyline();
   }
 
   fitToPlan() {
@@ -113,6 +121,13 @@ export default class LeafletMap extends Vue {
       paddingTopLeft: new Point(25, 25),
       paddingBottomRight: new Point(25, 25)
     });
+  }
+
+  drawPolyline() {
+    wrappedPolyline(
+      this.markers.map((element) => element.latLng),
+      this.polylineOptions
+    ).addTo(this.map);
   }
 }
 </script>

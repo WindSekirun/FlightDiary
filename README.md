@@ -1,9 +1,15 @@
 # Flight-Diary
 Flight Diary for Microsoft Flight Simulator (2020)
 
-This projects is still developing
+This project hosted on https://flights.uzuki.live/, on Github Pages (see gh-pages branch) 
 
-## Build & Deploy
+### Disclamer
+Under no circumstances should any of the plans or data listed on this site be used for real-world aviation or as a substitute for proper flight planning. Site owner have no verification of the existence of routes or waypoints.
+
+### Permitted Use
+The Flight plan, and all contained data is intended for simulated flight navigation only and must not be used in real-world flight simulations. 
+
+## Build & Deploy script
 ```
 sh ./scripts/build.sh
 ```

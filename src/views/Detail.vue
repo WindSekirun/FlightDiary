@@ -15,7 +15,7 @@
         />
         <div class="mt-5 mb-2">
           <data-table
-            :table-id="tableId"
+            :table-id="'planDetail'"
             :headers="detailData.headers"
             :contents="detailData.contents"
           />
@@ -122,10 +122,6 @@ export default class Detail extends Vue {
       ]
     }
   };
-
-  get tableId() {
-    return "planDetail";
-  }
 
   mounted() {
     document.title = `${this.detailData.planTitle} - ${applicationTitle}`;

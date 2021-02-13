@@ -1,23 +1,23 @@
 <template>
   <v-row>
-    <!-- <v-col cols="2">
-        <v-sheet rounded="lg">
-          <v-list color="transparent">
-            <v-list-item v-for="n in 5" :key="n" link>
-              <v-list-item-content>
-                <v-list-item-title> List Item {{ n }} </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-sheet>
-      </v-col> -->
-
     <v-col>
-      <v-sheet min-height="80vh" rounded="lg" color="#4c566a">
-        This is About Page
+      <v-sheet rounded="lg" color="#3b4252" class="pa-5">
+        <h1>About</h1>
+        <h2>Flight Diary for Microsoft Flight Simulator</h2>
       </v-sheet>
     </v-col>
   </v-row>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
+
+@Component({
+  components: {},
+  computed: {}
+})
+export default class About extends Vue {}
+</script>
 
 <style></style>

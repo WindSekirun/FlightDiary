@@ -100,16 +100,7 @@ import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { LatLng, Map } from "leaflet";
 import { MarkerData } from "@/model/vo/MarkerData";
 import DataTable from "@/components/common/DataTable.vue";
-
-class InfoKeyValue {
-  key: string;
-  value: string;
-
-  constructor(k: string, v: string) {
-    this.key = k;
-    this.value = v;
-  }
-}
+import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
 
 @Component({
   components: {
@@ -130,10 +121,6 @@ export default class AirportDetail extends Vue {
   defaultZoom = 12;
   airportData!: AirportData;
   map!: Map;
-
-  KV(key: string, value: string) {
-    return new InfoKeyValue(key, value);
-  }
 
   readyLeaflet(mapObject: Map) {
     this.map = mapObject;
@@ -161,7 +148,6 @@ export default class AirportDetail extends Vue {
 
   get details(): InfoKeyValue[] {
     const airport = this.airport;
-    const KV = this.KV;
 
     return [
       KV("ICAO", `${airport.ICAO} (${airport.IATA})`),

@@ -9,7 +9,7 @@ updates:
   labels:
   - Dependency
 
-- package-ecosystem: python
+- package-ecosystem: pip
   directory: "/importer"
   schedule:
     interval: weekly

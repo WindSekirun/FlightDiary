@@ -45,6 +45,7 @@ export default class Specs extends Vue {
   get plugins(): InfoKeyValue[] {
     return [
       KV("Aircraft", "FlybyWire A32NX"),
+      KV("Data", "Navigraph FMS Data"),
       KV("Liveries", "FlybyWire A32NX Default"),
       KV("Senery", "SamScene3d SightSeeing SeoulCityWow"),
       KV("Tools", "Little Navmap"),

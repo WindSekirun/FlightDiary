@@ -8,3 +8,12 @@ updates:
   open-pull-requests-limit: 10
   labels:
   - Dependency
+
+- package-ecosystem: python
+  directory: "/importer"
+  schedule:
+    interval: weekly
+    time: "20:00"
+  open-pull-requests-limit: 10
+  labels:
+  - Dependency

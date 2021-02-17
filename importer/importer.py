@@ -89,6 +89,8 @@ plan_type = plnreader.read_plan_type(lnmpln_json)
 producers_sid = plnreader.read_sid(lnmpln_json)
 producers_approach = plnreader.read_approach(lnmpln_json)
 waypoint_from_lnmpln = plnreader.read_waypoint(lnmpln_json)
+sim_data = plnreader.read_sim_data(lnmpln_json)
+nav_data = plnreader.read_nav_data(lnmpln_json)
 
 # read plan file (html)
 html_root = Path(target_html).read_text()
@@ -173,6 +175,8 @@ metadata = {
     "departure": result_metadata_departure,
     "destination": result_metadata_destination,
     "aircraft": aircraft_type,
+    "simData": sim_data,
+    "navData": nav_data,
     "flightTime": flight_time,
     "mainThumbnail": "main.webp",
     "images": list(filter(lambda x: x.startswith('r'), result_images)),

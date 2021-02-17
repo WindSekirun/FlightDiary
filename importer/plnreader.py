@@ -19,6 +19,24 @@ def read_plan_type(lnmpln_json):
     return header["FlightplanType"]
 
 
+def read_sim_data(lnmpln_json):
+    plan = read_plan(lnmpln_json)
+    if "SimData" in plan:
+        simdata = plan["SimData"]
+        return f'{simdata["#text"]} {simdata["@Cycle"]}'
+    else:
+        return ""
+
+
+def read_nav_data(lnmpln_json):
+    plan = read_plan(lnmpln_json)
+    if "NavData" in plan:
+        navdata = plan["NavData"]
+        return f'{navdata["#text"]} {navdata["@Cycle"]}'
+    else:
+        return ""
+
+
 def read_sid(lnmpln_json):
     plan = read_plan(lnmpln_json)
     if "SID" in plan["Procedures"]:

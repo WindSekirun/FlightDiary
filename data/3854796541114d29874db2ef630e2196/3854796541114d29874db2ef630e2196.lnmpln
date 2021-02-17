@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>3000</CruisingAlt>
+      <CreationDate>2021-02-17T23:11:12</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2101">NAVIGRAPH</SimData>
+    <NavData Cycle="2101">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Cessna Skyhawk G1000 Asobo.lnmperf</FilePath>
+      <Type>Skyhawk</Type>
+      <Name>Cessna Skyhawk G1000 Asobo</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="6.757311" Lat="51.280926" Alt="147.00"/>
+    </Departure>
+    <Procedures>
+      <SID>
+        <Name>LMA1Z</Name>
+        <Runway>05R</Runway>
+      </SID>
+      <Approach>
+        <Name>FI24</Name>
+        <ARINC>I24</ARINC>
+        <Runway>24</Runway>
+        <Type>ILS</Type>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Duesseldorf</Name>
+        <Ident>EDDL</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="6.757311" Lat="51.280926" Alt="147.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DIXAT</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.150556" Lat="51.267776" Alt="3000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TINSA</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.074192" Lat="51.515320" Alt="3000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Paderborn/Lippstadt</Name>
+        <Ident>EDLP</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="8.616317" Lat="51.614090" Alt="699.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

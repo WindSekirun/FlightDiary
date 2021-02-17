@@ -78,4 +78,4 @@ def build_airport_metadata(api_key, icao, airport_json_file, output_file):
                 "label": airport_label,
                 "name": airport_name
             }
-        write_json(map_data, airport_json_file)
+            write_json(map_data, airport_json_file)

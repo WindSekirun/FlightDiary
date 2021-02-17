@@ -39,29 +39,31 @@ def read_nav_data(lnmpln_json):
 
 def read_sid(lnmpln_json):
     plan = read_plan(lnmpln_json)
-    if "SID" in plan["Procedures"]:
+    if "Procedures" in plan and "SID" in plan["Procedures"]:
         sid = plan["Procedures"]["SID"]
         return {
             "name": sid["Name"],
             "runway": sid["Runway"]
         }
     else:
-        return {
-            "name": "",
-            "runway": ""
-        }
+        null = None
+        return null
 
 
 def read_approach(lnmpln_json):
     plan = read_plan(lnmpln_json)
-    approach = plan["Procedures"]["Approach"]
-    return {
-        "name": approach["Name"],
-        "arinc": approach["ARINC"],
-        "runway": approach["Runway"],
-        "type": approach["Type"],
-        "transition": approach.get("Transition", ""),
-    }
+    if "Procedures" in plan and "Approach" in plan["Procedures"]:
+        approach = plan["Procedures"]["Approach"]
+        return {
+            "name": approach["Name"],
+            "arinc": approach["ARINC"],
+            "runway": approach["Runway"],
+            "type": approach["Type"],
+            "transition": approach.get("Transition", ""),
+        }
+    else:
+        null = None
+        return null
 
 
 def read_waypoint(lnmpln_json):

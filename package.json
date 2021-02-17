@@ -32,7 +32,7 @@
     "vue-router": "^3.2.0",
     "vue-select": "^3.11.2",
     "vue2-leaflet": "^2.6.0",
-    "vuetify": "^2.2.11",
+    "vuetify": "^2.4.4",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -58,7 +58,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
     "gh-pages": "^3.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
     "sass": "^1.32.6",
     "sass-loader": "^10.1.1",
     "typescript": "~3.9.3",

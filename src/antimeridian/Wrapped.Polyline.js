@@ -9,7 +9,7 @@ export const Polyline = L.Polyline.extend({
   // recursively turns latlngs into a set of rings with projected coordinates
   // This is the entrypoint that is called from the overriden class to change
   // the rendering.
-  _projectLatlngs: function(latlngs, result, projectedBounds) {
+  _projectLatlngs: function (latlngs, result, projectedBounds) {
     const isMultiRing = latlngs[0] instanceof L.LatLng;
 
     if (isMultiRing) {
@@ -22,7 +22,7 @@ export const Polyline = L.Polyline.extend({
   },
 
   // Creates the rings used to render the latlngs.
-  _createRings: function(latlngs, rings, projectedBounds) {
+  _createRings: function (latlngs, rings, projectedBounds) {
     const len = latlngs.length;
     rings.push([]);
 
@@ -57,12 +57,12 @@ export const Polyline = L.Polyline.extend({
   },
 
   // returns the latlng to compare the current latlng to.
-  _getCompareLatLng: function(i, len, latlngs) {
+  _getCompareLatLng: function (i, len, latlngs) {
     return i + 1 < len ? latlngs[i + 1] : null;
   },
 
   // Starts a new ring and adds the second meridian point.
-  _startNextRing: function(rings, projectedBounds, secondMeridianLatLng) {
+  _startNextRing: function (rings, projectedBounds, secondMeridianLatLng) {
     const ring = [];
     rings.push(ring);
     AntimeridianUtils.pushLatLng(

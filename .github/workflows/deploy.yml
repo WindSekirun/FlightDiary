@@ -3,7 +3,7 @@ name: Deploy FlightDiarys
 on:
   push:
     paths-ignore:
-      - '.github/**' # Ignore changes towards the .github directory
+      - '.github/**'
     branches:
       - new-main
 
@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2
 
-      - name: Set outputs
+      - name: Setting Environments ⚙️
         id: vars
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Install and Build 🔧
         run: |
           npm install
           npm run build
@@ -28,8 +28,8 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder the action should deploy.
+          branch: gh-pages
+          folder: dist
           clean-exclude: |
             data/
             *.json
@@ -39,7 +39,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.vars.outputs.sha_short }}
           release_name: Release main - ${{ steps.vars.outputs.sha_short }}

@@ -90,7 +90,6 @@ import { mapGetters } from "vuex";
 import { displayFtMFloor } from "@/calculator/UnitCalculator";
 import {
   displayMagnetic,
-  getAirportCenter,
   getAirportFrequency,
   getAirportMarkers,
   getRunwayNavaidsData,
@@ -128,7 +127,7 @@ export default class AirportDetail extends Vue {
 
   fitToPlan() {
     if (this.airportCenter == undefined) {
-      this.airportCenter = getAirportCenter(this.airport);
+      this.airportCenter = new LatLng(this.airport.lat, this.airport.lon);
     }
     this.map.panTo(this.airportCenter);
     this.map.setZoom(this.defaultZoom);
@@ -162,7 +161,7 @@ export default class AirportDetail extends Vue {
 
   get mapCenter(): LatLng {
     if (this.airportCenter == undefined) {
-      this.airportCenter = getAirportCenter(this.airport);
+      this.airportCenter = new LatLng(this.airport.lat, this.airport.lon);
     }
     return this.airportCenter;
   }

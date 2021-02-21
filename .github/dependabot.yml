@@ -8,7 +8,7 @@ updates:
   open-pull-requests-limit: 10
   labels:
   - Dependency
-  default_assignees:
+  assignees:
     - "WindSekirun"
 
 - package-ecosystem: pip
@@ -19,5 +19,5 @@ updates:
   open-pull-requests-limit: 10
   labels:
   - Dependency
-  default_assignees:
+  assignees:
     - "WindSekirun"

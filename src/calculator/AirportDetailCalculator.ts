@@ -5,8 +5,9 @@ import {
   AirportRunwaysContent
 } from "@/model/vo/AirportData";
 import { MarkerData } from "@/model/vo/MarkerData";
+import center from "@turf/center";
+import { points } from "@turf/helpers";
 import { LatLng } from "leaflet";
-import { center, points } from "@turf/turf";
 import { calculateMeridian } from "./LeafletCalculator";
 
 export function displayMagnetic(airport: AirportDetailItem) {

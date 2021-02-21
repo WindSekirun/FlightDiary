@@ -40,9 +40,6 @@
           <router-view />
         </v-container>
       </v-main>
-      <v-footer app padless color="#2e3440">
-        <flight-footer class="mt-5" />
-      </v-footer>
     </v-app>
   </div>
 </template>
@@ -50,7 +47,6 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import FlightFooter from "@/components/common/FlightFooter.vue";
 import MenuNavigation from "@/components/common/MenuNavigation.vue";
 import {
   MenuNavigationItem,
@@ -61,7 +57,6 @@ import { pageHome } from "./model/PageRouter";
 
 @Component({
   components: {
-    FlightFooter,
     MenuNavigation
   }
 })

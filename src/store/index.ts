@@ -102,19 +102,13 @@ const store = new Vuex.Store({
       const airportMap = Vue.axios.get("airportmap.json");
       const aircraft = Vue.axios.get("aircraft.json");
 
-      return Vue.axios
-        .all([data, airportMap, aircraft])
-        .then(
-          Vue.axios.spread((...responses) => {
-            commit(SAVE_MAIN_LIST, responses[0].data);
-            commit(SAVE_AIRPORT_MAP, responses[1].data);
-            commit(SAVE_AIRCRAFT, responses[2].data);
-          })
-        )
-        .catch((errors) => {
-          console.log(errors);
-          console.log("Can't log main information");
-        });
+      return Vue.axios.all([data, airportMap, aircraft]).then(
+        Vue.axios.spread((...responses) => {
+          commit(SAVE_MAIN_LIST, responses[0].data);
+          commit(SAVE_AIRPORT_MAP, responses[1].data);
+          commit(SAVE_AIRCRAFT, responses[2].data);
+        })
+      );
     },
     [LOAD_DETAIL_DATA]({ commit }, data) {
       const id = data.id;
@@ -125,19 +119,13 @@ const store = new Vuex.Store({
       const departure = Vue.axios.get(`data/airport/${departureIcao}.json`);
       const destination = Vue.axios.get(`data/airport/${destinationIcao}.json`);
 
-      return Vue.axios
-        .all([metadata, departure, destination])
-        .then(
-          Vue.axios.spread((...responses) => {
-            commit(SAVE_DETAIL_DATA, responses[0].data);
-            commit(SAVE_DEPARTURE_DATA, responses[1].data);
-            commit(SAVE_DESTINATION_DATA, responses[2].data);
-          })
-        )
-        .catch((errors) => {
-          console.log(errors);
-          console.log("Can't log metadata information");
-        });
+      return Vue.axios.all([metadata, departure, destination]).then(
+        Vue.axios.spread((...responses) => {
+          commit(SAVE_DETAIL_DATA, responses[0].data);
+          commit(SAVE_DEPARTURE_DATA, responses[1].data);
+          commit(SAVE_DESTINATION_DATA, responses[2].data);
+        })
+      );
     },
     async [LOAD_COLLECTION_DATA]({ commit }) {
       const response = await Vue.axios.get("collection.json");

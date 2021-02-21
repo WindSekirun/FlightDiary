@@ -3,7 +3,7 @@
     <v-col cols="12" sm="12" md="12" lg="3">
       <v-sheet rounded="lg" color="#3b4252" class="pa-2">
         <v-expansion-panels v-model="searchOptions" accordion flat>
-          <v-expansion-panel style="background:#3b4252;color:white">
+          <v-expansion-panel style="background: #3b4252; color: white">
             <v-expansion-panel-header>
               <h3>Search Options</h3>
             </v-expansion-panel-header>

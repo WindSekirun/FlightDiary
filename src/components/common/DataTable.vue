@@ -14,7 +14,7 @@
       :hide-default-footer="hideDefaultFooter"
       @click:row="clickRow"
     >
-      <template v-slot:[`item.icon`]="{ item }">
+      <template #[`item.icon`]="{ item }">
         <img :src="item.icon" />
       </template>
     </v-data-table>

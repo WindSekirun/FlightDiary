@@ -1,9 +1,7 @@
 <template>
   <v-card class="flex" flat tile color="#3b4252">
     <v-card-title>
-      <strong class="subheading">
-        Flight Diary by WindSekirun
-      </strong>
+      <strong class="subheading"> Flight Diary by WindSekirun </strong>
 
       <v-spacer></v-spacer>
 

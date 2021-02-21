@@ -51,7 +51,7 @@ const routes: Array<RouteConfig> = [
       title: `${pageDetail.name} - ${applicationTitle}`
     },
     props: true,
-    beforeEnter: function(to: Route, from: Route, next) {
+    beforeEnter: function (to: Route, from: Route, next) {
       store
         .dispatch(LOAD_DETAIL_DATA, {
           id: to.params.id,
@@ -76,7 +76,7 @@ const routes: Array<RouteConfig> = [
     },
     component: () => import("../views/CollectionsDetail.vue"),
     props: true,
-    beforeEnter: function(to: Route, from: Route, next) {
+    beforeEnter: function (to: Route, from: Route, next) {
       store
         .dispatch(LOAD_COLLECTION_DETAIL_DATA, {
           id: to.params.id
@@ -100,7 +100,7 @@ router.beforeEach((to, _from, next) => {
 export default router;
 
 const originalPush = VueRouter.prototype.push;
-VueRouter.prototype.push = async function(location: RawLocation) {
+VueRouter.prototype.push = async function (location: RawLocation) {
   let route: Route;
   try {
     route = await originalPush.call<VueRouter, [RawLocation], Promise<Route>>(

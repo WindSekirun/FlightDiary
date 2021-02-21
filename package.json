@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prettier": "npx prettier --write \"**/*.{vue,js}\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",

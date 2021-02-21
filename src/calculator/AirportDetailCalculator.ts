@@ -71,24 +71,6 @@ export function getAirportFrequency(airport: AirportDetailItem) {
     .sort((a, b) => a.sortKey.localeCompare(b.sortKey));
 }
 
-export function getAirportCenter(airport: AirportDetailItem) {
-  const targets: [number, number][] = [];
-  airport.runways.forEach((element) => {
-    const meridian = calculateMeridian(
-      new LatLng(element.ends[0].lat, element.ends[0].lon)
-    );
-    targets.push([meridian.lat, meridian.lng]);
-  });
-
-  const features = points(targets);
-  const result = center(features);
-  const latlng = new LatLng(
-    result.geometry.coordinates[0],
-    result.geometry.coordinates[1]
-  );
-  return latlng;
-}
-
 export function getAirportMarkers(airport: AirportDetailItem) {
   const markers: MarkerData[] = [];
   airport.runways.forEach((element) => {

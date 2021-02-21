@@ -14,7 +14,7 @@
       class="white--text align-end"
     >
       <v-card-title class="text-stroke">{{ item.title }}</v-card-title>
-      <template v-slot:placeholder>
+      <template #placeholder>
         <v-row class="fill-height ma-0" align="center" justify="center">
           <v-progress-circular
             indeterminate

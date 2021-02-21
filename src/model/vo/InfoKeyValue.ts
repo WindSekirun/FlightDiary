@@ -7,7 +7,7 @@ export class InfoKeyValue {
   constructor(k: string, v: string) {
     this.key = k;
     this.value = v;
-    this.sortKey = `${k}${v}`
+    this.sortKey = `${k}${v}`;
   }
 }
 

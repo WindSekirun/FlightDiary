@@ -28,7 +28,7 @@
           <v-spacer></v-spacer>
 
           <v-menu bottom left :close-on-click="true">
-            <template v-slot:activator="{ on, attrs }">
+            <template #activator="{ on, attrs }">
               <v-btn dark icon v-bind="attrs" v-on="on">
                 <v-icon>mdi-dots-vertical</v-icon>
               </v-btn>

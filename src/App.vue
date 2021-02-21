@@ -8,7 +8,7 @@
         elevate-on-scroll
         scroll-target="#scrolling-panel"
       >
-        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="drawer = !drawer" />
         <v-btn text @click="clickHome()">
           <v-avatar class="mr-4" size="32">
             <img src="./assets/profile_akari_circle.png" alt="Profile" />
@@ -19,8 +19,8 @@
       <v-navigation-drawer v-model="drawer" fixed temporary color="#3b4252">
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="title"> Flight Diary </v-list-item-title>
-            <v-list-item-subtitle> by WindSekirun </v-list-item-subtitle>
+            <v-list-item-title class="title">Flight Diary</v-list-item-title>
+            <v-list-item-subtitle>by WindSekirun</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-divider />

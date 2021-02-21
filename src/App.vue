@@ -8,54 +8,38 @@
         elevate-on-scroll
         scroll-target="#scrolling-panel"
       >
-        <v-container class="py-0 fill-height">
-          <v-btn text @click="clickHome()">
-            <v-avatar class="mr-4" size="32">
-              <img src="./assets/profile_akari_circle.png" alt="Profile" />
-            </v-avatar>
-            <b> {{ title }}</b>
-          </v-btn>
-
-          <v-btn
-            v-for="(link, index) in appBarLinks"
-            :key="index"
-            text
-            @click="clickAppBarLink(link)"
-          >
-            {{ link.name }}
-          </v-btn>
-
-          <v-spacer></v-spacer>
-
-          <v-menu bottom left :close-on-click="true">
-            <template #activator="{ on, attrs }">
-              <v-btn dark icon v-bind="attrs" v-on="on">
-                <v-icon>mdi-dots-vertical</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list>
-              <v-list-item
-                v-for="(item, index) in subBarLinks"
-                :key="index"
-                @click="clickAppBarLink(item)"
-              >
-                <v-list-item-title>
-                  {{ item.name }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </v-container>
+        <v-app-bar-nav-icon @click="drawer = !drawer" />
+        <v-btn text @click="clickHome()">
+          <v-avatar class="mr-4" size="32">
+            <img src="./assets/profile_akari_circle.png" alt="Profile" />
+          </v-avatar>
+          <b> {{ title }}</b>
+        </v-btn>
       </v-app-bar>
+      <v-navigation-drawer v-model="drawer" fixed temporary color="#3b4252">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="title">Flight Diary</v-list-item-title>
+            <v-list-item-subtitle>by WindSekirun</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider />
+        <menu-navigation
+          :navigation-menus="navigationPrimary"
+          @menu-click="clickMenu"
+        />
+        <v-divider />
+        <menu-navigation
+          :navigation-menus="navigationSecondary"
+          @menu-click="clickMenu"
+        />
+      </v-navigation-drawer>
+
       <v-main id="scrolling-panel">
         <v-container fluid>
           <router-view />
         </v-container>
       </v-main>
-      <v-footer padless color="#2e3440">
-        <flight-footer class="mt-5" />
-      </v-footer>
     </v-app>
   </div>
 </template>
@@ -63,25 +47,25 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
-import FlightFooter from "@/components/common/FlightFooter.vue";
+import MenuNavigation from "@/components/common/MenuNavigation.vue";
 import {
-  pageAbout,
-  pageSpec,
-  PageRouter,
-  pageHome,
-  pageCollection
-} from "./model/PageRouter";
+  MenuNavigationItem,
+  NAVIGATION_PRIMARY,
+  NAVIGATION_SECONDARY
+} from "@/model/vo/MenuNavigationItem.ts";
+import { pageHome } from "./model/PageRouter";
 
 @Component({
   components: {
-    FlightFooter
+    MenuNavigation
   }
 })
 export default class Home extends Vue {
   @Prop({ default: applicationTitle })
   title!: string;
-  appBarLinks: PageRouter[] = [pageCollection];
-  subBarLinks: PageRouter[] = [pageSpec, pageAbout];
+  drawer = null;
+  navigationPrimary: MenuNavigationItem[] = NAVIGATION_PRIMARY;
+  navigationSecondary: MenuNavigationItem[] = NAVIGATION_SECONDARY;
 
   async mounted() {
     this.title = applicationTitle;
@@ -93,8 +77,12 @@ export default class Home extends Vue {
     });
   }
 
-  clickAppBarLink(pageRouter: PageRouter) {
-    this.$router.push(pageRouter.path);
+  clickMenu(navigation: MenuNavigationItem) {
+    if (navigation.routeTo != undefined) {
+      this.$router.push(navigation.routeTo.path);
+    } else if (navigation.link != undefined) {
+      window.location.href = navigation.link;
+    }
   }
 }
 </script>

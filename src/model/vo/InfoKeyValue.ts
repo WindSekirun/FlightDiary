@@ -4,12 +4,14 @@ export class InfoKeyValue {
   link: string;
   sortKey: string;
   connectUrl: string | undefined;
+  hasUrl: boolean;
 
   constructor(k: string, v: string, url: string | undefined) {
     this.key = k;
     this.value = v;
     this.sortKey = `${k}${v}`;
     this.connectUrl = url;
+    this.hasUrl = url != undefined;
   }
 }
 

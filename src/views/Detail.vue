@@ -8,9 +8,7 @@
         <h2 class="mt-5">Screenshots</h2>
         <vue-picture-swipe class="mt-2" :items="detailData.imageList" />
         <h2 class="mt-5">Flight Plan</h2>
-        <div v-for="item in flightPlanDetails" :key="item.sortKey">
-          <strong>{{ item.key }}</strong> → {{ item.value }}
-        </div>
+        <display-key-value :values="flightPlanDetails" />
         <leaflet-map
           :markers="detailData.markers"
           :title="detailData.planTitle"
@@ -45,6 +43,7 @@
 </template>
 
 <script lang="ts">
+import DisplayKeyValue from "@/components/common/DisplayKeyValue.vue";
 import AirportDetail from "@/components/plan/AirportDetail.vue";
 import DataTable from "@/components/common/DataTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
@@ -63,7 +62,8 @@ import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
     AirportDetail,
     DataTable,
     LeafletMap,
-    ElevationChart
+    ElevationChart,
+    DisplayKeyValue
   },
   computed: {
     ...mapState({

@@ -3,24 +3,23 @@
     <v-col>
       <v-sheet rounded="lg" color="#3b4252" class="pa-5 mb-2">
         <h2>Hardware Specs</h2>
-        <div v-for="item in details" :key="item.sortKey">
-          <strong>{{ item.key }}</strong> → {{ item.value }}
-        </div>
+        <display-key-value :values="details" />
         <h2 class="mt-5 mb-2">Senery | Plugins</h2>
-        <div v-for="item in plugins" :key="item.sortKey">
-          <strong>{{ item.key }}</strong> → {{ item.value }}
-        </div>
+        <display-key-value :values="plugins" />
       </v-sheet>
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
+import DisplayKeyValue from "@/components/common/DisplayKeyValue.vue";
 import { Component, Vue } from "vue-property-decorator";
-import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
+import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 
 @Component({
-  components: {},
+  components: {
+    DisplayKeyValue
+  },
   computed: {}
 })
 export default class Specs extends Vue {
@@ -44,16 +43,37 @@ export default class Specs extends Vue {
 
   get plugins(): InfoKeyValue[] {
     return [
-      KV("Aircraft", "FlybyWire A32NX"),
-      KV("Data", "Navigraph FMS Data"),
+      KVC(
+        "Aircraft",
+        "FlybyWire A32NX",
+        "https://github.com/flybywiresim/a32nx"
+      ),
+      KVC("Data", "Navigraph FMS Data", "https://navigraph.com/home"),
       KV("Liveries", "FlybyWire A32NX Default"),
-      KV("Senery", "SamScene3d SightSeeing SeoulCityWow"),
-      KV("Tools", "Little Navmap"),
-      KV("Tools", "MSFS-Mobile-Companion-App"),
-      KV("Tweak", "VFR Map mod by SimFlyingFriends"),
-      KV(
+      KVC(
+        "Senery",
+        "SamScene3d SightSeeing SeoulCityWow",
+        "https://samscene.com/products/seoul-city-wow-for-msfs"
+      ),
+      KVC(
+        "Tools",
+        "Little Navmap",
+        "https://albar965.github.io/littlenavmap.html"
+      ),
+      KVC(
+        "Tools",
+        "MSFS-Mobile-Companion-App",
+        "https://github.com/mracko/MSFS-Mobile-Companion-App"
+      ),
+      KVC(
         "Tweak",
-        "uimod-mugz-addcontrols, hiddentooltip, hiddenui, tinyhud, tinyplates, tinypoi, worldmap"
+        "VFR Map mod by SimFlyingFriends",
+        "https://www.msfsaddons.org/freeware/plugin-vfrmap"
+      ),
+      KVC(
+        "Tweak",
+        "msfs2020-uimod",
+        "https://github.com/mixMugz/msfs2020-uimod"
       )
     ];
   }

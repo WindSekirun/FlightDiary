@@ -8,23 +8,24 @@
         <h2 class="mt-5">Screenshots</h2>
         <vue-picture-swipe class="mt-2" :items="detailData.imageList" />
         <h2 class="mt-5">Flight Plan</h2>
-        <p class="text-center mt-5">{{ detailData.planRoute }}</p>
+        <display-key-value :values="flightPlanDetails" />
         <leaflet-map
+          ref="planMap"
           :markers="detailData.markers"
           :title="detailData.planTitle"
+          class="mt-5"
         />
         <div class="mt-5 mb-2">
           <data-table
             :table-id="'planDetail'"
             :headers="detailData.headers"
             :contents="detailData.contents"
+            @row-click="clickPlanDetail"
           />
         </div>
         <h2 class="mt-5">Elevation Profile</h2>
-        <elevation-chart
+        <plan-elevation-profile
           class="mt-5"
-          :options="chartOptions"
-          style="height: 30vh"
           :chart-header="detailData.elevationHeader"
           :chart-data="detailData.elevationContent"
         />
@@ -42,24 +43,25 @@
 </template>
 
 <script lang="ts">
+import DisplayKeyValue from "@/components/common/DisplayKeyValue.vue";
 import AirportDetail from "@/components/plan/AirportDetail.vue";
 import DataTable from "@/components/common/DataTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
-import ElevationChart from "@/components/plan/ElevationChart";
+import PlanElevationProfile from "@/components/plan/PlanElevationProfile.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
-import { DetailData } from "@/model/vo/DetailData";
+import { DetailData, FlightPlanTableContent } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
-import { applicationTitle } from "@/Constants";
-import { ChartOptions } from "chart.js";
-import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
+import { applicationTitle, baseDomain } from "@/Constants";
+import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 
 @Component({
   components: {
     AirportDetail,
     DataTable,
     LeafletMap,
-    ElevationChart
+    PlanElevationProfile,
+    DisplayKeyValue
   },
   computed: {
     ...mapState({
@@ -75,54 +77,39 @@ export default class Detail extends Vue {
   metadata!: Metadata;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
-
-  fontColor = "#d8dee9";
-
-  chartOptions: ChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    tooltips: {
-      callbacks: {
-        label: (tooltipItem) =>
-          `${tooltipItem.xLabel} - ${displayFt(
-            tooltipItem.yLabel?.toString() || ""
-          )}`,
-        title: () => ""
-      }
-    },
-    scales: {
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            fontColor: this.fontColor
-          },
-          ticks: {
-            fontColor: this.fontColor,
-            fontSize: 14
-          }
-        }
-      ],
-      yAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            fontColor: this.fontColor
-          },
-          ticks: {
-            fontColor: this.fontColor,
-            fontSize: 14,
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            callback: (label: number, index: number) =>
-              displayFtOnly(label.toString())
-          }
-        }
-      ]
-    }
+  $refs!: {
+    planMap: LeafletMap;
   };
+
+  get flightPlanDetails(): InfoKeyValue[] {
+    const details = [
+      KVC(
+        "Plan File",
+        "Little Navmap File",
+        `${baseDomain}data/${this.metadata.id}/${this.metadata.flightPlanFile}`
+      ),
+      KV("Route", this.detailData.planRoute)
+    ];
+
+    if (this.metadata.simData && this.metadata.navData) {
+      details.splice(
+        0,
+        0,
+        KV(
+          "Senery Library",
+          ` ${this.metadata.simData} / ${this.metadata.navData}`
+        )
+      );
+    }
+
+    return details;
+  }
+
+  clickPlanDetail(content: FlightPlanTableContent) {
+    if (!content.isProcedure) {
+      this.$refs.planMap.panZoom(content.latLng);
+    }
+  }
 
   mounted() {
     document.title = `${this.detailData.planTitle} - ${applicationTitle}`;

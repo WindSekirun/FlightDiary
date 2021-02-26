@@ -1,3 +1,4 @@
+import { LatLng } from "leaflet";
 import { DataTableHeader, TableContents } from "../DataTableHeader";
 import { MarkerData } from "./MarkerData";
 
@@ -41,6 +42,8 @@ export class FlightPlanTableContent implements TableContents {
   distance: string;
   wind: string;
   key: string;
+  isProcedure: boolean;
+  latLng: LatLng;
 }
 
 export const HEADER_ICON = new DataTableHeader("", "icon");

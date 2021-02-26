@@ -6,6 +6,7 @@ import {
   MarkerData,
   TooltipMaterial
 } from "@/model/vo/MarkerData";
+import { LatLng } from "leaflet";
 import { displayFt, displayNm } from "./UnitCalculator";
 
 /**
@@ -102,6 +103,8 @@ export function getRouteTable(metadata: Metadata): FlightPlanTableContent[] {
     route.distance = element.distance;
     route.wind = element.wind;
     route.key = `${route.ident} - ${route.procedure} - ${route.airway}`;
+    route.isProcedure = element.isProcedure;
+    route.latLng = new LatLng(element.lat, element.lng);
     return route;
   });
 }

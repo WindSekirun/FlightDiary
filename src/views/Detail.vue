@@ -52,10 +52,10 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
-import { applicationTitle } from "@/Constants";
+import { applicationTitle, baseDomain } from "@/Constants";
 import { ChartOptions } from "chart.js";
 import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
-import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
+import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 
 @Component({
   components: {
@@ -129,7 +129,14 @@ export default class Detail extends Vue {
   };
 
   get flightPlanDetails(): InfoKeyValue[] {
-    const details = [KV("Route", this.detailData.planRoute)];
+    const details = [
+      KVC(
+        "Plan File",
+        "Little Navmap File",
+        `${baseDomain}data/${this.metadata.id}/${this.metadata.flightPlanFile}`
+      ),
+      KV("Route", this.detailData.planRoute)
+    ];
 
     if (this.metadata.simData && this.metadata.navData) {
       details.splice(

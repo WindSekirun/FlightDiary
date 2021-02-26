@@ -55,7 +55,7 @@
 // @ts-ignore
 import { wrappedPolyline } from "@/antimeridian/Wrapped.Polyline";
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { latLngBounds, Map, Point } from "leaflet";
+import { LatLng, latLngBounds, Map, Point } from "leaflet";
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { MarkerData } from "@/model/vo/MarkerData";
 import { calculateMeridian } from "@/calculator/LeafletCalculator";
@@ -128,6 +128,11 @@ export default class LeafletMap extends Vue {
       this.markers.map((element) => element.latLng),
       this.polylineOptions
     ).addTo(this.map);
+  }
+
+  panZoom(latLng: LatLng) {
+    this.map.panTo(latLng);
+    this.map.setZoom(12);
   }
 }
 </script>

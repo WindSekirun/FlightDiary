@@ -24,10 +24,8 @@
           />
         </div>
         <h2 class="mt-5">Elevation Profile</h2>
-        <elevation-chart
+        <plan-elevation-profile
           class="mt-5"
-          :options="chartOptions"
-          style="height: 30vh"
           :chart-header="detailData.elevationHeader"
           :chart-data="detailData.elevationContent"
         />
@@ -49,14 +47,12 @@ import DisplayKeyValue from "@/components/common/DisplayKeyValue.vue";
 import AirportDetail from "@/components/plan/AirportDetail.vue";
 import DataTable from "@/components/common/DataTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
-import ElevationChart from "@/components/plan/ElevationChart";
+import PlanElevationProfile from "@/components/plan/PlanElevationProfile.vue";
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { mapGetters, mapState } from "vuex";
 import { DetailData, FlightPlanTableContent } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
 import { applicationTitle, baseDomain } from "@/Constants";
-import { ChartOptions } from "chart.js";
-import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
 import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 
 @Component({
@@ -64,7 +60,7 @@ import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
     AirportDetail,
     DataTable,
     LeafletMap,
-    ElevationChart,
+    PlanElevationProfile,
     DisplayKeyValue
   },
   computed: {
@@ -83,54 +79,6 @@ export default class Detail extends Vue {
   @Prop({ required: true }) airport: string | undefined;
   $refs!: {
     planMap: LeafletMap;
-  };
-
-  fontColor = "#d8dee9";
-
-  chartOptions: ChartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      display: false
-    },
-    tooltips: {
-      callbacks: {
-        label: (tooltipItem) =>
-          `${tooltipItem.xLabel} - ${displayFt(
-            tooltipItem.yLabel?.toString() || ""
-          )}`,
-        title: () => ""
-      }
-    },
-    scales: {
-      xAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            fontColor: this.fontColor
-          },
-          ticks: {
-            fontColor: this.fontColor,
-            fontSize: 14
-          }
-        }
-      ],
-      yAxes: [
-        {
-          scaleLabel: {
-            display: true,
-            fontColor: this.fontColor
-          },
-          ticks: {
-            fontColor: this.fontColor,
-            fontSize: 14,
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            callback: (label: number, index: number) =>
-              displayFtOnly(label.toString())
-          }
-        }
-      ]
-    }
   };
 
   get flightPlanDetails(): InfoKeyValue[] {

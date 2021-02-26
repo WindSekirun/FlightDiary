@@ -8,10 +8,13 @@
         <h2 class="mt-5">Screenshots</h2>
         <vue-picture-swipe class="mt-2" :items="detailData.imageList" />
         <h2 class="mt-5">Flight Plan</h2>
-        <p class="text-center mt-5">{{ detailData.planRoute }}</p>
+        <div v-for="item in flightPlanDetails" :key="item.sortKey">
+          <strong>{{ item.key }}</strong> → {{ item.value }}
+        </div>
         <leaflet-map
           :markers="detailData.markers"
           :title="detailData.planTitle"
+          class="mt-5"
         />
         <div class="mt-5 mb-2">
           <data-table
@@ -53,6 +56,7 @@ import { Metadata } from "@/model/plan/Metadata";
 import { applicationTitle } from "@/Constants";
 import { ChartOptions } from "chart.js";
 import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
+import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
 
 @Component({
   components: {
@@ -123,6 +127,23 @@ export default class Detail extends Vue {
       ]
     }
   };
+
+  get flightPlanDetails(): InfoKeyValue[] {
+    const details = [KV("Route", this.detailData.planRoute)];
+
+    if (this.metadata.simData && this.metadata.navData) {
+      details.splice(
+        0,
+        0,
+        KV(
+          "Senery Library",
+          ` ${this.metadata.simData} / ${this.metadata.navData}`
+        )
+      );
+    }
+
+    return details;
+  }
 
   mounted() {
     document.title = `${this.detailData.planTitle} - ${applicationTitle}`;

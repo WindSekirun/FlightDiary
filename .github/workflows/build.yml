@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Check Title
-        uses: windsekirun/check-title-wip-actions@v1
+        uses: windsekirun/check-title-wip-actions@v2
 
       - name: Setting Environments ⚙️
         uses: actions/setup-node@v2

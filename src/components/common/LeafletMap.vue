@@ -19,7 +19,6 @@
         @ready="readyLeaflet"
       >
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-polyline :lat-lngs="meriodianPolylines" color="#4c566a"></l-polyline>
         <l-control>
           <v-btn
             class="mt-2 mr-2 d-none d-md-flex"
@@ -32,7 +31,7 @@
         <l-control :position="'bottomleft'" class="map-watermark">
           {{ title }}
         </l-control>
-        <div v-for="(marker, index) in meridianMarkers" :key="index">
+        <div v-for="(marker, index) in markers" :key="index">
           <l-marker :lat-lng="marker.latLng">
             <l-tooltip :options="{ direction: 'top' }">
               {{ marker.tooltipText }}
@@ -55,7 +54,8 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import { LatLng, latLngBounds, Map, Point } from "leaflet";
 import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { MarkerData } from "@/model/vo/MarkerData";
-import { calculateMeridian } from "@/calculator/LeafletCalculator";
+import L from "leaflet";
+import "leaflet.geodesic";
 
 @Component({})
 export default class LeafletMap extends Vue {
@@ -83,40 +83,27 @@ export default class LeafletMap extends Vue {
     }
   }
 
-  get meridianMarkers() {
-    return this.markers.map((element) => {
-      if (this.useMeridian) {
-        element.latLng = calculateMeridian(element.latLng);
-      }
-      return element;
-    });
-  }
-
-  get meriodianPolylines() {
-    return this.markers.map((element) => {
-      if (this.useMeridian) {
-        return calculateMeridian(element.latLng);
-      } else {
-        return element.latLng;
-      }
-    });
-  }
-
   readyLeaflet(mapObject: Map) {
     this.map = mapObject;
     this.fitToPlan();
+    this.drawPolyline();
   }
 
   fitToPlan() {
     const lastIndex = this.markers.length - 1;
-    const departure = calculateMeridian(this.markers[0].latLng);
-    const destination = calculateMeridian(this.markers[lastIndex].latLng);
+    const departure = this.markers[0].latLng;
+    const destination = this.markers[lastIndex].latLng;
     const bounds = latLngBounds([departure, destination]);
 
     this.map.fitBounds(bounds, {
       paddingTopLeft: new Point(25, 25),
       paddingBottomRight: new Point(25, 25)
     });
+  }
+
+  drawPolyline() {
+    const places = this.markers.map((element) => element.latLng);
+    new L.Geodesic(places, this.polylineOptions).addTo(this.map);
   }
 
   panZoom(latLng: LatLng) {

@@ -6,7 +6,6 @@ import {
 } from "@/model/vo/AirportData";
 import { MarkerData } from "@/model/vo/MarkerData";
 import { LatLng } from "leaflet";
-import { calculateMeridian } from "./LeafletCalculator";
 
 export function displayMagnetic(airport: AirportDetailItem) {
   const value = airport.magneticVariation;
@@ -75,7 +74,7 @@ export function getAirportMarkers(airport: AirportDetailItem) {
     markers.push(
       MarkerData.makeByRunway(
         element,
-        calculateMeridian(new LatLng(element.ends[0].lat, element.ends[0].lon))
+        new LatLng(element.ends[0].lat, element.ends[0].lon)
       )
     );
   });

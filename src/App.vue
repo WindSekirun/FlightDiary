@@ -11,7 +11,7 @@
         <v-app-bar-nav-icon @click="drawer = !drawer" />
         <v-btn text @click="clickHome()">
           <v-avatar class="mr-4" size="32">
-            <img src="./assets/profile_akari_circle.png" alt="Profile" />
+            <img src="./assets/launcher.png" alt="Profile" />
           </v-avatar>
           <b> {{ title }}</b>
         </v-btn>

@@ -15,14 +15,13 @@
           :title="detailData.planTitle"
           class="mt-5"
         />
-        <div class="mt-5 mb-2">
-          <data-table
-            :table-id="'planDetail'"
-            :headers="detailData.headers"
-            :contents="detailData.contents"
-            @row-click="clickPlanDetail"
-          />
-        </div>
+        <data-table
+          class="mt-5 mb-2"
+          :table-id="'planDetail'"
+          :headers="detailData.headers"
+          :contents="detailData.contents"
+          @row-click="clickPlanDetail"
+        />
         <h2 class="mt-5">Elevation Profile</h2>
         <plan-elevation-profile
           class="mt-5"

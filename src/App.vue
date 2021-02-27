@@ -54,12 +54,9 @@ import MenuNavigation from "@/components/common/MenuNavigation.vue";
 import LinkMenuNavigation from "@/components/common/LinkMenuNavigation.vue";
 import {
   MenuNavigationItem,
-  NAVIGATION_COLLECTION,
-  NAVIGATION_HOME,
   NAVIGATION_PRIMARY,
   NAVIGATION_SECONDARY
 } from "@/model/vo/MenuNavigationItem.ts";
-import { pageCollection, pageHome } from "./model/PageRouter";
 import { Route } from "vue-router";
 
 @Component({

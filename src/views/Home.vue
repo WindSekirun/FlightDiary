@@ -72,7 +72,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Model, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import FlightItem from "@/components/item/FlightItem.vue";
 import store from "@/store";
 import { LOAD_MAIN_DATA } from "@/Constants";
@@ -97,10 +97,10 @@ import { PaginationData } from "@/model/vo/PaginationData";
 export default class Home extends Vue {
   airportList!: Airport[];
   aircraftList!: Aircraft[];
-  @Model("input", { type: Number, default: undefined }) searchOptions: number;
-  @Model("input", { type: String, default: null }) selectedDeparture!: string;
-  @Model("input", { type: String, default: null }) selectedDestination!: string;
-  @Model("input", { type: String, default: null }) selectedAircraft!: string;
+  searchOptions: number | null = null;
+  selectedDeparture: string | null = null;
+  selectedDestination: string | null = null;
+  selectedAircraft: string | null = null;
   page = 1;
 
   get mainData(): PaginationData<ListItem> {

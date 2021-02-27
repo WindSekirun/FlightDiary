@@ -177,18 +177,19 @@ const store = new Vuex.Store({
         .filter((element: ListItem) => {
           return (
             !searchByDeparture ||
-            element.departure.icao.includes(searchData.departure)
+            element.departure.icao.includes(searchData.departure || "")
           );
         })
         .filter((element: ListItem) => {
           return (
             !searchByDestination ||
-            element.destination.icao.includes(searchData.destination)
+            element.destination.icao.includes(searchData.destination || "")
           );
         })
         .filter((element: ListItem) => {
           return (
-            !searchByAircraft || element.aircraft.includes(searchData.aircraft)
+            !searchByAircraft ||
+            element.aircraft.includes(searchData.aircraft || "")
           );
         })
         .reverse();

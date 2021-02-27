@@ -1,6 +1,6 @@
 export class SearchData {
-  departure = "";
-  destination = "";
-  aircraft = "";
+  departure: string | null = null;
+  destination: string | null = null;
+  aircraft: string | null = null;
   page = 0;
 }

@@ -1,5 +1,5 @@
 <template>
-  <v-list dense nav>
+  <v-list nav>
     <v-list-item
       v-for="item in navigationMenus"
       :key="item.title"

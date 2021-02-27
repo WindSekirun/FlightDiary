@@ -48,10 +48,10 @@
     </v-col>
 
     <v-col cols="12" sm="12" md="12" lg="9">
-      <v-sheet color="#3b4252" rounded="lg" class="mt-3">
+      <v-sheet color="#3b4252" rounded="lg" class="mt-3 mb-3">
         <v-row>
           <v-col
-            v-for="(item, index) in listItems"
+            v-for="(item, index) in mainData.data"
             :key="index"
             cols="12"
             sm="12"
@@ -61,6 +61,11 @@
             <FlightItem :item="item" />
           </v-col>
         </v-row>
+        <v-container>
+          <div class="text-center">
+            <v-pagination v-model="page" :length="mainData.pageLength" circle />
+          </div>
+        </v-container>
       </v-sheet>
     </v-col>
   </v-row>
@@ -76,6 +81,7 @@ import { SearchData } from "@/model/SearchData";
 import { Airport } from "@/model/list/Airport";
 import { ListItem } from "@/model/list/ListItem";
 import { Aircraft } from "@/model/list/Aircraft";
+import { PaginationData } from "@/model/vo/PaginationData";
 
 @Component({
   components: {
@@ -95,13 +101,14 @@ export default class Home extends Vue {
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
   @Model("input", { type: String, default: null }) selectedDestination!: string;
   @Model("input", { type: String, default: null }) selectedAircraft!: string;
+  @Model("input", { type: Number, default: 1 }) page: number;
 
-  get listItems(): ListItem[] {
-    const searchData = new SearchData(
-      this.selectedDeparture,
-      this.selectedDestination,
-      this.selectedAircraft
-    );
+  get mainData(): PaginationData<ListItem> {
+    const searchData = new SearchData();
+    searchData.departure = this.selectedDeparture;
+    searchData.destination = this.selectedDestination;
+    searchData.aircraft = this.selectedAircraft;
+    searchData.page = this.page - 1;
     return store.getters.getMainList(searchData);
   }
 

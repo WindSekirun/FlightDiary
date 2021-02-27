@@ -102,9 +102,9 @@ export function getRouteTable(metadata: Metadata): FlightPlanTableContent[] {
     route.freq = element.freq;
     route.distance = element.distance;
     route.wind = element.wind;
-    route.key = `${route.ident} - ${route.procedure} - ${route.airway}`;
     route.isProcedure = element.isProcedure;
     route.latLng = new LatLng(element.lat, element.lng);
+    route.key = JSON.stringify(route);
     return route;
   });
 }

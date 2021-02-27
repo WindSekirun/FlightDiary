@@ -41,6 +41,7 @@ import {
 } from "@/model/vo/CollectionDetailData";
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 import { MarkerData } from "@/model/vo/MarkerData";
+import { PaginationData } from "@/model/vo/PaginationData";
 
 Vue.use(Vuex);
 
@@ -71,28 +72,31 @@ const state: StoreState = {
 const store = new Vuex.Store({
   state: state,
   mutations: {
-    [SAVE_MAIN_LIST](state, value) {
+    [SAVE_MAIN_LIST](state: StoreState, value: ListItem[]) {
       state.itemList = value;
     },
-    [SAVE_AIRPORT_MAP](state, value) {
+    [SAVE_AIRPORT_MAP](state: StoreState, value: Airport[]) {
       state.airportList = Object.values(value);
     },
-    [SAVE_AIRCRAFT](state, value) {
+    [SAVE_AIRCRAFT](state: StoreState, value: Aircraft[]) {
       state.aircraftList = value;
     },
-    [SAVE_DETAIL_DATA](state, value) {
+    [SAVE_DETAIL_DATA](state: StoreState, value: Metadata) {
       state.detailMetadata = value;
     },
-    [SAVE_DEPARTURE_DATA](state, value) {
+    [SAVE_DEPARTURE_DATA](state: StoreState, value: AirportDetailItem) {
       state.detailDeparture = value;
     },
-    [SAVE_DESTINATION_DATA](state, value) {
+    [SAVE_DESTINATION_DATA](state: StoreState, value: AirportDetailItem) {
       state.detailDestination = value;
     },
-    [SAVE_COLLECTION_DATA](state, value) {
+    [SAVE_COLLECTION_DATA](state: StoreState, value: CollectionDataItem[]) {
       state.collectionList = value;
     },
-    [SAVE_COLLECTION_DETAIL_DATA](state, value) {
+    [SAVE_COLLECTION_DETAIL_DATA](
+      state: StoreState,
+      value: CollectionDetailData
+    ) {
       state.collectionDetail = value;
     }
   },
@@ -161,7 +165,7 @@ const store = new Vuex.Store({
   },
   getters: {
     // from Home.vue
-    getMainList: (state) => (searchData: SearchData) => {
+    getMainList: (state: StoreState) => (searchData: SearchData) => {
       const searchByDeparture =
         searchData.departure != "" && searchData.departure != null;
       const searchByDestination =
@@ -169,27 +173,46 @@ const store = new Vuex.Store({
       const searchByAircraft =
         searchData.aircraft != "" && searchData.aircraft != null;
 
-      return state.itemList
+      const filtered: ListItem[] = state.itemList
         .filter((element: ListItem) => {
           return (
             !searchByDeparture ||
-            element.departure.icao.includes(searchData.departure)
+            element.departure.icao.includes(searchData.departure || "")
           );
         })
         .filter((element: ListItem) => {
           return (
             !searchByDestination ||
-            element.destination.icao.includes(searchData.destination)
+            element.destination.icao.includes(searchData.destination || "")
           );
         })
         .filter((element: ListItem) => {
           return (
-            !searchByAircraft || element.aircraft.includes(searchData.aircraft)
+            !searchByAircraft ||
+            element.aircraft.includes(searchData.aircraft || "")
           );
         })
         .reverse();
+
+      const data = new PaginationData();
+      const startIndex = searchData.page * 6;
+      const endIndex = startIndex + 6;
+      data.data = filtered.slice(startIndex, endIndex);
+      data.itemCount = filtered.length;
+      data.pageLength = Math.ceil(data.itemCount / 6);
+      return data;
     },
-    getDetailData: (state) => {
+    getCollectionList: (state: StoreState) => (searchData: SearchData) => {
+      const filtered = state.collectionList.reverse();
+      const data = new PaginationData();
+      const startIndex = searchData.page * 6;
+      const endIndex = startIndex + 6;
+      data.data = filtered.slice(startIndex, endIndex);
+      data.itemCount = filtered.length;
+      data.pageLength = Math.ceil(data.itemCount / 6);
+      return data;
+    },
+    getDetailData: (state: StoreState) => {
       const data = new DetailData();
       const metadata = state.detailMetadata || ({} as Metadata);
       data.planTitle = getPlanTitle(metadata);
@@ -207,14 +230,11 @@ const store = new Vuex.Store({
       data.elevationContent = elevation[1];
       return data;
     },
-    getAirportData: (state) => {
+    getAirportData: (state: StoreState) => {
       const data = new AirportData();
       data.departure = state.detailDeparture || ({} as AirportDetailItem);
       data.destination = state.detailDestination || ({} as AirportDetailItem);
       return data;
-    },
-    getCollectionList: (state) => {
-      return state.collectionList.reverse();
     }
   }
 });

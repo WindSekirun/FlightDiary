@@ -8,15 +8,17 @@
         elevate-on-scroll
         scroll-target="#scrolling-panel"
       >
-        <v-app-bar-nav-icon @click="drawer = !drawer" />
-        <v-btn text @click="clickHome()">
-          <v-avatar class="mr-4" size="32">
-            <img src="./assets/profile_akari_circle.png" alt="Profile" />
-          </v-avatar>
-          <b> {{ title }}</b>
-        </v-btn>
+        <v-icon v-if="showBackButton" large @click="clickParent">
+          mdi-chevron-left
+        </v-icon>
+        <v-app-bar-nav-icon v-if="!showBackButton" @click="drawer = !drawer" />
+        <v-avatar class="mr-4" size="32">
+          <img src="./assets/launcher.png" alt="Profile" />
+        </v-avatar>
+        <b> {{ title }}</b>
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" fixed temporary color="#3b4252">
+
+      <v-navigation-drawer v-model="drawer" app color="#3b4252">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">Flight Diary</v-list-item-title>
@@ -25,11 +27,12 @@
         </v-list-item>
         <v-divider />
         <menu-navigation
+          ref="menu"
           :navigation-menus="navigationPrimary"
           @menu-click="clickMenu"
         />
         <v-divider />
-        <menu-navigation
+        <link-menu-navigation
           :navigation-menus="navigationSecondary"
           @menu-click="clickMenu"
         />
@@ -45,36 +48,48 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
 import MenuNavigation from "@/components/common/MenuNavigation.vue";
+import LinkMenuNavigation from "@/components/common/LinkMenuNavigation.vue";
 import {
   MenuNavigationItem,
   NAVIGATION_PRIMARY,
   NAVIGATION_SECONDARY
 } from "@/model/vo/MenuNavigationItem.ts";
-import { pageHome } from "./model/PageRouter";
+import { Route } from "vue-router";
 
 @Component({
   components: {
-    MenuNavigation
+    MenuNavigation,
+    LinkMenuNavigation
   }
 })
 export default class Home extends Vue {
-  @Prop({ default: applicationTitle })
-  title!: string;
-  drawer = null;
+  @Prop({ default: applicationTitle }) title!: string;
   navigationPrimary: MenuNavigationItem[] = NAVIGATION_PRIMARY;
   navigationSecondary: MenuNavigationItem[] = NAVIGATION_SECONDARY;
+  $refs!: {
+    menu: MenuNavigation;
+  };
+  drawer = null;
+  showBackButton = false;
+  parentTo: MenuNavigationItem;
 
   async mounted() {
     this.title = applicationTitle;
   }
 
-  clickHome() {
-    this.$router.push({
-      name: pageHome.name
-    });
+  @Watch("$route", { immediate: true, deep: true })
+  onUrlChange(to: Route) {
+    this.showBackButton = to.meta?.parent != null;
+    this.parentTo = to.meta?.parent;
+  }
+
+  clickParent() {
+    if (this.parentTo != null) {
+      this.clickMenu(this.parentTo);
+    }
   }
 
   clickMenu(navigation: MenuNavigationItem) {
@@ -83,6 +98,7 @@ export default class Home extends Vue {
     } else if (navigation.link != undefined) {
       window.location.href = navigation.link;
     }
+    this.$refs.menu.changeSelection(navigation.index);
   }
 }
 </script>

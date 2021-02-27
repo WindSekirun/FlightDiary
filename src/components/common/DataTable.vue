@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { TableContents, DataTableHeader } from "@/model/DataTableHeader";
-import { Component, Model, Prop, Vue, Watch } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 export const EVENT_ROW_CLICK = "row-click";
 
@@ -37,7 +37,7 @@ export default class DataTable extends Vue {
   @Prop({ type: Array }) contents: TableContents[];
   @Prop({ type: Number, default: 10 }) itemPerPage: number;
   @Prop({ type: Boolean, default: false }) hideDefaultFooter: boolean;
-  @Model("input", { type: Boolean, default: false }) hideTable: boolean;
+  hideTable: boolean | null = null;
 
   get hideTableButtonText() {
     return this.hideTable ? "Show table" : "Hide Table";

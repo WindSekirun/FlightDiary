@@ -101,7 +101,7 @@ export default class Home extends Vue {
   @Model("input", { type: String, default: null }) selectedDeparture!: string;
   @Model("input", { type: String, default: null }) selectedDestination!: string;
   @Model("input", { type: String, default: null }) selectedAircraft!: string;
-  @Model("input", { type: Number, default: 1 }) page: number;
+  page = 1;
 
   get mainData(): PaginationData<ListItem> {
     const searchData = new SearchData();

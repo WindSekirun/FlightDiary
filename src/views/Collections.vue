@@ -38,7 +38,7 @@ import { SearchData } from "@/model/SearchData";
   computed: {}
 })
 export default class Collections extends Vue {
-  @Model("input", { type: Number, default: 1 }) page: number;
+  page = 1;
 
   get collectionData(): PaginationData<CollectionDataItem> {
     const searchData = new SearchData();

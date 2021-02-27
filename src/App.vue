@@ -16,7 +16,7 @@
           <b> {{ title }}</b>
         </v-btn>
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" fixed temporary color="#3b4252">
+      <v-navigation-drawer v-model="drawer" app color="#3b4252">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title">Flight Diary</v-list-item-title>

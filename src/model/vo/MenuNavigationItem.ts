@@ -11,12 +11,19 @@ export class MenuNavigationItem {
   name: string;
   routeTo: PageRouter | undefined;
   link: string | undefined;
+  index: number;
 
-  static byRouter(icon: string, name: string, routeTo: PageRouter) {
+  static byRouter(
+    icon: string,
+    name: string,
+    routeTo: PageRouter,
+    index: number
+  ) {
     const navigation = new MenuNavigationItem();
     navigation.icon = icon;
     navigation.name = name;
     navigation.routeTo = routeTo;
+    navigation.index = index;
     return navigation;
   }
 
@@ -32,22 +39,26 @@ export class MenuNavigationItem {
 export const NAVIGATION_HOME = MenuNavigationItem.byRouter(
   "mdi-home",
   "Home",
-  pageHome
+  pageHome,
+  0
 );
 export const NAVIGATION_COLLECTION = MenuNavigationItem.byRouter(
   "mdi-package",
   "Collection",
-  pageCollection
+  pageCollection,
+  1
 );
 export const NAVIGATION_SPEC = MenuNavigationItem.byRouter(
   "mdi-file-document",
   "Spec",
-  pageSpec
+  pageSpec,
+  2
 );
 export const NAVIGATION_ABOUT = MenuNavigationItem.byRouter(
   "mdi-information",
   "About",
-  pageAbout
+  pageAbout,
+  3
 );
 export const NAVIGATION_GITHUB = MenuNavigationItem.byExternalLinks(
   "mdi-github",

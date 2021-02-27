@@ -34,8 +34,8 @@ export default class MenuNavigation extends Vue {
     this.$emit(EVENT_MENU_CLICK, navigation);
   }
 
-  clickHome() {
-    this.selectedItem = 0;
+  changeSelection(index: number) {
+    this.selectedItem = index;
   }
 }
 </script>

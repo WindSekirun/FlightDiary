@@ -11,6 +11,10 @@ import {
   pageHome,
   pageSpec
 } from "@/model/PageRouter";
+import {
+  NAVIGATION_COLLECTION,
+  NAVIGATION_HOME
+} from "@/model/vo/MenuNavigationItem";
 import store from "@/store";
 import Vue from "vue";
 import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
@@ -48,10 +52,11 @@ const routes: Array<RouteConfig> = [
     name: pageDetail.name,
     component: () => import("../views/Detail.vue"),
     meta: {
-      title: `${pageDetail.name} - ${applicationTitle}`
+      title: `${pageDetail.name} - ${applicationTitle}`,
+      parent: NAVIGATION_HOME
     },
     props: true,
-    beforeEnter: function (to: Route, from: Route, next) {
+    beforeEnter: function (to: Route, from: Route, next: () => any) {
       store
         .dispatch(LOAD_DETAIL_DATA, {
           id: to.params.id,
@@ -72,11 +77,12 @@ const routes: Array<RouteConfig> = [
     path: pageCollectionDetail.path,
     name: pageCollectionDetail.name,
     meta: {
-      title: `${pageCollectionDetail.name} - ${applicationTitle}`
+      title: `${pageCollectionDetail.name} - ${applicationTitle}`,
+      parent: NAVIGATION_COLLECTION
     },
     component: () => import("../views/CollectionsDetail.vue"),
     props: true,
-    beforeEnter: function (to: Route, from: Route, next) {
+    beforeEnter: function (to: Route, from: Route, next: () => any) {
       store
         .dispatch(LOAD_COLLECTION_DETAIL_DATA, {
           id: to.params.id

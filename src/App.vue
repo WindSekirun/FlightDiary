@@ -25,11 +25,12 @@
         </v-list-item>
         <v-divider />
         <menu-navigation
+          ref="menu"
           :navigation-menus="navigationPrimary"
           @menu-click="clickMenu"
         />
         <v-divider />
-        <menu-navigation
+        <link-menu-navigation
           :navigation-menus="navigationSecondary"
           @menu-click="clickMenu"
         />
@@ -48,6 +49,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import { applicationTitle } from "./Constants";
 import MenuNavigation from "@/components/common/MenuNavigation.vue";
+import LinkMenuNavigation from "@/components/common/LinkMenuNavigation.vue";
 import {
   MenuNavigationItem,
   NAVIGATION_PRIMARY,
@@ -57,7 +59,8 @@ import { pageHome } from "./model/PageRouter";
 
 @Component({
   components: {
-    MenuNavigation
+    MenuNavigation,
+    LinkMenuNavigation
   }
 })
 export default class Home extends Vue {
@@ -66,12 +69,16 @@ export default class Home extends Vue {
   drawer = null;
   navigationPrimary: MenuNavigationItem[] = NAVIGATION_PRIMARY;
   navigationSecondary: MenuNavigationItem[] = NAVIGATION_SECONDARY;
+  $refs!: {
+    menu: MenuNavigation;
+  };
 
   async mounted() {
     this.title = applicationTitle;
   }
 
   clickHome() {
+    this.$refs.menu.clickHome();
     this.$router.push({
       name: pageHome.name
     });

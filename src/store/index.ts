@@ -12,7 +12,9 @@ import {
   SAVE_COLLECTION_DETAIL_DATA,
   LOAD_COLLECTION_DETAIL_DATA,
   SAVE_AIRPORT_DETAIL_DATA,
-  LOAD_AIRPORT_DETAIL_DATA
+  LOAD_AIRPORT_DETAIL_DATA,
+  SAVE_REVISION,
+  LOAD_REVISION
 } from "@/Constants";
 import { AirportDetailItem } from "@/model/airport/AirportDetailItem";
 import { Aircraft } from "@/model/list/Aircraft";
@@ -60,6 +62,7 @@ export interface StoreState {
   collectionList: CollectionDataItem[];
   collectionDetail: CollectionDetailData | undefined;
   airportDetailItem: AirportDetailItem | undefined;
+  revision: string;
 }
 
 const state: StoreState = {
@@ -71,7 +74,8 @@ const state: StoreState = {
   detailDestination: undefined,
   collectionList: [],
   collectionDetail: undefined,
-  airportDetailItem: undefined
+  airportDetailItem: undefined,
+  revision: ""
 };
 
 const store = new Vuex.Store({
@@ -106,6 +110,9 @@ const store = new Vuex.Store({
     },
     [SAVE_AIRPORT_DETAIL_DATA](state: StoreState, value: AirportDetailItem) {
       state.airportDetailItem = value;
+    },
+    [SAVE_REVISION](state: StoreState, value: string) {
+      state.revision = value;
     }
   },
   actions: {
@@ -173,6 +180,12 @@ const store = new Vuex.Store({
     async [LOAD_AIRPORT_DETAIL_DATA]({ commit }, data) {
       const response = await Vue.axios.get(`data/airport/${data.airport}.json`);
       commit(SAVE_AIRPORT_DETAIL_DATA, response.data);
+    },
+    async [LOAD_REVISION]({ commit }) {
+      const response = await Vue.axios.get(
+        "https://api.github.com/repos/WindSekirun/FlightDiary/releases/latest"
+      );
+      commit(SAVE_REVISION, response.data.tag_name);
     }
   },
   getters: {

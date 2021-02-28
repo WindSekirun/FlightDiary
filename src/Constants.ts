@@ -1,6 +1,10 @@
 export const applicationTitle = "Flight Diary";
 export const baseDomain = "https://flights.uzuki.live/";
 
+// from App.vue
+export const LOAD_REVISION = "LOAD_REVISION"
+export const SAVE_REVISION = "SAVE_REVISION"
+
 // from Home.vue
 export const SAVE_MAIN_LIST = "SAVE_MAIN_LIST";
 export const LOAD_MAIN_DATA = "LOAD_MAIN_DATA";

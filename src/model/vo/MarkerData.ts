@@ -4,6 +4,7 @@ import {
   FP_DESTINATION,
   FP_DME,
   FP_ILS,
+  FP_NDB,
   FP_TAC,
   FP_WAYPOINT,
   TRANSPARENT_ICON
@@ -48,6 +49,9 @@ export function findIconOfWaypoint(material: TooltipMaterial): string {
   } else if (waypoint.type.includes("ILS")) {
     // ILS
     markerIcon = FP_ILS;
+  } else if (waypoint.type.includes("NDB")) {
+    // NDB
+    markerIcon = FP_NDB;
   } else if (waypoint.ident == "" && waypoint.isProcedure) {
     // if waypoint is procedure and ident is empty
     markerIcon = FP_ILS;

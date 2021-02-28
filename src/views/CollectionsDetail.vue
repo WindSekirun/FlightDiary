@@ -7,7 +7,8 @@
     <h2 class="mt-5">Flight Plan</h2>
     <leaflet-map
       class="mt-2"
-      :use-meridian="false"
+      :default-zoom-level="4"
+      use-zoom-in-center
       :markers="collectionDetail.markers"
       :title="collectionDetail.item.title"
     />

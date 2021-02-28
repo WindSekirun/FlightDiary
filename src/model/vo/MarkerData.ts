@@ -4,6 +4,7 @@ import {
   FP_DESTINATION,
   FP_DME,
   FP_ILS,
+  FP_NDB,
   FP_TAC,
   FP_WAYPOINT,
   TRANSPARENT_ICON
@@ -40,16 +41,14 @@ export function findIconOfWaypoint(material: TooltipMaterial): string {
     // destination airport
     markerIcon = FP_DESTINATION;
   } else if (waypoint.type.includes("VORTAC")) {
-    // VORTAC (H)
     markerIcon = FP_TAC;
   } else if (waypoint.type.includes("VORDME")) {
-    // VORDME (H)
     markerIcon = FP_DME;
   } else if (waypoint.type.includes("ILS")) {
-    // ILS
     markerIcon = FP_ILS;
+  } else if (waypoint.type.includes("NDB")) {
+    markerIcon = FP_NDB;
   } else if (waypoint.ident == "" && waypoint.isProcedure) {
-    // if waypoint is procedure and ident is empty
     markerIcon = FP_ILS;
   } else {
     markerIcon = FP_WAYPOINT;

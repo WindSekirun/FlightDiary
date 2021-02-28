@@ -18,4 +18,5 @@ export interface Metadata {
   distance: string;
   procedures: Procedures;
   waypoint: Waypoint[];
+  hasTrail: boolean;
 }

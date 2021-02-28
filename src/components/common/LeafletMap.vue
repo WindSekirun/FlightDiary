@@ -56,6 +56,7 @@ import { ATTRIBUTION, OPENSTREETMAP } from "@/Constants";
 import { MarkerData } from "@/model/vo/MarkerData";
 import L from "leaflet";
 import "leaflet.geodesic";
+import { TrailData } from "@/model/plan/TrailData";
 
 @Component({})
 export default class LeafletMap extends Vue {
@@ -67,7 +68,13 @@ export default class LeafletMap extends Vue {
   map!: Map;
 
   polylineOptions = {
-    color: "#4c566a"
+    color: "#4c566a",
+    weight: 4
+  };
+
+  trailOptions = {
+    color: "#d08770",
+    dashArray: "20,15"
   };
 
   get mapAspectRatio() {
@@ -104,6 +111,15 @@ export default class LeafletMap extends Vue {
   drawPolyline() {
     const places = this.markers.map((element) => element.latLng);
     new L.Geodesic(places, this.polylineOptions).addTo(this.map);
+  }
+
+  drawTrail(trailData: TrailData | null) {
+    if (trailData == null) return;
+
+    const places = trailData.trail.map(
+      (element) => new LatLng(element.lat, element.lon)
+    );
+    new L.Polyline(places, this.trailOptions).addTo(this.map);
   }
 
   panZoom(latLng: LatLng) {

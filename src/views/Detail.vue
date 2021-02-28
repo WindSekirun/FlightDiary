@@ -53,6 +53,7 @@ import { DetailData, FlightPlanTableContent } from "@/model/vo/DetailData";
 import { Metadata } from "@/model/plan/Metadata";
 import { applicationTitle, baseDomain } from "@/Constants";
 import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
+import { TrailData } from "@/model/plan/TrailData";
 
 @Component({
   components: {
@@ -74,6 +75,7 @@ import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 export default class Detail extends Vue {
   detailData!: DetailData;
   metadata!: Metadata;
+  trailData: TrailData | null = null;
   @Prop({ required: true }) id: string | undefined;
   @Prop({ required: true }) airport: string | undefined;
   $refs!: {
@@ -87,7 +89,12 @@ export default class Detail extends Vue {
         "Little Navmap File",
         `${baseDomain}data/${this.metadata.id}/${this.metadata.flightPlanFile}`
       ),
-      KV("Route", this.detailData.planRoute)
+      KV("Route", this.detailData.planRoute),
+      KVC(
+        "View On",
+        "SkyVector",
+        `https://skyvector.com/?fpl=${this.detailData.planRoute}`
+      )
     ];
 
     if (this.metadata.simData && this.metadata.navData) {
@@ -110,8 +117,17 @@ export default class Detail extends Vue {
     }
   }
 
-  mounted() {
+  async mounted() {
     document.title = `${this.detailData.planTitle} - ${applicationTitle}`;
+
+    if (this.metadata.hasTrail) {
+      const id = this.metadata.id;
+      const response = await Vue.axios.get(`data/${id}/trail.json`);
+      this.trailData = response.data;
+      this.$refs.planMap.drawTrail(this.trailData);
+    } else {
+      this.trailData = null;
+    }
   }
 }
 </script>

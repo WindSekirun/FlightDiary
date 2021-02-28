@@ -65,6 +65,8 @@ export default class LeafletMap extends Vue {
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
   @Prop({ type: Boolean, default: true }) useMeridian: boolean;
+  @Prop({ type: Number, default: 12 }) defaultZoomLevel: number;
+  @Prop({ type: Boolean, default: false }) useZoomInCenter: boolean;
   map!: Map;
 
   polylineOptions = {
@@ -106,6 +108,9 @@ export default class LeafletMap extends Vue {
       paddingTopLeft: new Point(25, 25),
       paddingBottomRight: new Point(25, 25)
     });
+    if (this.useZoomInCenter) {
+      this.map.setZoom(this.defaultZoomLevel);
+    }
   }
 
   drawPolyline() {
@@ -124,7 +129,7 @@ export default class LeafletMap extends Vue {
 
   panZoom(latLng: LatLng) {
     this.map.panTo(latLng);
-    this.map.setZoom(12);
+    this.map.setZoom(this.defaultZoomLevel);
   }
 }
 </script>

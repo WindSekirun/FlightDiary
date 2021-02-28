@@ -23,6 +23,7 @@
           <v-list-item-content>
             <v-list-item-title class="title">Flight Diary</v-list-item-title>
             <v-list-item-subtitle>by WindSekirun</v-list-item-subtitle>
+            <v-list-item-subtitle>Revision {{ revision }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-divider />
@@ -49,7 +50,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import { applicationTitle } from "./Constants";
+import {
+  applicationTitle,
+  EVENT_CHANGE_MENU_SELECTION,
+  LOAD_REVISION
+} from "./Constants";
 import MenuNavigation from "@/components/common/MenuNavigation.vue";
 import LinkMenuNavigation from "@/components/common/LinkMenuNavigation.vue";
 import {
@@ -58,14 +63,23 @@ import {
   NAVIGATION_SECONDARY
 } from "@/model/vo/MenuNavigationItem.ts";
 import { Route } from "vue-router";
+import EventBus from "./main";
+import { mapState } from "vuex";
+import store from "@/store";
 
 @Component({
   components: {
     MenuNavigation,
     LinkMenuNavigation
+  },
+  computed: {
+    ...mapState({
+      revision: "revision"
+    })
   }
 })
 export default class Home extends Vue {
+  revision!: string;
   @Prop({ default: applicationTitle }) title!: string;
   navigationPrimary: MenuNavigationItem[] = NAVIGATION_PRIMARY;
   navigationSecondary: MenuNavigationItem[] = NAVIGATION_SECONDARY;
@@ -78,6 +92,7 @@ export default class Home extends Vue {
 
   async mounted() {
     this.title = applicationTitle;
+    await store.dispatch(LOAD_REVISION);
   }
 
   @Watch("$route", { immediate: true, deep: true })
@@ -99,6 +114,16 @@ export default class Home extends Vue {
       window.location.href = navigation.link;
     }
     this.$refs.menu.changeSelection(navigation.index);
+  }
+
+  created() {
+    EventBus.$on(EVENT_CHANGE_MENU_SELECTION, (payload: number) => {
+      this.$refs.menu.changeSelection(payload);
+    });
+  }
+
+  beforeDestroy() {
+    EventBus.$off(EVENT_CHANGE_MENU_SELECTION);
   }
 }
 </script>

@@ -1,28 +1,25 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-sheet rounded="lg" color="#3b4252" class="pa-5">
-        <h1>{{ collectionDetail.item.title }}</h1>
-        <h4 class="mt-2">
-          {{ totalDistance }} | {{ collectionDetail.item.aircraft }}
-        </h4>
-        <h2 class="mt-5">Flight Plan</h2>
-        <leaflet-map
-          class="mt-2"
-          :use-meridian="false"
-          :markers="collectionDetail.markers"
-          :title="collectionDetail.item.title"
-        />
-        <data-table
-          class="mt-5"
-          :table-id="tableId"
-          :headers="collectionDetail.tableHeaders"
-          :contents="collectionDetail.tableContents"
-          @row-click="clickDetail"
-        />
-      </v-sheet>
-    </v-col>
-  </v-row>
+  <v-sheet rounded="lg" color="#3b4252" class="pa-5">
+    <h1>{{ collectionDetail.item.title }}</h1>
+    <h4 class="mt-2">
+      {{ totalDistance }} | {{ collectionDetail.item.aircraft }}
+    </h4>
+    <h2 class="mt-5">Flight Plan</h2>
+    <leaflet-map
+      class="mt-2"
+      :default-zoom-level="4"
+      use-zoom-in-center
+      :markers="collectionDetail.markers"
+      :title="collectionDetail.item.title"
+    />
+    <data-table
+      class="mt-5"
+      :table-id="tableId"
+      :headers="collectionDetail.tableHeaders"
+      :contents="collectionDetail.tableContents"
+      @row-click="clickDetail"
+    />
+  </v-sheet>
 </template>
 
 <script lang="ts">

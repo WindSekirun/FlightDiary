@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Model, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import CollectionItem from "@/components/item/CollectionItem.vue";
 import { CollectionDataItem } from "@/model/collection/CollectionDataItem";
 import { LOAD_COLLECTION_DATA } from "@/Constants";

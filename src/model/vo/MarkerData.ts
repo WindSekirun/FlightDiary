@@ -7,10 +7,12 @@ import {
   FP_NDB,
   FP_TAC,
   FP_WAYPOINT,
+  MARKER_ICON,
   TRANSPARENT_ICON
 } from "@/Constants";
 import { LatLng } from "leaflet";
 import { Runway } from "../airport/Runway";
+import { Airport } from "../list/Airport";
 import { Waypoint } from "../plan/Waypoint";
 
 export class TooltipMaterial {
@@ -119,6 +121,16 @@ export class MarkerData {
     data.latLng = latLng;
     data.icon = TRANSPARENT_ICON;
     data.headline = runway.ident;
+    return data;
+  }
+
+  static makeByAirport(airport: Airport): MarkerData {
+    const data = new MarkerData();
+    data.anchor = [10, 5];
+    data.latLng = new LatLng(airport.lat, airport.lon);
+    data.icon = MARKER_ICON;
+    data.tooltipText = airport.label;
+    data.headline = airport.icao;
     return data;
   }
 }

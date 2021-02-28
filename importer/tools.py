@@ -76,6 +76,8 @@ def build_airport_metadata(api_key, icao, airport_json_file, output_file):
             map_data[icao] = {
                 "icao": icao,
                 "label": airport_label,
-                "name": airport_name
+                "name": airport_name,
+                "lat": response["lat"],
+                "lon": response["lon"]
             }
             write_json(map_data, airport_json_file)

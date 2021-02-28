@@ -5,11 +5,13 @@ import {
 } from "@/Constants";
 import {
   pageAbout,
+  pageAirport,
   pageCollection,
   pageCollectionDetail,
   pageDetail,
   pageHome,
-  pageSpec
+  pageSpec,
+  pageStatistic
 } from "@/model/PageRouter";
 import {
   NAVIGATION_COLLECTION,
@@ -89,6 +91,22 @@ const routes: Array<RouteConfig> = [
         })
         .then(() => next());
     }
+  },
+  {
+    path: pageStatistic.path,
+    name: pageStatistic.name,
+    meta: {
+      title: `${pageStatistic.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/Statistics.vue")
+  },
+  {
+    path: pageAirport.path,
+    name: pageAirport.name,
+    meta: {
+      title: `${pageAirport.name} - ${applicationTitle}`
+    },
+    component: () => import("../views/Airports.vue")
   }
 ];
 

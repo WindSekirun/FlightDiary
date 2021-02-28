@@ -1,14 +1,10 @@
 <template>
-  <v-row>
-    <v-col>
-      <v-sheet rounded="lg" color="#3b4252" class="pa-5 mb-2">
-        <h2>Hardware Specs</h2>
-        <display-key-value :values="details" />
-        <h2 class="mt-5 mb-2">Senery | Plugins</h2>
-        <display-key-value :values="plugins" />
-      </v-sheet>
-    </v-col>
-  </v-row>
+  <v-sheet rounded="lg" color="#3b4252" class="pa-5 mb-2">
+    <h2>Hardware Specs</h2>
+    <display-key-value :values="details" />
+    <h2 class="mt-5 mb-2">Senery | Plugins</h2>
+    <display-key-value :values="plugins" />
+  </v-sheet>
 </template>
 
 <script lang="ts">

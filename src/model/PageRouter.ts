@@ -17,3 +17,5 @@ export const pageCollectionDetail = new PageRouter(
   "Collection Detail",
   "/collection/:id"
 );
+export const pageStatistic = new PageRouter("Statistic", "/statistic");
+export const pageAirport = new PageRouter("Airports", "/airport");

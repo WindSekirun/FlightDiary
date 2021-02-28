@@ -1,9 +1,11 @@
 import {
   pageAbout,
+  pageAirport,
   pageCollection,
   pageHome,
   PageRouter,
-  pageSpec
+  pageSpec,
+  pageStatistic
 } from "../PageRouter";
 
 export class MenuNavigationItem {
@@ -50,15 +52,27 @@ export const NAVIGATION_COLLECTION = MenuNavigationItem.byRouter(
 );
 export const NAVIGATION_SPEC = MenuNavigationItem.byRouter(
   "mdi-file-document",
-  "Spec",
+  "Specification",
   pageSpec,
   2
+);
+export const NAVIGATION_STATISTIC = MenuNavigationItem.byRouter(
+  "mdi-chart-box",
+  "Statistic",
+  pageStatistic,
+  3
+);
+export const NAVIGATION_AIRPORT = MenuNavigationItem.byRouter(
+  "mdi-airplane-takeoff",
+  "Airport",
+  pageAirport,
+  3
 );
 export const NAVIGATION_ABOUT = MenuNavigationItem.byRouter(
   "mdi-information",
   "About",
   pageAbout,
-  3
+  5
 );
 export const NAVIGATION_GITHUB = MenuNavigationItem.byExternalLinks(
   "mdi-github",
@@ -70,6 +84,8 @@ export const NAVIGATION_PRIMARY = [
   NAVIGATION_HOME,
   NAVIGATION_COLLECTION,
   NAVIGATION_SPEC,
+  NAVIGATION_STATISTIC,
+  NAVIGATION_AIRPORT,
   NAVIGATION_ABOUT
 ];
 

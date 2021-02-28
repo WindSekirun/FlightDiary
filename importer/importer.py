@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import tools
 import plnreader
 import tablereader
+import gpxreader
 import optimize
 import xmltodict
 import os
@@ -11,6 +12,7 @@ import uuid
 import json
 import shutil
 import re
+import glob
 
 # declare variables
 pwd = os.path.dirname(os.path.realpath(__file__))
@@ -131,9 +133,20 @@ for html_waypoint in waypoint_from_html:
     }
     waypoint_merge.append(value)
 
+# parse gpx file if available
+gpx_file_list = sorted(glob.glob(f'{target_folder}/*.gpx'))
+if gpx_file_list:
+    target_gpx = gpx_file_list[0]
+    gpx_root = xmltodict.parse(Path(target_gpx).read_text())
+    gpx_content = gpxreader.read_trail(gpx_root)
+else:
+    gpx_content = ""
+
 # rename plan file
 os.rename(target_lnmpln, os.path.join(pwd, 'target', f'{data_id}.lnmpln'))
 os.remove(target_html)
+if gpx_file_list:
+    os.remove(gpx_file_list[0])
 
 print()
 print('Starting Image Optimization...')
@@ -188,12 +201,17 @@ metadata = {
         "sid": producers_sid,
         "approach": producers_approach
     },
-    "waypoint": waypoint_merge
+    "waypoint": waypoint_merge,
+    "hasTrail": True
 }
 
 os.mkdir(os.path.join(public_data_folder, data_id))
 tools.write_json(metadata, os.path.join(
     public_data_folder, data_id, "metadata.json"))
+
+if gpx_content:
+    tools.write_json(gpx_content, os.path.join(
+        public_data_folder, data_id, "trail.json"))
 
 print('Appending data to data.json')
 list_data = {

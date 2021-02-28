@@ -89,7 +89,12 @@ export default class Detail extends Vue {
         "Little Navmap File",
         `${baseDomain}data/${this.metadata.id}/${this.metadata.flightPlanFile}`
       ),
-      KV("Route", this.detailData.planRoute)
+      KV("Route", this.detailData.planRoute),
+      KVC(
+        "View On",
+        "SkyVector",
+        `https://skyvector.com/?fpl=${this.detailData.planRoute}`
+      )
     ];
 
     if (this.metadata.simData && this.metadata.navData) {

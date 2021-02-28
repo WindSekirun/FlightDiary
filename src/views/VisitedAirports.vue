@@ -6,8 +6,7 @@
         <l-map
           ref="myMap"
           :options="{
-            scrollWheelZoom: true,
-            scrollWheelZoom: true,
+            scrollWheelZoom: false,
             preferCanvas: true
           }"
           :zoom="2"

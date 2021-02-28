@@ -42,6 +42,7 @@ import {
 import { mergeCollectionWaypoint } from "@/calculator/CollectionCalculator";
 import { MarkerData } from "@/model/vo/MarkerData";
 import { PaginationData } from "@/model/vo/PaginationData";
+import { parseLogbook } from "@/calculator/LogbookCalculator";
 
 Vue.use(Vuex);
 
@@ -215,6 +216,7 @@ const store = new Vuex.Store({
     getDetailData: (state: StoreState) => {
       const data = new DetailData();
       const metadata = state.detailMetadata || ({} as Metadata);
+      const elevation = getPlanElevation(metadata);
       data.planTitle = getPlanTitle(metadata);
       data.planSubtitle = getPlanSubtitle(metadata);
       data.imageList = getPlanImageList(metadata);
@@ -224,8 +226,6 @@ const store = new Vuex.Store({
       data.markers = getWaypointMarker(metadata);
       data.headers = DETAIL_HEADER_ROUTE;
       data.contents = getRouteTable(metadata);
-
-      const elevation = getPlanElevation(metadata);
       data.elevationHeader = elevation[0];
       data.elevationContent = elevation[1];
       return data;
@@ -235,6 +235,13 @@ const store = new Vuex.Store({
       data.departure = state.detailDeparture || ({} as AirportDetailItem);
       data.destination = state.detailDestination || ({} as AirportDetailItem);
       return data;
+    },
+    getLogbookData: (state: StoreState) => {
+      return parseLogbook(
+        state.itemList,
+        state.airportList,
+        state.aircraftList
+      );
     }
   }
 });

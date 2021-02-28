@@ -10,8 +10,8 @@ import {
   pageCollectionDetail,
   pageDetail,
   pageHome,
-  pageSpec,
-  pageStatistic
+  pageLogbook,
+  pageSpec
 } from "@/model/PageRouter";
 import {
   NAVIGATION_COLLECTION,
@@ -93,12 +93,12 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
-    path: pageStatistic.path,
-    name: pageStatistic.name,
+    path: pageLogbook.path,
+    name: pageLogbook.name,
     meta: {
-      title: `${pageStatistic.name} - ${applicationTitle}`
+      title: `${pageLogbook.name} - ${applicationTitle}`
     },
-    component: () => import("../views/Statistics.vue")
+    component: () => import("../views/Logbook.vue")
   },
   {
     path: pageAirport.path,

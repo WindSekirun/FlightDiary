@@ -1,6 +1,12 @@
 <template>
   <div>
-    <v-btn block class="mt-2 mb-2" color="#2e3440" @click="clickToggleTable">
+    <v-btn
+      v-if="!disableHideTable"
+      block
+      class="mt-2 mb-2"
+      color="#2e3440"
+      @click="clickToggleTable"
+    >
       {{ hideTableButtonText }}
     </v-btn>
     <v-data-table
@@ -8,7 +14,7 @@
       dense
       :headers="headers"
       :items="contents"
-      :items-per-page="itemPerPage"
+      :items-per-page="itemsPerPage"
       item-key="key"
       class="elevation-1 mytable"
       :hide-default-footer="hideDefaultFooter"
@@ -35,8 +41,9 @@ export default class DataTable extends Vue {
   @Prop({ type: String, default: "" }) tableId: string;
   @Prop({ type: Array }) headers: DataTableHeader[];
   @Prop({ type: Array }) contents: TableContents[];
-  @Prop({ type: Number, default: 10 }) itemPerPage: number;
+  @Prop({ type: Number, default: 10 }) itemsPerPage: number;
   @Prop({ type: Boolean, default: false }) hideDefaultFooter: boolean;
+  @Prop({ type: Boolean, default: false }) disableHideTable: boolean;
   hideTable: boolean | null = null;
 
   get hideTableButtonText() {
@@ -54,19 +61,21 @@ export default class DataTable extends Vue {
   }
 
   mounted() {
-    if (localStorage[this.getLocalStorageKey()] == "true") {
-      this.hideTable = true;
-    } else {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          this.hideTable = true;
-          break;
-        case "sm":
-          this.hideTable = true;
-          break;
-        default:
-          this.hideTable = false;
-          break;
+    if (!this.disableHideTable) {
+      if (localStorage[this.getLocalStorageKey()] == "true") {
+        this.hideTable = true;
+      } else {
+        switch (this.$vuetify.breakpoint.name) {
+          case "xs":
+            this.hideTable = true;
+            break;
+          case "sm":
+            this.hideTable = true;
+            break;
+          default:
+            this.hideTable = false;
+            break;
+        }
       }
     }
   }

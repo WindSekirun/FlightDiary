@@ -5,7 +5,7 @@ import {
   pageHome,
   PageRouter,
   pageSpec,
-  pageStatistic
+  pageLogbook
 } from "../PageRouter";
 
 export class MenuNavigationItem {
@@ -56,10 +56,10 @@ export const NAVIGATION_SPEC = MenuNavigationItem.byRouter(
   pageSpec,
   2
 );
-export const NAVIGATION_STATISTIC = MenuNavigationItem.byRouter(
+export const NAVIGATION_LOGBOOK = MenuNavigationItem.byRouter(
   "mdi-chart-box",
-  "Statistic",
-  pageStatistic,
+  "Logbook",
+  pageLogbook,
   3
 );
 export const NAVIGATION_AIRPORT = MenuNavigationItem.byRouter(
@@ -84,7 +84,7 @@ export const NAVIGATION_PRIMARY = [
   NAVIGATION_HOME,
   NAVIGATION_COLLECTION,
   NAVIGATION_SPEC,
-  NAVIGATION_STATISTIC,
+  NAVIGATION_LOGBOOK,
   NAVIGATION_AIRPORT,
   NAVIGATION_ABOUT
 ];

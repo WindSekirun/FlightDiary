@@ -2,7 +2,7 @@ function formatComma(str: string) {
   return str.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function strToNum(str: string) {
+export function strToNum(str: string) {
   return Number((str || "").replace(/\D/g, ""));
 }
 

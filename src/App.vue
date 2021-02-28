@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
-import { applicationTitle } from "./Constants";
+import { applicationTitle, EVENT_CHANGE_MENU_SELECTION } from "./Constants";
 import MenuNavigation from "@/components/common/MenuNavigation.vue";
 import LinkMenuNavigation from "@/components/common/LinkMenuNavigation.vue";
 import {
@@ -58,6 +58,7 @@ import {
   NAVIGATION_SECONDARY
 } from "@/model/vo/MenuNavigationItem.ts";
 import { Route } from "vue-router";
+import EventBus from "./main";
 
 @Component({
   components: {
@@ -99,6 +100,16 @@ export default class Home extends Vue {
       window.location.href = navigation.link;
     }
     this.$refs.menu.changeSelection(navigation.index);
+  }
+
+  created() {
+    EventBus.$on(EVENT_CHANGE_MENU_SELECTION, (payload: number) => {
+      this.$refs.menu.changeSelection(payload);
+    });
+  }
+
+  beforeDestroy() {
+    EventBus.$off(EVENT_CHANGE_MENU_SELECTION);
   }
 }
 </script>

@@ -10,7 +10,9 @@ import {
   LOAD_COLLECTION_DATA,
   SAVE_COLLECTION_DATA,
   SAVE_COLLECTION_DETAIL_DATA,
-  LOAD_COLLECTION_DETAIL_DATA
+  LOAD_COLLECTION_DETAIL_DATA,
+  SAVE_AIRPORT_DETAIL_DATA,
+  LOAD_AIRPORT_DETAIL_DATA
 } from "@/Constants";
 import { AirportDetailItem } from "@/model/airport/AirportDetailItem";
 import { Aircraft } from "@/model/list/Aircraft";
@@ -57,6 +59,7 @@ export interface StoreState {
   detailDestination: AirportDetailItem | undefined;
   collectionList: CollectionDataItem[];
   collectionDetail: CollectionDetailData | undefined;
+  airportDetailItem: AirportDetailItem | undefined;
 }
 
 const state: StoreState = {
@@ -67,7 +70,8 @@ const state: StoreState = {
   detailDeparture: undefined,
   detailDestination: undefined,
   collectionList: [],
-  collectionDetail: undefined
+  collectionDetail: undefined,
+  airportDetailItem: undefined
 };
 
 const store = new Vuex.Store({
@@ -99,6 +103,9 @@ const store = new Vuex.Store({
       value: CollectionDetailData
     ) {
       state.collectionDetail = value;
+    },
+    [SAVE_AIRPORT_DETAIL_DATA](state: StoreState, value: AirportDetailItem) {
+      state.airportDetailItem = value;
     }
   },
   actions: {
@@ -162,6 +169,10 @@ const store = new Vuex.Store({
           commit(SAVE_COLLECTION_DETAIL_DATA, data);
         })
       );
+    },
+    async [LOAD_AIRPORT_DETAIL_DATA]({ commit }, data) {
+      const response = await Vue.axios.get(`data/airport/${data.airport}.json`);
+      commit(SAVE_AIRPORT_DETAIL_DATA, response.data);
     }
   },
   getters: {

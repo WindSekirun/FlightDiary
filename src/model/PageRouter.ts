@@ -19,3 +19,4 @@ export const pageCollectionDetail = new PageRouter(
 );
 export const pageLogbook = new PageRouter("Logbook", "/logbook");
 export const pageAirport = new PageRouter("Airports", "/airport");
+export const pageAirportDetail = new PageRouter("AirportsDetail", "/airport/:airport");

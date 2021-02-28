@@ -23,6 +23,7 @@
       :table-id="`departure usage`"
       :items-per-page="5"
       disable-hide-table
+      @row-click="moveToAirport"
     />
     <h3 class="mt-5">Destination</h3>
     <data-table
@@ -32,6 +33,7 @@
       :table-id="`destination usage`"
       :items-per-page="5"
       disable-hide-table
+      @row-click="moveToAirport"
     />
     <h2 class="mt-5">Top 10</h2>
     <h3 class="mt-2">Airports</h3>
@@ -43,6 +45,7 @@
       :items-per-page="10"
       hide-default-footer
       disable-hide-table
+      @row-click="moveToAirport"
     />
     <h3 class="mt-5">Departure Airports</h3>
     <data-table
@@ -53,6 +56,7 @@
       :items-per-page="10"
       hide-default-footer
       disable-hide-table
+      @row-click="moveToAirport"
     />
     <h3 class="mt-5">Destination Airports</h3>
     <data-table
@@ -63,22 +67,27 @@
       :items-per-page="10"
       hide-default-footer
       disable-hide-table
+      @row-click="moveToAirport"
     />
   </v-sheet>
 </template>
 
 <script lang="ts">
-import { LOAD_MAIN_DATA } from "@/Constants";
+import { EVENT_CHANGE_MENU_SELECTION, LOAD_MAIN_DATA } from "@/Constants";
 import store from "@/store";
 import { Component, Vue } from "vue-property-decorator";
 import {
   LogbookData,
   HEADER_ICAO,
   HEADER_NAME,
-  HEADER_VISIT
+  HEADER_VISIT,
+  LogbookAirportContent
 } from "@/model/vo/LogbookData";
 import { mapGetters } from "vuex";
 import DataTable from "@/components/common/DataTable.vue";
+import { pageAirportDetail } from "@/model/PageRouter";
+import { NAVIGATION_LOGBOOK } from "@/model/vo/MenuNavigationItem";
+import EventBus from "@/main";
 
 @Component({
   components: {
@@ -103,6 +112,16 @@ export default class Logbook extends Vue {
 
   async mounted() {
     await store.dispatch(LOAD_MAIN_DATA);
+  }
+
+  moveToAirport(content: LogbookAirportContent) {
+    EventBus.$emit(EVENT_CHANGE_MENU_SELECTION, NAVIGATION_LOGBOOK.index);
+    this.$router.push({
+      name: pageAirportDetail.name,
+      params: {
+        airport: content.ident
+      }
+    });
   }
 }
 </script>

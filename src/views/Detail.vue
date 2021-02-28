@@ -28,10 +28,12 @@
     />
     <v-row class="mt-2">
       <v-col cols="12" sm="12" md="12" lg="6">
-        <airport-detail :is-destination="false" :metadata-id="id" />
+        <h1>Departure {{ airportData.departure.ICAO }}</h1>
+        <plan-airport-detail :airport="airportData.departure" />
       </v-col>
       <v-col cols="12" sm="12" md="12" lg="6">
-        <airport-detail :is-destination="true" :metadata-id="id" />
+        <h1>Departure {{ airportData.destination.ICAO }}</h1>
+        <plan-airport-detail :airport="airportData.destination" />
       </v-col>
     </v-row>
   </v-sheet>
@@ -39,7 +41,7 @@
 
 <script lang="ts">
 import DisplayKeyValue from "@/components/common/DisplayKeyValue.vue";
-import AirportDetail from "@/components/plan/AirportDetail.vue";
+import PlanAirportDetail from "@/components/plan/PlanAirportDetail.vue";
 import DataTable from "@/components/common/DataTable.vue";
 import LeafletMap from "@/components/common/LeafletMap.vue";
 import PlanElevationProfile from "@/components/plan/PlanElevationProfile.vue";
@@ -50,10 +52,11 @@ import { Metadata } from "@/model/plan/Metadata";
 import { applicationTitle, baseDomain } from "@/Constants";
 import { InfoKeyValue, KV, KVC } from "@/model/vo/InfoKeyValue";
 import { TrailData } from "@/model/plan/TrailData";
+import { AirportData } from "@/model/vo/AirportData";
 
 @Component({
   components: {
-    AirportDetail,
+    PlanAirportDetail,
     DataTable,
     LeafletMap,
     PlanElevationProfile,
@@ -64,11 +67,13 @@ import { TrailData } from "@/model/plan/TrailData";
       metadata: "detailMetadata"
     }),
     ...mapGetters({
-      detailData: "getDetailData"
+      detailData: "getDetailData",
+      airportData: "getAirportData"
     })
   }
 })
 export default class Detail extends Vue {
+  airportData!: AirportData;
   detailData!: DetailData;
   metadata!: Metadata;
   trailData: TrailData | null = null;

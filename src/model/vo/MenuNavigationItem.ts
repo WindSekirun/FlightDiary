@@ -66,7 +66,7 @@ export const NAVIGATION_AIRPORT = MenuNavigationItem.byRouter(
   "mdi-airplane-takeoff",
   "Airport",
   pageAirport,
-  3
+  4
 );
 export const NAVIGATION_ABOUT = MenuNavigationItem.byRouter(
   "mdi-information",

@@ -1,11 +1,13 @@
 import {
   applicationTitle,
+  LOAD_AIRPORT_DETAIL_DATA,
   LOAD_COLLECTION_DETAIL_DATA,
   LOAD_DETAIL_DATA
 } from "@/Constants";
 import {
   pageAbout,
   pageAirport,
+  pageAirportDetail,
   pageCollection,
   pageCollectionDetail,
   pageDetail,
@@ -14,6 +16,7 @@ import {
   pageSpec
 } from "@/model/PageRouter";
 import {
+  NAVIGATION_AIRPORT,
   NAVIGATION_COLLECTION,
   NAVIGATION_HOME
 } from "@/model/vo/MenuNavigationItem";
@@ -86,9 +89,7 @@ const routes: Array<RouteConfig> = [
     props: true,
     beforeEnter: function (to: Route, from: Route, next: () => any) {
       store
-        .dispatch(LOAD_COLLECTION_DETAIL_DATA, {
-          id: to.params.id
-        })
+        .dispatch(LOAD_COLLECTION_DETAIL_DATA, { id: to.params.id })
         .then(() => next());
     }
   },
@@ -106,7 +107,22 @@ const routes: Array<RouteConfig> = [
     meta: {
       title: `${pageAirport.name} - ${applicationTitle}`
     },
-    component: () => import("../views/Airports.vue")
+    component: () => import("../views/VisitedAirports.vue")
+  },
+  {
+    path: pageAirportDetail.path,
+    name: pageAirportDetail.name,
+    meta: {
+      title: `${pageAirportDetail.name} - ${applicationTitle}`,
+      parent: NAVIGATION_AIRPORT
+    },
+    component: () => import("../views/VisitedAirportsDetail.vue"),
+    props: true,
+    beforeEnter: function (to: Route, from: Route, next: () => any) {
+      store
+        .dispatch(LOAD_AIRPORT_DETAIL_DATA, { airport: to.params.airport })
+        .then(() => next());
+    }
   }
 ];
 

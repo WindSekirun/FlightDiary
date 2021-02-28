@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
     <div v-for="(item, index) in details" :key="index">
       <strong>{{ item.key }}</strong> → {{ item.value }}
     </div>
@@ -27,7 +26,7 @@
         >
           <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
           <l-control :position="'bottomleft'" class="map-watermark">
-            {{ title }}
+            {{ airport.ICAO }}
           </l-control>
           <l-control>
             <v-btn
@@ -55,22 +54,22 @@
     <data-table
       :headers="runwayHeader"
       :contents="runwayContents"
-      :table-id="`runway table-${metadataId}-${isDestination}`"
+      :table-id="`runway table-${airport.ICAO}`"
       :items-per-page="runwayContentsLength"
       hide-default-footer
     />
-    <h3 class="mt-8">{{ navAidsTitle }}</h3>
+    <h3 class="mt-8">Navaids</h3>
     <data-table
       :headers="navAidsHeader"
       :contents="navAidsContents"
-      :table-id="`navaids table-${metadataId}-${isDestination}`"
+      :table-id="`navaids table-${airport.ICAO}`"
       :items-per-page="navAidsLength"
       hide-default-footer
     />
     <h3 class="mt-8">Frequencies</h3>
     <data-table
       :headers="freqHeader"
-      :table-id="`freq table-${metadataId}-${isDestination}`"
+      :table-id="`freq table-${airport.ICAO}`"
       :contents="freqContents"
       :items-per-page="freqLength"
       hide-default-footer
@@ -100,6 +99,7 @@ import { LatLng, Map } from "leaflet";
 import { MarkerData } from "@/model/vo/MarkerData";
 import DataTable from "@/components/common/DataTable.vue";
 import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
+import { AirportDetailItem } from "@/model/airport/AirportDetailItem";
 
 @Component({
   components: {
@@ -111,9 +111,8 @@ import { InfoKeyValue, KV } from "@/model/vo/InfoKeyValue";
     })
   }
 })
-export default class AirportDetail extends Vue {
-  @Prop({ type: String }) metadataId: string;
-  @Prop({ type: Boolean, default: false }) isDestination: boolean;
+export default class PlanAirportDetail extends Vue {
+  @Prop({ type: Object }) airport!: AirportDetailItem;
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
   airportCenter: LatLng | undefined;
@@ -131,18 +130,6 @@ export default class AirportDetail extends Vue {
     }
     this.map.panTo(this.airportCenter);
     this.map.setZoom(this.defaultZoom);
-  }
-
-  get airport() {
-    return this.isDestination
-      ? this.airportData.destination
-      : this.airportData.departure;
-  }
-
-  get title() {
-    return this.isDestination
-      ? `Destination ${this.airport.ICAO}`
-      : `Departure ${this.airport.ICAO}`;
   }
 
   get details(): InfoKeyValue[] {
@@ -180,10 +167,6 @@ export default class AirportDetail extends Vue {
 
   get runwayContentsLength() {
     return getRunwayTableData(this.airport).length;
-  }
-
-  get navAidsTitle() {
-    return this.isDestination ? `Destination Navaids` : `Departure Navaids`;
   }
 
   get navAidsHeader() {

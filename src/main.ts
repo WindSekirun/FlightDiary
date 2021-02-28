@@ -45,9 +45,11 @@ Vue.component("l-control", LControl);
 Vue.component("l-icon", LIcon);
 Vue.component("l-tooltip", LTooltip);
 
-new Vue({
+const EventBus = new Vue({
   router,
   store,
   vuetify,
   render: (h) => h(App)
 }).$mount("#app");
+
+export default EventBus;

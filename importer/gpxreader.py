@@ -6,8 +6,7 @@ def read_trail(gpx_json):
         result.append({
             "lat": trkpt["@lat"],
             "lon": trkpt["@lon"],
-            "ele": trkpt["ele"],
-            "time": trkpt["time"]
+            "ele": trkpt["ele"]
         })
     return {
         "name": trk["name"],

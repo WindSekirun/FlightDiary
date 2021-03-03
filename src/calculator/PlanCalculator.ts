@@ -32,14 +32,21 @@ export function getApproachInformation(metadata: Metadata): string {
   const sid = metadata.procedures.sid;
   const approach = metadata.procedures.approach;
 
-  let information = `Depart runway ${sid.runway} via SID ${sid.name} . `;
-  if (approach.transition) {
-    information += `Via ${approach.transition} and `;
-  } else {
-    information += `Via `;
+  let information = "";
+  if (sid != null) {
+    `Depart runway ${sid.runway} via SID ${sid.name} . `;
   }
 
-  information += `${approach.name} (${approach.arinc}) to runway ${approach.runway} .`;
+  if (approach != null) {
+    if (approach.transition) {
+      information += `Via ${approach.transition} and `;
+    } else {
+      information += `Via `;
+    }
+
+    information += `${approach.name} (${approach.arinc}) to runway ${approach.runway} .`;
+  }
+
   return information;
 }
 

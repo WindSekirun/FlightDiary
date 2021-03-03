@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>3000</CruisingAlt>
+      <CreationDate>2021-03-03T22:17:17</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.7</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2102">NAVIGRAPH</SimData>
+    <NavData Cycle="2102">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>C:/Users/Pyxis/Documents/Little Navmap Files/Aircraft Performance/Cessna Skyhawk G1000 Asobo.lnmperf</FilePath>
+      <Type>Skyhawk</Type>
+      <Name>Cessna Skyhawk G1000 Asobo</Name>
+    </AircraftPerformance>
+    <Departure>
+      <Pos Lon="-4.374011" Lat="53.259300" Alt="202.00"/>
+    </Departure>
+    <Procedures>
+      <Approach>
+        <Name>FF09</Name>
+        <ARINC>I09</ARINC>
+        <Runway>09</Runway>
+        <Type>ILS</Type>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Mona</Name>
+        <Ident>EGOQ</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-4.374011" Lat="53.259300" Alt="202.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ALAVA</Ident>
+        <Region>EG</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-3.971389" Lat="53.395279" Alt="3000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Wallasey</Name>
+        <Ident>WAL</Ident>
+        <Region>EG</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-3.134444" Lat="53.391945" Alt="3000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Liverpool</Name>
+        <Ident>EGGP</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-2.849722" Lat="53.333611" Alt="81.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

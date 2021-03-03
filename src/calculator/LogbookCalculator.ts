@@ -42,7 +42,7 @@ export function parseLogbook(
   const airports = new Map<string, number>();
   const departures = new Map<string, number>();
   const destinations = new Map<string, number>();
-  
+
   records.forEach((element) => {
     const departureKey = element.departure.icao;
     const destinationKey = element.destination.icao;

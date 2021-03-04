@@ -1,5 +1,5 @@
 function formatComma(str: string) {
-  return str.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+  return new Number(str).toLocaleString("en");
 }
 
 export function strToNum(str: string) {

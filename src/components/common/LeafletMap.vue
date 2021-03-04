@@ -57,6 +57,7 @@ import { MarkerData } from "@/model/vo/MarkerData";
 import L from "leaflet";
 import "leaflet.geodesic";
 import { TrailData } from "@/model/plan/TrailData";
+import "leaflet/dist/images/marker-shadow.png";
 
 @Component({})
 export default class LeafletMap extends Vue {

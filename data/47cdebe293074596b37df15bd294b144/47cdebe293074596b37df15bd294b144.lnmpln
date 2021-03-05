@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-03-05T23:27:10</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2102">NAVIGRAPH</SimData>
+    <NavData Cycle="2102">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>OSKU3D</Name>
+        <Runway>28</Runway>
+      </SID>
+      <Approach>
+        <Name>WI002</Name>
+        <ARINC>R26-Z</ARINC>
+        <Runway>26</Runway>
+        <Type>RNAV</Type>
+        <Suffix>Z</Suffix>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Keflavik</Name>
+        <Ident>BIKF</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-22.605556" Lat="63.985001" Alt="169.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>METIL</Ident>
+        <Region>BI</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-21.526112" Lat="63.971943" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NASBU</Ident>
+        <Region>BI</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-20.348181" Lat="63.946671" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MIKLA</Ident>
+        <Region>BI</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-17.574167" Lat="63.848331" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Ingo</Name>
+        <Ident>ING</Ident>
+        <Region>BI</Region>
+        <Airway>G3</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-16.638056" Lat="63.803055" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ROSTI</Ident>
+        <Region>BI</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-14.112223" Lat="63.406387" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LARUX</Ident>
+        <Region>BI</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-10.000000" Lat="62.621666" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Myggenaes Vagar</Name>
+        <Ident>MY</Ident>
+        <Region>EK</Region>
+        <Airway>G3</Airway>
+        <Type>NDB</Type>
+        <Pos Lon="-7.587675" Lat="62.106895" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CONNY</Ident>
+        <Region>EK</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-5.583333" Lat="61.900002" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VALDI</Ident>
+        <Region>EN</Region>
+        <Airway>G3</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.000000" Lat="61.214428" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KARLI</Ident>
+        <Region>EN</Region>
+        <Airway>P613</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.507433" Lat="57.000000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NUGLO</Ident>
+        <Region>EK</Region>
+        <Airway>P613</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.781111" Lat="55.875278" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BAVTA</Ident>
+        <Region>EK</Region>
+        <Airway>P613</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.300000" Lat="55.603054" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SURIR</Ident>
+        <Region>EK</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.421389" Lat="55.428890" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ASMUS</Ident>
+        <Region>EK</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.658611" Lat="55.083332" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ATTUS</Ident>
+        <Region>EK</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.782778" Lat="54.899723" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GIKOG</Ident>
+        <Region>ED</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.958055" Lat="54.637779" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BADOS</Ident>
+        <Region>ED</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.135278" Lat="54.369999" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ELSOB</Ident>
+        <Region>ED</Region>
+        <Airway>P992</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.579480" Lat="53.652592" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ESTAD</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.564639" Lat="53.525341" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>IDEKO</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.450495" Lat="52.993946" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Nienburg</Name>
+        <Ident>NIE</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="9.371992" Lat="52.625893" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ROBEG</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.269619" Lat="52.233616" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PIROT</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.236903" Lat="52.053432" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LARBU</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.193055" Lat="51.885555" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Warburg</Name>
+        <Ident>WRB</Ident>
+        <Region>ED</Region>
+        <Airway>N850</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="9.110914" Lat="51.505695" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ANANO</Ident>
+        <Region>ED</Region>
+        <Airway>UL126</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.440833" Lat="50.983612" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MASEK</Ident>
+        <Region>ED</Region>
+        <Airway>UL126</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.598333" Lat="50.729168" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OSBIT</Ident>
+        <Region>ED</Region>
+        <Airway>UL126</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.783055" Lat="50.070000" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Wuerzburg</Name>
+        <Ident>WUR</Ident>
+        <Region>ED</Region>
+        <Airway>UL126</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="9.947000" Lat="49.717529" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DINKU</Ident>
+        <Region>ED</Region>
+        <Airway>UL126</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="10.383056" Lat="49.236111" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>XERUM</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="10.767777" Lat="48.811111" Alt="37981.70"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BURAM</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="10.949003" Lat="48.695496" Alt="35467.63"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Walda</Name>
+        <Ident>WLD</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="11.129386" Lat="48.579418" Alt="32951.75"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BAVAX</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.675555" Lat="48.262779" Alt="25674.13"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Ottersberg</Name>
+        <Ident>OTT</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="11.816536" Lat="48.180393" Alt="23784.90"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TAKEX</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.917500" Lat="48.106945" Alt="22277.83"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VAVOR</Ident>
+        <Region>ED</Region>
+        <Airway>M867</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.154548" Lat="47.934166" Alt="18731.89"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BADVI</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.945278" Lat="47.731110" Alt="14998.26"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Innsbruck</Name>
+        <Ident>LOWI</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="11.343889" Lat="47.260277" Alt="1907.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

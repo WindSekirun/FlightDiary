@@ -1,4 +1,4 @@
-function formatComma(str: string) {
+export function formatComma(str: string) {
   return new Number(str).toLocaleString("en");
 }
 

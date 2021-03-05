@@ -69,14 +69,10 @@ export function getAirportFrequency(airport: AirportDetailItem) {
 }
 
 export function getAirportMarkers(airport: AirportDetailItem) {
-  const markers: MarkerData[] = [];
-  airport.runways.forEach((element) => {
-    markers.push(
-      MarkerData.makeByRunway(
-        element,
-        new LatLng(element.ends[0].lat, element.ends[0].lon)
-      )
-    );
-  });
-  return markers;
+  return airport.runways.map((element) =>
+    MarkerData.makeByRunway(
+      element,
+      new LatLng(element.ends[0].lat, element.ends[0].lon)
+    )
+  );
 }

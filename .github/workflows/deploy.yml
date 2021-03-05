@@ -24,6 +24,11 @@ jobs:
         run: |
           npm install
           npm run build
+      
+      - name: Coverage 📈
+        run: |
+          npm run test:unit
+          npm run test-report
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0

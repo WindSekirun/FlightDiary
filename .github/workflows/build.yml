@@ -27,4 +27,4 @@ jobs:
       - name: Coverage 📈
         run: |
           npm run test:unit
-          
+          npm run test-report

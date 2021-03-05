@@ -29,8 +29,7 @@ export function displayFtOnly(ft: string): string {
 }
 
 export function displayFtMFloor(ft: number): string {
-  const floor = Math.floor(ft);
-  return displayFtM(floor.toString());
+  return displayFtM(Math.floor(ft).toString());
 }
 
 export function calculateTotalDistance(nm: string[]): string {

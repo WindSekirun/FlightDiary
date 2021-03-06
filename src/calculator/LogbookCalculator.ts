@@ -15,7 +15,14 @@ function findAirportName(airport: Airport[], icao: string): Airport {
 function makeDistinctContent(map: Map<string, number>, airportList: Airport[]) {
   return Array.from(new Set(map.keys()))
     .sort()
-    .map((element) => findAirportName(airportList, element))
+    .map((element) => {
+      const airport = findAirportName(airportList, element);
+      if (airport == undefined) {
+        console.log(`${element} is missing`);
+      }
+      return airport;
+    })
+    .filter((element) => element != undefined)
     .map((element) => LogbookAirportContent.makeByDefault(element));
 }
 

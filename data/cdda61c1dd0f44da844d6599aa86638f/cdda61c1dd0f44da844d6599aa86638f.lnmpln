@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>15000</CruisingAlt>
+      <CreationDate>2021-03-07T00:18:36</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2102">NAVIGRAPH</SimData>
+    <NavData Cycle="2102">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>OVDI5B</Name>
+        <Runway>32L</Runway>
+      </SID>
+      <Approach>
+        <Name>FF26R</Name>
+        <ARINC>I26R</ARINC>
+        <Runway>26R</Runway>
+        <Type>ILS</Type>
+        <Transition>BAN6W</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Blagnac</Name>
+        <Ident>LFBO</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="1.367778" Lat="43.634998" Alt="499.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LACOU</Ident>
+        <Region>LF</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.904389" Lat="44.296780" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RUMEL</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.920500" Lat="44.500000" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BUGUS</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.960556" Lat="45.000000" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PERIG</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.969444" Lat="45.117222" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MAVAC</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.001944" Lat="45.516388" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Limoges</Name>
+        <Ident>LMG</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="1.025583" Lat="45.815918" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BALAN</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.033333" Lat="46.516109" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SOPIL</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.055000" Lat="47.025833" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Amboise</Name>
+        <Ident>AMB</Ident>
+        <Region>LF</Region>
+        <Airway>A34</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="1.064444" Lat="47.428917" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DOMOD</Ident>
+        <Region>LF</Region>
+        <Airway>R10</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.285833" Lat="47.862778" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Chateaudun</Name>
+        <Ident>CAD</Ident>
+        <Region>LF</Region>
+        <Airway>R10</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="1.387083" Lat="48.059166" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SOTIP</Ident>
+        <Region>LF</Region>
+        <Airway>R10</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.459889" Lat="48.131363" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ODILO</Ident>
+        <Region>LF</Region>
+        <Airway>R10</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.571639" Lat="48.241749" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VP631</Ident>
+        <Region>LF</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="2.134444" Lat="48.622223" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VP681</Ident>
+        <Region>LF</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="2.390278" Lat="48.825832" Alt="15000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Charles-De-Gaulle</Name>
+        <Ident>LFPG</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="2.547778" Lat="49.009724" Alt="392.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>38000</CruisingAlt>
+      <CreationDate>2021-03-08T23:33:13</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2102">NAVIGRAPH</SimData>
+    <NavData Cycle="2102">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>LOWGN8</Name>
+        <Runway>18L</Runway>
+      </SID>
+      <Approach>
+        <Name>AXMUL</Name>
+        <ARINC>I28R</ARINC>
+        <Runway>28R</Runway>
+        <Type>ILS</Type>
+        <Transition>DUMBA</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Dallas-Ft Worth Intl</Name>
+        <Ident>KDFW</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-97.037697" Lat="32.897232" Alt="606.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BATIK</Ident>
+        <Region>K4</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-97.893242" Lat="33.449074" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Wichita Falls</Name>
+        <Ident>SPS</Ident>
+        <Region>K4</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-98.593475" Lat="33.987286" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Panhandle</Name>
+        <Ident>PNH</Ident>
+        <Region>K4</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-101.699028" Lat="35.235062" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Fort Union</Name>
+        <Ident>FTI</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-105.135597" Lat="35.657551" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ESPAN</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-106.357040" Lat="36.119820" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RGINA</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-107.296036" Lat="36.463001" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Rattlesnake Farmington</Name>
+        <Ident>RSK</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-108.098900" Lat="36.748390" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Milford</Name>
+        <Ident>MLF</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-113.013237" Lat="38.360355" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Wilson Creek</Name>
+        <Ident>ILC</Ident>
+        <Region>K2</Region>
+        <Airway>J58</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-114.394226" Lat="38.250191" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KROST</Ident>
+        <Region>K2</Region>
+        <Airway>J198</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-116.198608" Lat="38.420940" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Mina</Name>
+        <Ident>MVA</Ident>
+        <Region>K2</Region>
+        <Airway>J198</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-118.032852" Lat="38.565300" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BABIT</Ident>
+        <Region>K2</Region>
+        <Airway>J84</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-118.384575" Lat="38.511478" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SONNY</Ident>
+        <Region>K2</Region>
+        <Airway>J84</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-119.484528" Lat="38.335747" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MELTS</Ident>
+        <Region>K2</Region>
+        <Airway>J84</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-120.488564" Lat="38.165585" Alt="35193.23"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Linden</Name>
+        <Ident>LIN</Ident>
+        <Region>K2</Region>
+        <Airway>J84</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-121.003860" Lat="38.074581" Alt="27560.22"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Oakland</Name>
+        <Ident>OAK</Ident>
+        <Region>K2</Region>
+        <Airway>J84</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-122.223587" Lat="37.725922" Alt="8754.05"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>San Francisco Intl</Name>
+        <Ident>KSFO</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-122.375420" Lat="37.618805" Alt="13.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

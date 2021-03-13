@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>38000</CruisingAlt>
+      <CreationDate>2021-03-13T17:42:03</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2102">NAVIGRAPH</SimData>
+    <NavData Cycle="2102">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>SEA7</Name>
+        <Runway>16L</Runway>
+      </SID>
+      <Approach>
+        <Name>COPEY</Name>
+        <ARINC>B29R</ARINC>
+        <Runway>29R</Runway>
+        <Type>LOCB</Type>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Seattle-Tacoma Intl</Name>
+        <Ident>KSEA</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-122.311775" Lat="47.449890" Alt="432.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Kimberly</Name>
+        <Ident>IMB</Ident>
+        <Region>K1</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-119.711632" Lat="44.648392" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Rome</Name>
+        <Ident>REO</Ident>
+        <Region>K1</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-117.868156" Lat="42.590549" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DERMT</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-117.176193" Lat="41.871910" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>IVEYY</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-114.494446" Lat="37.435276" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Phoenix</Name>
+        <Ident>PXR</Ident>
+        <Region>K2</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-111.970200" Lat="33.433018" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Stanfield Casa Grande</Name>
+        <Ident>TFD</Ident>
+        <Region>K2</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-111.908730" Lat="32.885857" Alt="31648.61"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BASER</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-111.631966" Lat="32.550816" Alt="23771.25"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DINGO</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-111.544365" Lat="32.495651" Alt="21991.38"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MAVVA</Ident>
+        <Region>K2</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-111.339172" Lat="32.365871" Alt="17813.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Tucson Intl</Name>
+        <Ident>KTUS</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-110.941017" Lat="32.116070" Alt="2643.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

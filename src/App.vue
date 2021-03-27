@@ -61,7 +61,7 @@ import {
   MenuNavigationItem,
   NAVIGATION_PRIMARY,
   NAVIGATION_SECONDARY
-} from "@/model/vo/MenuNavigationItem.ts";
+} from "@/model/vo/MenuNavigationItem";
 import { Route } from "vue-router";
 import EventBus from "./main";
 import { mapState } from "vuex";

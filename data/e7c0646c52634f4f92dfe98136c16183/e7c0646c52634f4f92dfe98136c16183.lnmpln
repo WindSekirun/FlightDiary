@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-03-28T17:54:09</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>LAXX1</Name>
+        <Runway>07L</Runway>
+      </SID>
+      <Approach>
+        <Name>BOBIN</Name>
+        <ARINC>I36L</ARINC>
+        <Runway>36L</Runway>
+        <Type>ILS</Type>
+        <Transition>ALLIN</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Los Angeles Intl</Name>
+        <Ident>KLAX</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-118.408051" Lat="33.942497" Alt="128.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Seal Beach Los Alamitos</Name>
+        <Ident>SLI</Ident>
+        <Region>K2</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-118.054756" Lat="33.783298" Alt="9033.84"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Thermal</Name>
+        <Ident>TRM</Ident>
+        <Region>K2</Region>
+        <Airway>J78</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-116.160194" Lat="33.628098" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SHADI</Ident>
+        <Region>K2</Region>
+        <Airway>J169</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-115.761658" Lat="33.620605" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Blythe</Name>
+        <Ident>BLH</Ident>
+        <Region>K2</Region>
+        <Airway>J169</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-114.761269" Lat="33.596066" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SALOM</Ident>
+        <Region>K2</Region>
+        <Airway>J169</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-113.888870" Lat="33.516182" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KOFFA</Ident>
+        <Region>K2</Region>
+        <Airway>J169</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-113.348915" Lat="33.463593" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Phoenix</Name>
+        <Ident>PXR</Ident>
+        <Region>K2</Region>
+        <Airway>J65</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-111.970200" Lat="33.433018" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TAGGS</Ident>
+        <Region>K2</Region>
+        <Airway>J65</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-111.173798" Lat="33.419983" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TMACK</Ident>
+        <Region>K2</Region>
+        <Airway>J65</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-108.045769" Lat="33.319115" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Truth Or Consequences</Name>
+        <Ident>TCS</Ident>
+        <Region>K2</Region>
+        <Airway>J65</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-107.280548" Lat="33.282501" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Chisum Roswell</Name>
+        <Ident>CME</Ident>
+        <Region>K2</Region>
+        <Airway>J65</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-104.621246" Lat="33.337479" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Abilene</Name>
+        <Ident>ABI</Ident>
+        <Region>K4</Region>
+        <Airway>J65</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-99.863449" Lat="32.481331" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Ranger Dallas-Fort Worth</Name>
+        <Ident>FUZ</Ident>
+        <Region>K4</Region>
+        <Airway>J66</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-97.179428" Lat="32.889450" Alt="10560.56"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Dallas-Ft Worth Intl</Name>
+        <Ident>KDFW</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-97.037697" Lat="32.897232" Alt="606.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

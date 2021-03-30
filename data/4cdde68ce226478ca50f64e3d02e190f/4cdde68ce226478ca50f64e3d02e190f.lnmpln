@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>38000</CruisingAlt>
+      <CreationDate>2021-03-30T22:30:12</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>RUMO1B</Name>
+        <Runway>28L</Runway>
+      </SID>
+      <Approach>
+        <Name>WI002</Name>
+        <ARINC>R26-Z</ARINC>
+        <Runway>26</Runway>
+        <Type>RNAV</Type>
+        <Suffix>Z</Suffix>
+        <Transition>RTT</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Pulkovo</Name>
+        <Ident>ULLI</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="30.262501" Lat="59.800278" Alt="79.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LUTIT</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="31.028334" Lat="58.780834" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RILKA</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="31.043888" Lat="58.420277" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GILAP</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="31.071388" Lat="57.762779" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ABNOL</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="30.910555" Lat="57.390278" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KUGEK</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="30.704445" Lat="56.793056" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OTRAM</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="30.248611" Lat="56.791389" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DITBI</Ident>
+        <Region>UL</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="29.084723" Lat="56.780277" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OPOKA</Ident>
+        <Region>EV</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="27.901667" Lat="56.751667" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BETAL</Ident>
+        <Region>EV</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="26.469444" Lat="56.819168" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BARVA</Ident>
+        <Region>EV</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="25.546667" Lat="56.853889" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SORES</Ident>
+        <Region>EV</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="24.824722" Lat="56.601944" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ROLAV</Ident>
+        <Region>EV</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="24.031666" Lat="56.298889" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RUSNE</Ident>
+        <Region>EY</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="21.438055" Lat="55.235279" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ASNIG</Ident>
+        <Region>UM</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="21.216389" Lat="55.145832" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Khrabrovo</Name>
+        <Ident>KRD</Ident>
+        <Region>UM</Region>
+        <Type>VOR</Type>
+        <Pos Lon="20.599611" Lat="54.893276" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>URAMA</Ident>
+        <Region>UM</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="19.990000" Lat="54.608334" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GOMED</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="19.654167" Lat="54.447777" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NIKMI</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="19.145082" Lat="54.201305" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ODLOT</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="17.403889" Lat="53.496113" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TADAK</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="16.898890" Lat="53.282501" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OLNED</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="16.627501" Lat="53.165833" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DENKO</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="15.832500" Lat="52.816860" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SUBIX</Ident>
+        <Region>EP</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="14.585556" Lat="52.379723" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>IDOBA</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="14.088147" Lat="52.316570" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SONUD</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="13.732500" Lat="52.269722" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LULUL</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.956037" Lat="52.163990" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ESIKA</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.671309" Lat="52.123760" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BUROK</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.397391" Lat="52.084324" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LOGDO</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.321783" Lat="52.073311" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Magdeburg</Name>
+        <Ident>MAG</Ident>
+        <Region>ED</Region>
+        <Type>VOR</Type>
+        <Pos Lon="11.794306" Lat="51.994987" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ODLUN</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.838317" Lat="51.850460" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SONDU</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.782222" Lat="51.391109" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ALOSO</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.701667" Lat="50.707500" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SODRO</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.827222" Lat="50.464722" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>URONA</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.973889" Lat="50.247776" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ABERU</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.093719" Lat="50.069195" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TIPAM</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.252500" Lat="49.830002" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ARMUT</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.323334" Lat="49.722500" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TIVDA</Ident>
+        <Region>LK</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.656548" Lat="49.435982" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LULAR</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.758889" Lat="49.365833" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>EXUSI</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.657222" Lat="49.222778" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Roding</Name>
+        <Ident>RDG</Ident>
+        <Region>ED</Region>
+        <Type>VOR</Type>
+        <Pos Lon="12.526547" Lat="49.040268" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DOSEL</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.480833" Lat="48.438610" Alt="30301.23"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KUMOM</Ident>
+        <Region>LO</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.371708" Lat="47.557808" Alt="16124.17"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Innsbruck</Name>
+        <Ident>LOWI</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="11.343889" Lat="47.260277" Alt="1907.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

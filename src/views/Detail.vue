@@ -32,7 +32,7 @@
         <plan-airport-detail :airport="airportData.departure" />
       </v-col>
       <v-col cols="12" sm="12" md="12" lg="6">
-        <h1>Departure {{ airportData.destination.ICAO }}</h1>
+        <h1>Destination {{ airportData.destination.ICAO }}</h1>
         <plan-airport-detail :airport="airportData.destination" />
       </v-col>
     </v-row>

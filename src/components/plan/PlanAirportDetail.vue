@@ -54,7 +54,7 @@
     <data-table
       :headers="runwayHeader"
       :contents="runwayContents"
-      :table-id="`runway table-${airport.ICAO}`"
+      :table-id="`runway table-${airport.ICAO}-${dataId}`"
       :items-per-page="runwayContentsLength"
       hide-default-footer
     />
@@ -62,14 +62,14 @@
     <data-table
       :headers="navAidsHeader"
       :contents="navAidsContents"
-      :table-id="`navaids table-${airport.ICAO}`"
+      :table-id="`navaids table-${airport.ICAO}-${dataId}`"
       :items-per-page="navAidsLength"
       hide-default-footer
     />
     <h3 class="mt-8">Frequencies</h3>
     <data-table
       :headers="freqHeader"
-      :table-id="`freq table-${airport.ICAO}`"
+      :table-id="`freq table-${airport.ICAO}-${dataId}`"
       :contents="freqContents"
       :items-per-page="freqLength"
       hide-default-footer
@@ -115,6 +115,7 @@ export default class PlanAirportDetail extends Vue {
   @Prop({ type: Object }) airport!: AirportDetailItem;
   @Prop({ default: OPENSTREETMAP }) url!: string;
   @Prop({ default: ATTRIBUTION }) attribution!: string;
+  @Prop({ type: String, default: "argumentId" }) dataId: string;
   airportCenter: LatLng | undefined;
   defaultZoom = 12;
   airportData!: AirportData;

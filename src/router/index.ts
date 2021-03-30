@@ -22,7 +22,12 @@ import {
 } from "@/model/vo/MenuNavigationItem";
 import store from "@/store";
 import Vue from "vue";
-import VueRouter, { RawLocation, Route, RouteConfig } from "vue-router";
+import VueRouter, {
+  NavigationGuardNext,
+  RawLocation,
+  Route,
+  RouteConfig
+} from "vue-router";
 import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -61,7 +66,7 @@ const routes: Array<RouteConfig> = [
       parent: NAVIGATION_HOME
     },
     props: true,
-    beforeEnter: function (to: Route, from: Route, next: () => any) {
+    beforeEnter: function (to: Route, from: Route, next: NavigationGuardNext) {
       store
         .dispatch(LOAD_DETAIL_DATA, {
           id: to.params.id,
@@ -87,7 +92,7 @@ const routes: Array<RouteConfig> = [
     },
     component: () => import("../views/CollectionsDetail.vue"),
     props: true,
-    beforeEnter: function (to: Route, from: Route, next: () => any) {
+    beforeEnter: function (to: Route, from: Route, next: NavigationGuardNext) {
       store
         .dispatch(LOAD_COLLECTION_DETAIL_DATA, { id: to.params.id })
         .then(() => next());
@@ -118,7 +123,7 @@ const routes: Array<RouteConfig> = [
     },
     component: () => import("../views/VisitedAirportsDetail.vue"),
     props: true,
-    beforeEnter: function (to: Route, from: Route, next: () => any) {
+    beforeEnter: function (to: Route, from: Route, next: NavigationGuardNext) {
       store
         .dispatch(LOAD_AIRPORT_DETAIL_DATA, { airport: to.params.airport })
         .then(() => next());

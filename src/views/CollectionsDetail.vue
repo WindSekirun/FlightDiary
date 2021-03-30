@@ -14,7 +14,7 @@
     />
     <data-table
       class="mt-5"
-      :table-id="tableId"
+      :table-id="`collection detail-${id}`"
       :headers="collectionDetail.tableHeaders"
       :contents="collectionDetail.tableContents"
       @row-click="clickDetail"
@@ -52,10 +52,6 @@ export default class CollectionsDetail extends Vue {
 
   get totalDistance() {
     return calculateTotalDistance(this.collectionDetail.item.distances);
-  }
-
-  get tableId() {
-    return `collection detail-${this.id}`;
   }
 
   mounted() {

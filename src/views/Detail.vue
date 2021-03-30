@@ -15,7 +15,7 @@
     />
     <data-table
       class="mt-5 mb-2"
-      :table-id="'planDetail'"
+      :table-id="`planDetail-${id}`"
       :headers="detailData.headers"
       :contents="detailData.contents"
       @row-click="clickPlanDetail"
@@ -29,11 +29,11 @@
     <v-row class="mt-2">
       <v-col cols="12" sm="12" md="12" lg="6">
         <h1>Departure {{ airportData.departure.ICAO }}</h1>
-        <plan-airport-detail :airport="airportData.departure" />
+        <plan-airport-detail :data-id="id" :airport="airportData.departure" />
       </v-col>
       <v-col cols="12" sm="12" md="12" lg="6">
-        <h1>Departure {{ airportData.destination.ICAO }}</h1>
-        <plan-airport-detail :airport="airportData.destination" />
+        <h1>Destination {{ airportData.destination.ICAO }}</h1>
+        <plan-airport-detail :data-id="id" :airport="airportData.destination" />
       </v-col>
     </v-row>
   </v-sheet>

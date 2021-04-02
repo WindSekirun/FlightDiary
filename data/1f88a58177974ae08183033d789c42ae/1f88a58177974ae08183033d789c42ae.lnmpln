@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>38000</CruisingAlt>
+      <CreationDate>2021-04-02T23:08:49</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>SUDI2D</Name>
+        <Runway>31</Runway>
+      </SID>
+      <Approach>
+        <Name>FF22</Name>
+        <ARINC>D22</ARINC>
+        <Runway>22</Runway>
+        <Type>VORDME</Type>
+        <Transition>ARDIR</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Luqa</Name>
+        <Ident>LMML</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="14.477439" Lat="35.857540" Alt="297.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SUDIK</Ident>
+        <Region>LM</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="14.508056" Lat="35.408054" Alt="17862.41"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VARIG</Ident>
+        <Region>LM</Region>
+        <Airway>T299</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="13.730556" Lat="34.333332" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DISOL</Ident>
+        <Region>HL</Region>
+        <Airway>T299</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="13.241111" Lat="33.686943" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Zawia</Name>
+        <Ident>ZAW</Ident>
+        <Region>HL</Region>
+        <Airway>T299</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="12.646389" Lat="32.778641" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VASUT</Ident>
+        <Region>HL</Region>
+        <Airway>UM727</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.710278" Lat="30.000000" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Ubari</Name>
+        <Ident>UBR</Ident>
+        <Region>HL</Region>
+        <Airway>UM727</Airway>
+        <Type>NDB</Type>
+        <Pos Lon="12.779883" Lat="26.597700" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TUBET</Ident>
+        <Region>HL</Region>
+        <Airway>UM727</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.668889" Lat="25.000000" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DEKIL</Ident>
+        <Region>DR</Region>
+        <Airway>UM727</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.468333" Lat="22.000000" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RAKOM</Ident>
+        <Region>DR</Region>
+        <Airway>UG858</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.864445" Lat="20.566111" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NEBRA</Ident>
+        <Region>DR</Region>
+        <Airway>UG858</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.005789" Lat="18.476561" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KIMBO</Ident>
+        <Region>DR</Region>
+        <Airway>UG858</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="10.016666" Lat="16.000000" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DETAR</Ident>
+        <Region>DN</Region>
+        <Airway>UG858</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.807616" Lat="12.883250" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Kano</Name>
+        <Ident>KAN</Ident>
+        <Region>DN</Region>
+        <Airway>UG858</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="8.496056" Lat="12.035861" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BOMVO</Ident>
+        <Region>DN</Region>
+        <Airway>UR778</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.935833" Lat="11.261666" Alt="38000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Kaduna</Name>
+        <Ident>KUA</Ident>
+        <Region>DN</Region>
+        <Airway>UR778</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="7.447472" Lat="10.596056" Alt="32840.97"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OXORU</Ident>
+        <Region>DN</Region>
+        <Airway>UV456</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.370833" Lat="9.865278" Alt="21056.59"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GURAP</Ident>
+        <Region>DN</Region>
+        <Airway>UV456</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.317500" Lat="9.351389" Alt="12770.46"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Abuja</Name>
+        <Ident>ABC</Ident>
+        <Region>DN</Region>
+        <Airway>UV456</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="7.285111" Lat="9.037806" Alt="7714.33"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Nnamdi Azikiwe Intl</Name>
+        <Ident>DNAA</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="7.263055" Lat="9.006667" Alt="1122.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

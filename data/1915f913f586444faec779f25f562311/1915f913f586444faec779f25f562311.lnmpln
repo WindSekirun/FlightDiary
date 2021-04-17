@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-04-17T12:27:23</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Waypoints>
+      <Waypoint>
+        <Name>Paderborn/Lippstadt</Name>
+        <Ident>EDLP</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="8.616317" Lat="51.614090" Alt="699.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>XAROL</Ident>
+        <Region>ED</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.045895" Lat="51.314575" Alt="11005.39"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>EDEGA</Ident>
+        <Region>ED</Region>
+        <Airway>Y811</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="9.007778" Lat="51.034721" Alt="18212.39"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>AMETU</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.964444" Lat="50.833057" Alt="23434.20"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SOGMI</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.899167" Lat="50.527500" Alt="31346.11"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BOMBI</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.800278" Lat="50.056667" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GIGET</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.726666" Lat="49.701111" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ABUKA</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.679167" Lat="49.465279" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Karlsruhe</Name>
+        <Ident>KRH</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="8.584236" Lat="48.992943" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>EPIXU</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.549723" Lat="48.886391" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NATOR</Ident>
+        <Region>ED</Region>
+        <Airway>UN850</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.321261" Lat="48.169998" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RINLI</Ident>
+        <Region>ED</Region>
+        <Airway>N869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.880833" Lat="47.622776" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OLBEN</Ident>
+        <Region>LS</Region>
+        <Airway>N869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.629445" Lat="47.304443" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LUTIX</Ident>
+        <Region>LS</Region>
+        <Airway>UN869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.370555" Lat="47.165001" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BENOT</Ident>
+        <Region>LS</Region>
+        <Airway>UN869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="7.172806" Lat="47.057693" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NEMOS</Ident>
+        <Region>LS</Region>
+        <Airway>UN869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="6.906556" Lat="46.911945" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VEROX</Ident>
+        <Region>LS</Region>
+        <Airway>UN869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="6.573333" Lat="46.727501" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MILPA</Ident>
+        <Region>LF</Region>
+        <Airway>UN869</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.879722" Lat="46.302502" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GIRKU</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.904750" Lat="46.051472" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BALSI</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.960778" Lat="45.477390" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KOTIT</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.690833" Lat="44.602501" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RETNO</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.623611" Lat="44.380001" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DOTIG</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.501111" Lat="44.156387" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GIROL</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.454722" Lat="44.071388" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TUPOX</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.403056" Lat="43.975834" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Martigues</Name>
+        <Ident>MTG</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="5.086833" Lat="43.386307" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DIVKO</Ident>
+        <Region>LF</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="4.776917" Lat="43.056168" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VATIR</Ident>
+        <Region>LE</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="4.115556" Lat="42.172222" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PIVUS</Ident>
+        <Region>LE</Region>
+        <Airway>UN852</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.933750" Lat="41.923916" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SULID</Ident>
+        <Region>LE</Region>
+        <Airway>UZ237</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.441389" Lat="41.184361" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SISMO</Ident>
+        <Region>LE</Region>
+        <Airway>UZ237</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.145750" Lat="40.609138" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>AKAMU</Ident>
+        <Region>LE</Region>
+        <Airway>UZ237</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="2.471389" Lat="39.657917" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Andraitx</Name>
+        <Ident>ADX</Ident>
+        <Region>LE</Region>
+        <Airway>UZ237</Airway>
+        <Type>NDB</Type>
+        <Pos Lon="2.395861" Lat="39.549446" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>OKITI</Ident>
+        <Region>LE</Region>
+        <Airway>UZ237</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="1.444306" Lat="39.116360" Alt="29210.57"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>IBEBA</Ident>
+        <Region>LE</Region>
+        <Airway>UM603</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.943361" Lat="38.963085" Alt="22502.58"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BAVER</Ident>
+        <Region>LE</Region>
+        <Airway>UM603</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.675000" Lat="38.879833" Alt="18897.08"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GERVU</Ident>
+        <Region>LE</Region>
+        <Airway>UM603</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="0.483333" Lat="38.819862" Alt="16316.71"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Altet</Name>
+        <Ident>ALT</Ident>
+        <Region>LE</Region>
+        <Airway>UM603</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-0.570111" Lat="38.268276" Alt="412.36"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Alicante-Elche</Name>
+        <Ident>LEAL</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-0.558056" Lat="38.282223" Alt="142.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

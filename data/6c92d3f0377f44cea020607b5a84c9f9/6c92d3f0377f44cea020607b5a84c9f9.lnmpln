@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-04-11T20:51:13</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>TGATE3</Name>
+        <Runway>18L</Runway>
+      </SID>
+      <Approach>
+        <Name>LOPMA</Name>
+        <ARINC>R05-Z</ARINC>
+        <Runway>05</Runway>
+        <Type>RNAV</Type>
+        <Suffix>Z</Suffix>
+        <Transition>HOROW</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Dallas-Ft Worth Intl</Name>
+        <Ident>KDFW</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-97.037697" Lat="32.897232" Alt="606.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>VP375</Ident>
+        <Region>K4</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-96.789337" Lat="32.783394" Alt="7720.19"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Bonham</Name>
+        <Ident>BYP</Ident>
+        <Region>K4</Region>
+        <Type>VOR</Type>
+        <Pos Lon="-96.234093" Lat="33.537487" Alt="30450.17"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DECOD</Ident>
+        <Region>K4</Region>
+        <Airway>J66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-95.295731" Lat="33.816116" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GLOVE</Ident>
+        <Region>K4</Region>
+        <Airway>J66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-95.104172" Lat="33.871899" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MEEOW</Ident>
+        <Region>K4</Region>
+        <Airway>J66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-93.523598" Lat="34.318096" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Little Rock</Name>
+        <Ident>LIT</Ident>
+        <Region>K4</Region>
+        <Airway>J66</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-92.180527" Lat="34.677673" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CIVKI</Ident>
+        <Region>K4</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-91.600220" Lat="34.804085" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RICKX</Ident>
+        <Region>K4</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-90.237831" Lat="35.108276" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TROVE</Ident>
+        <Region>K7</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-88.910774" Lat="35.387768" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BAZOO</Ident>
+        <Region>K7</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-85.870064" Lat="35.975594" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>METWO</Ident>
+        <Region>K7</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-85.310570" Lat="36.072899" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MXEEN</Ident>
+        <Region>K7</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-83.185448" Lat="36.468285" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ALEAN</Ident>
+        <Region>K6</Region>
+        <Airway>Q66</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-81.623940" Lat="36.731853" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>YICUT</Ident>
+        <Region>K6</Region>
+        <Airway>Q40</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-81.399284" Lat="36.842739" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Pulaski Dublin</Name>
+        <Ident>PSK</Ident>
+        <Region>K6</Region>
+        <Airway>J22</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-80.712898" Lat="37.087704" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Montebello</Name>
+        <Ident>MOL</Ident>
+        <Region>K6</Region>
+        <Airway>J22</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-79.106888" Lat="37.900524" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Gordonsville</Name>
+        <Ident>GVE</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-78.153030" Lat="38.013599" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BOOYA</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-77.362877" Lat="38.405693" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Nottingham</Name>
+        <Ident>OTT</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-76.744751" Lat="38.705872" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GRACO</Ident>
+        <Region>K6</Region>
+        <Airway>J150</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-76.199783" Lat="38.941612" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>AGARD</Ident>
+        <Region>K6</Region>
+        <Airway>J150</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-76.069763" Lat="39.043579" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BROSS</Ident>
+        <Region>K6</Region>
+        <Airway>J150</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.880524" Lat="39.191223" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>STIKY</Ident>
+        <Region>K6</Region>
+        <Airway>J150</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-75.766319" Lat="39.279919" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Woodstown</Name>
+        <Ident>OOD</Ident>
+        <Region>K6</Region>
+        <Airway>J150</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-75.303055" Lat="39.636078" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>DAVYS</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.897156" Lat="39.922390" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BRAND</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.735970" Lat="40.035076" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Robbinsville</Name>
+        <Ident>RBV</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-74.495026" Lat="40.202404" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LAURN</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-74.120461" Lat="40.551613" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LLUND</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.782585" Lat="40.862511" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SANTT</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-73.423294" Lat="41.188866" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PACER</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-72.940430" Lat="41.439823" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Hartford</Name>
+        <Ident>HFD</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-72.547417" Lat="41.641106" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Putnam</Name>
+        <Ident>PUT</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-71.844093" Lat="41.955460" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Boston</Name>
+        <Ident>BOS</Ident>
+        <Region>K6</Region>
+        <Airway>J42</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="-70.989548" Lat="42.357449" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>COPLY</Ident>
+        <Region>K6</Region>
+        <Airway>Q75</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-70.557938" Lat="42.497837" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SCUPP</Ident>
+        <Region>K6</Region>
+        <Airway>Q475</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-70.230377" Lat="42.603058" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CANAL</Ident>
+        <Region>K6</Region>
+        <Airway>Q475</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-70.022713" Lat="42.669029" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TUSKY</Ident>
+        <Region>CY</Region>
+        <Airway>Q475</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-67.000000" Lat="43.564999" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ACADN</Ident>
+        <Region>CY</Region>
+        <Airway>N929A</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="-64.000000" Lat="44.666668" Alt="7594.06"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Stanfield Intl</Name>
+        <Ident>CYHZ</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="-63.510193" Lat="44.879684" Alt="477.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

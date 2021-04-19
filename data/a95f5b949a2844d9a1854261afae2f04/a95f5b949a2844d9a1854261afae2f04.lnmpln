@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-04-19T22:27:19</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>GILE2R</Name>
+        <Runway>31R</Runway>
+      </SID>
+      <Approach>
+        <Name>FF08L</Name>
+        <ARINC>I08L</ARINC>
+        <Runway>08L</Runway>
+        <Type>ILS</Type>
+        <Transition>LOR6E</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Liszt Ferenc Intl</Name>
+        <Ident>LHBP</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="19.261944" Lat="47.439445" Alt="496.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ETARO</Ident>
+        <Region>LH</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="19.000000" Lat="47.500000" Alt="34344.19"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GASNA</Ident>
+        <Region>LH</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="17.133055" Lat="47.899723" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RENKA</Ident>
+        <Region>LO</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="13.505225" Lat="48.584843" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>GONBA</Ident>
+        <Region>ED</Region>
+        <Airway>L610</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="13.075833" Lat="48.687778" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>STAUB</Ident>
+        <Region>ED</Region>
+        <Airway>L610</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.658048" Lat="48.785740" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MAMOR</Ident>
+        <Region>ED</Region>
+        <Airway>L610</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="12.222222" Lat="48.885834" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>UNKUL</Ident>
+        <Region>ED</Region>
+        <Airway>L610</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.459723" Lat="49.137337" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>UPALA</Ident>
+        <Region>ED</Region>
+        <Airway>L610</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="11.221437" Lat="49.214371" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PETIX</Ident>
+        <Region>ED</Region>
+        <Airway>Z744</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="10.754806" Lat="49.341015" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Wuerzburg</Name>
+        <Ident>WUR</Ident>
+        <Region>ED</Region>
+        <Airway>Z744</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="9.947000" Lat="49.717529" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RIDSU</Ident>
+        <Region>ED</Region>
+        <Airway>T892</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.480000" Lat="49.748890" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>NONKO</Ident>
+        <Region>ED</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="8.399445" Lat="49.794998" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ADENU</Ident>
+        <Region>ED</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="6.908333" Lat="50.025555" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LIRSU</Ident>
+        <Region>ED</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="6.453333" Lat="50.186668" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BATTY</Ident>
+        <Region>EB</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.848778" Lat="50.649166" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>TERLA</Ident>
+        <Region>EB</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.665555" Lat="50.682499" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SOGRI</Ident>
+        <Region>EB</Region>
+        <Airway>L608</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="5.045278" Lat="50.806389" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BUPAL</Ident>
+        <Region>EB</Region>
+        <Airway>UM617</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="4.601111" Lat="50.723057" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>SISGA</Ident>
+        <Region>EB</Region>
+        <Airway>UM617</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="4.056667" Lat="50.618057" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Chievres</Name>
+        <Ident>CIV</Ident>
+        <Region>EB</Region>
+        <Airway>UM617</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="3.832889" Lat="50.573971" Alt="37743.70"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MEDIL</Ident>
+        <Region>LF</Region>
+        <Airway>N872</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.674972" Lat="50.342140" Alt="33690.38"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>PITHI</Ident>
+        <Region>LF</Region>
+        <Airway>UN872</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.572833" Lat="50.190693" Alt="31044.95"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>LESDO</Ident>
+        <Region>LF</Region>
+        <Airway>UN872</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.318056" Lat="49.808334" Alt="24372.81"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>KOVIN</Ident>
+        <Region>LF</Region>
+        <Airway>UN872</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="3.106389" Lat="49.485832" Alt="18751.94"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Charles-De-Gaulle</Name>
+        <Ident>LFPG</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="2.547778" Lat="49.009724" Alt="392.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

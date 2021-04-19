@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LittleNavmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.littlenavmap.org/schema/lnmpln.xsd">
+  <Flightplan>
+    <Header>
+      <FlightplanType>IFR</FlightplanType>
+      <CruisingAlt>39000</CruisingAlt>
+      <CreationDate>2021-04-19T19:46:21</CreationDate>
+      <FileVersion>1.0</FileVersion>
+      <ProgramName>Little Navmap</ProgramName>
+      <ProgramVersion>2.6.10</ProgramVersion>
+      <Documentation>https://www.littlenavmap.org/lnmpln.html</Documentation>
+    </Header>
+    <SimData Cycle="2103">NAVIGRAPH</SimData>
+    <NavData Cycle="2103">NAVIGRAPH</NavData>
+    <AircraftPerformance>
+      <FilePath>Airbus A32NX FlyByWire.lnmperf</FilePath>
+      <Type>A20N</Type>
+      <Name>FlyByWire A32NX</Name>
+    </AircraftPerformance>
+    <Procedures>
+      <SID>
+        <Name>MEMUP2</Name>
+        <Runway>21</Runway>
+      </SID>
+      <Approach>
+        <Name>FF17</Name>
+        <ARINC>D17</ARINC>
+        <Runway>17</Runway>
+        <Type>VORDME</Type>
+        <Transition>CB1</Transition>
+        <TransitionType>F</TransitionType>
+      </Approach>
+    </Procedures>
+    <Waypoints>
+      <Waypoint>
+        <Name>Perth Intl</Name>
+        <Ident>YPPH</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="115.966942" Lat="-31.940277" Alt="67.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>MEMUP</Ident>
+        <Region>YM</Region>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="120.875053" Lat="-33.753223" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RERON</Ident>
+        <Region>YM</Region>
+        <Airway>Y53</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="125.000000" Lat="-35.068333" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RIDLE</Ident>
+        <Region>YM</Region>
+        <Airway>Y53</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="128.000000" Lat="-35.755001" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ROMPA</Ident>
+        <Region>YM</Region>
+        <Airway>Y53</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="131.500000" Lat="-36.450001" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>RUFLE</Ident>
+        <Region>YM</Region>
+        <Airway>Y53</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="135.000000" Lat="-37.031666" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>BUNGY</Ident>
+        <Region>YM</Region>
+        <Airway>Y53</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="138.330002" Lat="-37.485001" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>CRENA</Ident>
+        <Region>YM</Region>
+        <Airway>T8</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="140.081665" Lat="-37.273335" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>WYMER</Ident>
+        <Region>YM</Region>
+        <Airway>T8</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="142.923340" Lat="-36.871666" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Albury</Name>
+        <Ident>AY</Ident>
+        <Region>YM</Region>
+        <Airway>T8</Airway>
+        <Type>VOR</Type>
+        <Pos Lon="146.966110" Lat="-36.068054" Alt="39000.00"/>
+      </Waypoint>
+      <Waypoint>
+        <Ident>ARRAN</Ident>
+        <Region>YM</Region>
+        <Airway>J42</Airway>
+        <Type>WAYPOINT</Type>
+        <Pos Lon="147.639389" Lat="-35.837555" Alt="29522.24"/>
+      </Waypoint>
+      <Waypoint>
+        <Name>Canberra</Name>
+        <Ident>YSCB</Ident>
+        <Type>AIRPORT</Type>
+        <Pos Lon="149.195007" Lat="-35.306946" Alt="1886.00"/>
+      </Waypoint>
+    </Waypoints>
+  </Flightplan>
+</LittleNavmap>

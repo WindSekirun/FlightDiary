@@ -11,5 +11,8 @@
       "matchCurrentVersion": "!/^0/",
       "automerge": true
     }
-  ]
+  ],
+  "pip_requirements": {
+    "fileMatch": ["importer/requirements.txt"]
+  }
 }

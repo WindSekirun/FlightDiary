@@ -11,7 +11,7 @@
 import { Component, Prop, Vue } from "vue-property-decorator";
 import ElevationChart from "@/components/plan/ElevationChart";
 import { displayFt, displayFtOnly } from "@/calculator/UnitCalculator";
-import { ChartOptions } from "chart.js";
+import { ChartOptions, ChartTooltipItem } from "chart.js";
 
 @Component({
   components: {
@@ -33,7 +33,7 @@ export default class PlanElevationProfile extends Vue {
     },
     tooltips: {
       callbacks: {
-        label: (tooltipItem) =>
+        label: (tooltipItem: ChartTooltipItem) =>
           `${tooltipItem.xLabel} - ${displayFt(
             tooltipItem.yLabel?.toString() || ""
           )}`,

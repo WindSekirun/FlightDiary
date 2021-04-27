@@ -17,9 +17,6 @@ function makeDistinctContent(map: Map<string, number>, airportList: Airport[]) {
     .sort()
     .map((element) => {
       const airport = findAirportName(airportList, element);
-      if (airport == undefined) {
-        console.log(`${element} is missing`);
-      }
       return airport;
     })
     .filter((element) => element != undefined)

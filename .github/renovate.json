@@ -14,5 +14,6 @@
   ],
   "pip_requirements": {
     "fileMatch": ["importer/requirements.txt"]
-  }
+  },
+  "ignoreDeps": ["chart.js"]
 }

@@ -15,5 +15,11 @@
   "pip_requirements": {
     "fileMatch": ["importer/requirements.txt"]
   },
-  "ignoreDeps": ["chart.js"]
+  "ignoreDeps": [
+    "chart.js",
+    "eslint",
+    "eslint-config-prettier",
+    "mocha",
+    "@vue/cli-plugin-unit-mocha"
+  ]
 }

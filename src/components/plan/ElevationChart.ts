@@ -9,7 +9,7 @@ import { ChartOptions } from "chart.js";
 export default class ElevationChart extends Mixins(mixins.reactiveProp, Line) {
   @Prop({ type: Object }) options: ChartOptions;
   @Prop({ type: Array }) chartHeader: string[];
-  @Prop({ type: Array }) chartData: number[];
+  @Prop({ type: Array }) declare chartData: number[];
 
   lineColor = "#d8dee9";
 

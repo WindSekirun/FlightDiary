@@ -32,7 +32,7 @@
     "vue-picture-swipe": "2.1.0",
     "vue-property-decorator": "9.1.2",
     "vue-router": "3.5.2",
-    "vue-select": "3.11.2",
+    "vue-select": "3.12.1",
     "vue2-leaflet": "2.7.1",
     "vuetify": "2.5.7",
     "vuex": "3.6.2"
@@ -42,7 +42,7 @@
     "@types/chai": "4.2.21",
     "@types/leaflet": "1.7.4",
     "@types/lodash": "4.14.171",
-    "@types/mocha": "8.2.3",
+    "@types/mocha": "9.0.0",
     "@types/vue-select": "3.11.2",
     "@typescript-eslint/eslint-plugin": "4.28.4",
     "@typescript-eslint/parser": "4.28.4",

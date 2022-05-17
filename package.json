@@ -52,7 +52,7 @@
     "@vue/cli-plugin-typescript": "4.5.13",
     "@vue/cli-plugin-unit-mocha": "3.12.0",
     "@vue/cli-plugin-vuex": "4.5.13",
-    "@vue/cli-service": "4.5.13",
+    "@vue/cli-service": "5.0.1",
     "@vue/eslint-config-prettier": "6.0.0",
     "@vue/eslint-config-typescript": "7.0.0",
     "@vue/test-utils": "1.2.2",
